@@ -36,6 +36,13 @@
 		5047F81F1E2569E800E60B63 /* RChatDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5047F81E1E2569E800E60B63 /* RChatDataSource.swift */; };
 		5047F8211E256B2200E60B63 /* RChatDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5047F8201E256B2200E60B63 /* RChatDecorator.swift */; };
 		5047F8231E256C7100E60B63 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5047F8221E256C7100E60B63 /* UIColor+Hex.swift */; };
+		5047F8261E25790900E60B63 /* SendingStatusModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5047F8251E25790900E60B63 /* SendingStatusModel.swift */; };
+		5047F8281E25792500E60B63 /* SendingStatusPresenterBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5047F8271E25792500E60B63 /* SendingStatusPresenterBuilder.swift */; };
+		5047F82A1E25797400E60B63 /* SendingStatusCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5047F8291E25797400E60B63 /* SendingStatusCollectionViewCell.xib */; };
+		5047F82C1E25798B00E60B63 /* SendingStatusPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5047F82B1E25798B00E60B63 /* SendingStatusPresenter.swift */; };
+		5047F82E1E25799C00E60B63 /* SendingStatusCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5047F82D1E25799C00E60B63 /* SendingStatusCollectionViewCell.swift */; };
+		5047F8301E257A5B00E60B63 /* RChatTextMessageCollectionViewCellStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5047F82F1E257A5B00E60B63 /* RChatTextMessageCollectionViewCellStyle.swift */; };
+		5047F8321E257AB000E60B63 /* RChatMessageCollectionViewCellAvatarStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5047F8311E257AB000E60B63 /* RChatMessageCollectionViewCellAvatarStyle.swift */; };
 		68953DF73E0255FCB1BF51AB /* Pods_RChatTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8AB35D9E3146EA01066A608 /* Pods_RChatTests.framework */; };
 		74AAC82A174F5791435E3049 /* Pods_RChatUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF46AEB72E02B5B9F1B1D926 /* Pods_RChatUITests.framework */; };
 		88951EEF5C3ADF44902A22FF /* Pods_RChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7328AD7549EFFB9770BF4246 /* Pods_RChat.framework */; };
@@ -95,6 +102,13 @@
 		5047F81E1E2569E800E60B63 /* RChatDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RChatDataSource.swift; sourceTree = "<group>"; };
 		5047F8201E256B2200E60B63 /* RChatDecorator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RChatDecorator.swift; sourceTree = "<group>"; };
 		5047F8221E256C7100E60B63 /* UIColor+Hex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
+		5047F8251E25790900E60B63 /* SendingStatusModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendingStatusModel.swift; sourceTree = "<group>"; };
+		5047F8271E25792500E60B63 /* SendingStatusPresenterBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendingStatusPresenterBuilder.swift; sourceTree = "<group>"; };
+		5047F8291E25797400E60B63 /* SendingStatusCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SendingStatusCollectionViewCell.xib; sourceTree = "<group>"; };
+		5047F82B1E25798B00E60B63 /* SendingStatusPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendingStatusPresenter.swift; sourceTree = "<group>"; };
+		5047F82D1E25799C00E60B63 /* SendingStatusCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendingStatusCollectionViewCell.swift; sourceTree = "<group>"; };
+		5047F82F1E257A5B00E60B63 /* RChatTextMessageCollectionViewCellStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RChatTextMessageCollectionViewCellStyle.swift; sourceTree = "<group>"; };
+		5047F8311E257AB000E60B63 /* RChatMessageCollectionViewCellAvatarStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RChatMessageCollectionViewCellAvatarStyle.swift; sourceTree = "<group>"; };
 		5DFF720C447BADFD54790C8C /* Pods-RChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RChat.release.xcconfig"; path = "Pods/Target Support Files/Pods-RChat/Pods-RChat.release.xcconfig"; sourceTree = "<group>"; };
 		7328AD7549EFFB9770BF4246 /* Pods_RChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		877A8327B46D9DFEBCC20809 /* Pods-RChatUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RChatUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RChatUITests/Pods-RChatUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -230,6 +244,7 @@
 		5047F7F71E255D5B00E60B63 /* ChatViewController */ = {
 			isa = PBXGroup;
 			children = (
+				5047F8241E2578F500E60B63 /* SendingStatus */,
 				5047F81D1E25693E00E60B63 /* DataSource */,
 				5047F80F1E25677100E60B63 /* TimeSeperator */,
 				5047F80E1E25670F00E60B63 /* Text */,
@@ -240,6 +255,7 @@
 				5047F80A1E2563BF00E60B63 /* RChatInputView.swift */,
 				5047F80C1E2566B700E60B63 /* RChatCollectionViewLayout.swift */,
 				5047F8201E256B2200E60B63 /* RChatDecorator.swift */,
+				5047F8311E257AB000E60B63 /* RChatMessageCollectionViewCellAvatarStyle.swift */,
 			);
 			name = ChatViewController;
 			sourceTree = "<group>";
@@ -247,6 +263,7 @@
 		5047F80E1E25670F00E60B63 /* Text */ = {
 			isa = PBXGroup;
 			children = (
+				5047F82F1E257A5B00E60B63 /* RChatTextMessageCollectionViewCellStyle.swift */,
 				5047F7F81E255D7600E60B63 /* RChatTextMessageHandler.swift */,
 				5047F7FA1E255D9B00E60B63 /* RChatTextMessageModel.swift */,
 				5047F8041E2561F600E60B63 /* RChatTextMessageViewModel.swift */,
@@ -280,6 +297,18 @@
 				5047F81E1E2569E800E60B63 /* RChatDataSource.swift */,
 			);
 			name = DataSource;
+			sourceTree = "<group>";
+		};
+		5047F8241E2578F500E60B63 /* SendingStatus */ = {
+			isa = PBXGroup;
+			children = (
+				5047F82D1E25799C00E60B63 /* SendingStatusCollectionViewCell.swift */,
+				5047F8291E25797400E60B63 /* SendingStatusCollectionViewCell.xib */,
+				5047F8251E25790900E60B63 /* SendingStatusModel.swift */,
+				5047F8271E25792500E60B63 /* SendingStatusPresenterBuilder.swift */,
+				5047F82B1E25798B00E60B63 /* SendingStatusPresenter.swift */,
+			);
+			name = SendingStatus;
 			sourceTree = "<group>";
 		};
 		5FD1F75CE3E0255EFB0D3A00 /* Pods */ = {
@@ -414,6 +443,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5047F82A1E25797400E60B63 /* SendingStatusCollectionViewCell.xib in Resources */,
 				501825431E2469C200E9A535 /* LaunchScreen.storyboard in Resources */,
 				501825401E2469C200E9A535 /* Assets.xcassets in Resources */,
 			);
@@ -586,11 +616,14 @@
 				5047F8011E255FC900E60B63 /* MimeType.swift in Sources */,
 				501825701E246DA300E9A535 /* ChatMessage.swift in Sources */,
 				5047F8161E2567DB00E60B63 /* ColorLabel.swift in Sources */,
+				5047F8281E25792500E60B63 /* SendingStatusPresenterBuilder.swift in Sources */,
 				501825671E246B1100E9A535 /* ChatViewController.swift in Sources */,
 				5047F81F1E2569E800E60B63 /* RChatDataSource.swift in Sources */,
+				5047F8261E25790900E60B63 /* SendingStatusModel.swift in Sources */,
 				5047F8091E25634A00E60B63 /* RChatBaseMessageHandler.swift in Sources */,
 				5047F8071E25627D00E60B63 /* RChatMessageViewModelProtocol.swift in Sources */,
 				5047F81A1E2568FD00E60B63 /* TimeSeperatorPresenterBuilder.swift in Sources */,
+				5047F82E1E25799C00E60B63 /* SendingStatusCollectionViewCell.swift in Sources */,
 				5047F8051E2561F600E60B63 /* RChatTextMessageViewModel.swift in Sources */,
 				5047F81C1E25692000E60B63 /* TimeSeparatorPresenter.swift in Sources */,
 				5047F80B1E2563BF00E60B63 /* RChatInputView.swift in Sources */,
@@ -598,11 +631,14 @@
 				5047F7F91E255D7600E60B63 /* RChatTextMessageHandler.swift in Sources */,
 				5047F7FF1E255EEE00E60B63 /* ChatMessage+MessageModelProtocol.swift in Sources */,
 				5047F8231E256C7100E60B63 /* UIColor+Hex.swift in Sources */,
+				5047F8301E257A5B00E60B63 /* RChatTextMessageCollectionViewCellStyle.swift in Sources */,
 				5047F7FD1E255E1800E60B63 /* RChatConstants.swift in Sources */,
+				5047F82C1E25798B00E60B63 /* SendingStatusPresenter.swift in Sources */,
 				5047F8211E256B2200E60B63 /* RChatDecorator.swift in Sources */,
 				501825391E2469C200E9A535 /* AppDelegate.swift in Sources */,
 				5047F8111E25678300E60B63 /* TimeSeperatorModel.swift in Sources */,
 				5047F8031E2560CE00E60B63 /* RChatMessageModelProtocol.swift in Sources */,
+				5047F8321E257AB000E60B63 /* RChatMessageCollectionViewCellAvatarStyle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

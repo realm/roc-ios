@@ -10,7 +10,7 @@ import UIKit
 import Chatto
 import ChattoAdditions
 
-class ChatViewController : BaseChatViewController {
+class ChatViewController : BaseChatViewController, RChatInputViewDelegate {
 
     let chatInputView = RChatInputView()
     let messageHandler = RChatBaseMessageHandler()
@@ -31,7 +31,13 @@ class ChatViewController : BaseChatViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: RChatConstants.Images.menuIcon, style: .plain, target: self, action: #selector(ChatViewController.menuTapped))
+        navigationItem.leftBarButtonItem = {
+            let barButtonItem = UIBarButtonItem(image: RChatConstants.Images.menuIcon, style: .plain, target: self, action: #selector(ChatViewController.menuTapped))
+            barButtonItem.tintColor = RChatConstants.Colors.peterRiver
+            return barButtonItem
+        }()
+
+        chatInputView.delegate = self
     }
 
     override func createChatInputView() -> UIView {
@@ -49,6 +55,12 @@ class ChatViewController : BaseChatViewController {
             viewModelBuilder: RChatTextMessageViewModelBuilder(),
             interactionHandler: RChatTextMessageHandler(baseHandler: self.messageHandler)
         )
+        textMessagePresenter.baseMessageStyle = {
+            let style = RChatMessageCollectionViewCellAvatarStyle()
+            return style
+        }()
+
+        textMessagePresenter.textCellStyle = RChatTextMessageCollectionViewCellStyle()
         return [
             MimeType.textPlain.rawValue: [textMessagePresenter],
             TimeSeparatorModel.chatItemType: [TimeSeparatorPresenterBuilder()]
@@ -56,6 +68,16 @@ class ChatViewController : BaseChatViewController {
     }
 
     func menuTapped(){
-        
+
+    }
+
+    func attachmentButtonDidTapped() {
+
+    }
+
+    func sendMessage(text: String) {
+        let dataSource = chatDataSource as! RChatDataSource
+        dataSource.sendMessage(text: text)
+
     }
 }

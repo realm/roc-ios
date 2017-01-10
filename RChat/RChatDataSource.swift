@@ -35,7 +35,15 @@ class RChatDataSource : ChatDataSourceProtocol {
     }
 
     func adjustNumberOfMessages(preferredMaxCount: Int?, focusPosition: Double, completion: ((Bool)) -> Void) {
+        completion(false)
+    }
 
+    func sendMessage(text: String){
+        let chatMessage = ChatMessage()
+        chatMessage.messageId = NSUUID().uuidString
+        chatMessage.text = text
+        chatItems.append(chatMessage)
+        delegate?.chatDataSourceDidUpdate(self)
     }
 
 }

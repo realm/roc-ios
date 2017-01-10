@@ -13,7 +13,8 @@ struct RChatConstants {
 
     static var myUserId : String! {
         get {
-            return UserDefaults.standard.string(forKey: "_myUserId")
+            return "mbalex99"
+            //return UserDefaults.standard.string(forKey: "_myUserId")
         }set (value){
             UserDefaults.standard.set(value, forKey: "_myUserId")
         }

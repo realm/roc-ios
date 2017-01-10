@@ -8,7 +8,14 @@
 
 import UIKit
 
+protocol RChatInputViewDelegate : class {
+    func sendMessage(text: String)
+    func attachmentButtonDidTapped()
+}
+
 class RChatInputView : UIView, UITextViewDelegate {
+
+    weak var delegate : RChatInputViewDelegate?
 
     let textView : UITextView = {
         let textView = UITextView()
@@ -65,6 +72,8 @@ class RChatInputView : UIView, UITextViewDelegate {
         addSubview(sendButton)
 
         textView.delegate = self
+        sendButton.addTarget(self, action: #selector(sendButtonDidTap), for: .touchUpInside)
+        attachmentButton.addTarget(self, action: #selector(attachmentButtonDidTap), for: .touchUpInside)
 
         addConstraints(
             NSLayoutConstraint.constraints(withVisualFormat: "H:|-0-[topBorder]-0-|", options: [], metrics: nil, views: ["topBorder": topBorder])
@@ -98,11 +107,25 @@ class RChatInputView : UIView, UITextViewDelegate {
     }
 
     func textViewDidChange(_ textView: UITextView) {
+        evaluateSendButtonAlpha()
+    }
+
+    func evaluateSendButtonAlpha(){
         let text = textView.text ?? ""
         let alpha : CGFloat = text.characters.count == 0 ? 0 : 1
         UIView.animate(withDuration: 0.25) {
             self.sendButton.alpha = alpha
         }
+    }
+
+    func sendButtonDidTap(){
+        delegate?.sendMessage(text: textView.text)
+        textView.text = ""
+        evaluateSendButtonAlpha()
+    }
+
+    func attachmentButtonDidTap(){
+        delegate?.attachmentButtonDidTapped()
     }
 
     override func layoutSubviews() {
