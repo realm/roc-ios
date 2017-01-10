@@ -45,7 +45,7 @@ class ChatViewController : BaseChatViewController, RChatInputViewDelegate {
     }
 
     override func createCollectionViewLayout() -> UICollectionViewLayout {
-        let layout = RChatCollectionViewLayout()
+        let layout = ChatCollectionViewLayout()
         layout.delegate = self
         return layout
     }
@@ -59,7 +59,6 @@ class ChatViewController : BaseChatViewController, RChatInputViewDelegate {
             let style = RChatMessageCollectionViewCellAvatarStyle()
             return style
         }()
-
         textMessagePresenter.textCellStyle = RChatTextMessageCollectionViewCellStyle()
         return [
             MimeType.textPlain.rawValue: [textMessagePresenter],

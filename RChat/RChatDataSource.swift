@@ -42,7 +42,8 @@ class RChatDataSource : ChatDataSourceProtocol {
         let chatMessage = ChatMessage()
         chatMessage.messageId = NSUUID().uuidString
         chatMessage.text = text
-        chatItems.append(chatMessage)
+        chatMessage.userId = "mbalex99"
+        chatItems.append(RChatTextMessageModel(messageModel: chatMessage))
         delegate?.chatDataSourceDidUpdate(self)
     }
 
