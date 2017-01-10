@@ -12,11 +12,16 @@ import ChattoAdditions
 
 class ChatViewController : BaseChatViewController {
 
+    let chatInputView = RChatInputView()
+    let messageHandler = RChatBaseMessageHandler()
+
     let conversationId : String
 
     init(conversationId : String) {
         self.conversationId = conversationId
         super.init(nibName: nil, bundle: nil)
+        self.chatDataSource = RChatDataSource(conversationId: conversationId)
+        self.chatItemsDecorator = RChatDecorator()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -26,6 +31,31 @@ class ChatViewController : BaseChatViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: RChatConstants.Images.menuIcon, style: .plain, target: self, action: #selector(ChatViewController.menuTapped))
     }
 
+    override func createChatInputView() -> UIView {
+        return chatInputView
+    }
+
+    override func createCollectionViewLayout() -> UICollectionViewLayout {
+        let layout = RChatCollectionViewLayout()
+        layout.delegate = self
+        return layout
+    }
+
+    override func createPresenterBuilders() -> [ChatItemType : [ChatItemPresenterBuilderProtocol]] {
+        let textMessagePresenter = TextMessagePresenterBuilder(
+            viewModelBuilder: RChatTextMessageViewModelBuilder(),
+            interactionHandler: RChatTextMessageHandler(baseHandler: self.messageHandler)
+        )
+        return [
+            MimeType.textPlain.rawValue: [textMessagePresenter],
+            TimeSeparatorModel.chatItemType: [TimeSeparatorPresenterBuilder()]
+        ]
+    }
+
+    func menuTapped(){
+        
+    }
 }
