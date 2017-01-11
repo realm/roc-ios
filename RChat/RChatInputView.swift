@@ -39,7 +39,7 @@ class RChatInputView : UIView, UITextViewDelegate {
 
     lazy var attachmentButton : UIButton = {
         let button = UIButton()
-        button.tintColor = RChatConstants.Colors.peterRiver
+        button.tintColor = RChatConstants.Colors.primaryColor
         let image = RChatConstants.Images.attachIcon
         button.setImage(image, for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -50,7 +50,7 @@ class RChatInputView : UIView, UITextViewDelegate {
         let button = UIButton()
         button.layer.cornerRadius = 28 / 2
         button.layer.masksToBounds = true
-        button.backgroundColor = RChatConstants.Colors.peterRiver
+        button.backgroundColor = RChatConstants.Colors.primaryColor
         let image = RChatConstants.Images.sendIcon
         button.setImage(image, for: .normal)
         button.tintColor = .white

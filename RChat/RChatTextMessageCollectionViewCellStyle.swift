@@ -12,8 +12,17 @@ import ChattoAdditions
 
 class RChatTextMessageCollectionViewCellStyle : TextMessageCollectionViewCellDefaultStyle {
 
+    init(){
+        let colors = BaseMessageCollectionViewCellDefaultStyle.Colors(incoming: RChatConstants.Colors.clouds, outgoing: RChatConstants.Colors.primaryColor)
+        let style = BaseMessageCollectionViewCellDefaultStyle(colors: colors)
+        super.init(baseStyle: style      )
+
+    }
+
     override func textFont(viewModel: TextMessageViewModelProtocol, isSelected: Bool) -> UIFont {
         return RChatConstants.Fonts.regularFont
     }
+
+
 
 }

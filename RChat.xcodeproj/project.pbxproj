@@ -43,6 +43,8 @@
 		5047F82E1E25799C00E60B63 /* SendingStatusCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5047F82D1E25799C00E60B63 /* SendingStatusCollectionViewCell.swift */; };
 		5047F8301E257A5B00E60B63 /* RChatTextMessageCollectionViewCellStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5047F82F1E257A5B00E60B63 /* RChatTextMessageCollectionViewCellStyle.swift */; };
 		5047F8321E257AB000E60B63 /* RChatMessageCollectionViewCellAvatarStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5047F8311E257AB000E60B63 /* RChatMessageCollectionViewCellAvatarStyle.swift */; };
+		5047F8351E25EAC500E60B63 /* ChatViewController+ImageDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5047F8341E25EAC500E60B63 /* ChatViewController+ImageDelegate.swift */; };
+		507F29B31E25EC7B00F1D2ED /* ConversationSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507F29B21E25EC7B00F1D2ED /* ConversationSearchView.swift */; };
 		68953DF73E0255FCB1BF51AB /* Pods_RChatTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8AB35D9E3146EA01066A608 /* Pods_RChatTests.framework */; };
 		74AAC82A174F5791435E3049 /* Pods_RChatUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF46AEB72E02B5B9F1B1D926 /* Pods_RChatUITests.framework */; };
 		88951EEF5C3ADF44902A22FF /* Pods_RChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7328AD7549EFFB9770BF4246 /* Pods_RChat.framework */; };
@@ -109,6 +111,8 @@
 		5047F82D1E25799C00E60B63 /* SendingStatusCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendingStatusCollectionViewCell.swift; sourceTree = "<group>"; };
 		5047F82F1E257A5B00E60B63 /* RChatTextMessageCollectionViewCellStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RChatTextMessageCollectionViewCellStyle.swift; sourceTree = "<group>"; };
 		5047F8311E257AB000E60B63 /* RChatMessageCollectionViewCellAvatarStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RChatMessageCollectionViewCellAvatarStyle.swift; sourceTree = "<group>"; };
+		5047F8341E25EAC500E60B63 /* ChatViewController+ImageDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ChatViewController+ImageDelegate.swift"; sourceTree = "<group>"; };
+		507F29B21E25EC7B00F1D2ED /* ConversationSearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversationSearchView.swift; sourceTree = "<group>"; };
 		5DFF720C447BADFD54790C8C /* Pods-RChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RChat.release.xcconfig"; path = "Pods/Target Support Files/Pods-RChat/Pods-RChat.release.xcconfig"; sourceTree = "<group>"; };
 		7328AD7549EFFB9770BF4246 /* Pods_RChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		877A8327B46D9DFEBCC20809 /* Pods-RChatUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RChatUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RChatUITests/Pods-RChatUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -216,7 +220,7 @@
 			isa = PBXGroup;
 			children = (
 				5047F7F71E255D5B00E60B63 /* ChatViewController */,
-				501825681E246C6800E9A535 /* ConversationsViewController.swift */,
+				5047F8331E25E09400E60B63 /* ConversationsViewController */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -256,6 +260,7 @@
 				5047F80C1E2566B700E60B63 /* RChatCollectionViewLayout.swift */,
 				5047F8201E256B2200E60B63 /* RChatDecorator.swift */,
 				5047F8311E257AB000E60B63 /* RChatMessageCollectionViewCellAvatarStyle.swift */,
+				5047F8341E25EAC500E60B63 /* ChatViewController+ImageDelegate.swift */,
 			);
 			name = ChatViewController;
 			sourceTree = "<group>";
@@ -309,6 +314,15 @@
 				5047F82B1E25798B00E60B63 /* SendingStatusPresenter.swift */,
 			);
 			name = SendingStatus;
+			sourceTree = "<group>";
+		};
+		5047F8331E25E09400E60B63 /* ConversationsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				501825681E246C6800E9A535 /* ConversationsViewController.swift */,
+				507F29B21E25EC7B00F1D2ED /* ConversationSearchView.swift */,
+			);
+			name = ConversationsViewController;
 			sourceTree = "<group>";
 		};
 		5FD1F75CE3E0255EFB0D3A00 /* Pods */ = {
@@ -617,12 +631,14 @@
 				501825701E246DA300E9A535 /* ChatMessage.swift in Sources */,
 				5047F8161E2567DB00E60B63 /* ColorLabel.swift in Sources */,
 				5047F8281E25792500E60B63 /* SendingStatusPresenterBuilder.swift in Sources */,
+				5047F8351E25EAC500E60B63 /* ChatViewController+ImageDelegate.swift in Sources */,
 				501825671E246B1100E9A535 /* ChatViewController.swift in Sources */,
 				5047F81F1E2569E800E60B63 /* RChatDataSource.swift in Sources */,
 				5047F8261E25790900E60B63 /* SendingStatusModel.swift in Sources */,
 				5047F8091E25634A00E60B63 /* RChatBaseMessageHandler.swift in Sources */,
 				5047F8071E25627D00E60B63 /* RChatMessageViewModelProtocol.swift in Sources */,
 				5047F81A1E2568FD00E60B63 /* TimeSeperatorPresenterBuilder.swift in Sources */,
+				507F29B31E25EC7B00F1D2ED /* ConversationSearchView.swift in Sources */,
 				5047F82E1E25799C00E60B63 /* SendingStatusCollectionViewCell.swift in Sources */,
 				5047F8051E2561F600E60B63 /* RChatTextMessageViewModel.swift in Sources */,
 				5047F81C1E25692000E60B63 /* TimeSeparatorPresenter.swift in Sources */,
