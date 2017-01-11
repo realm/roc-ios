@@ -16,6 +16,8 @@ class ConversationsViewController : UISideMenuNavigationController {
         t.backgroundColor = RChatConstants.Colors.midnightBlue
         t.translatesAutoresizingMaskIntoConstraints = false
         t.separatorColor = .clear
+        t.register(ConversationTableViewCell.self, forCellReuseIdentifier: ConversationTableViewCell.REUSE_ID)
+        t.rowHeight = ConversationTableViewCell.HEIGHT
         return t
     }()
 
