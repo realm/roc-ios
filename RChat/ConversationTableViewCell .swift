@@ -15,12 +15,24 @@ class ConversationTableViewCell : UITableViewCell {
 
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        backgroundColor = .clear
+        textLabel?.textColor = UIColor.white
+        textLabel?.translatesAutoresizingMaskIntoConstraints = false
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-16-[textLabel]-16-|", options: [], metrics: nil, views: ["textLabel": textLabel!]))
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[textLabel]-0-|", options: [], metrics: nil, views: ["textLabel": textLabel!]))
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
+    func setupWithConversation(conversation: Conversation){
+        textLabel?.text = conversation.displayName
+    }
 
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        textLabel?.text = ""
+    }
 
 }

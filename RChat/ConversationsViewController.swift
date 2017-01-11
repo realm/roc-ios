@@ -9,7 +9,7 @@
 import UIKit
 import SideMenu
 
-class ConversationsViewController : UISideMenuNavigationController {
+class ConversationsViewController : UISideMenuNavigationController, UITableViewDataSource, UITableViewDelegate {
 
     lazy var tableView : UITableView = {
         let t = UITableView()
@@ -27,11 +27,28 @@ class ConversationsViewController : UISideMenuNavigationController {
         return c
     }()
 
+    var conversations : [Conversation] = []
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = RChatConstants.Colors.wetAsphalt
         view.addSubview(tableView)
         view.addSubview(searchView)
+
+        tableView.dataSource = self
+        tableView.delegate = self
+
+        let one = Conversation()
+        one.displayName = "Engineering"
+
+        let two = Conversation()
+        two.displayName = "Marketing"
+
+        conversations.append(one)
+        conversations.append(two)
+
+        tableView.reloadData()
+
         view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-0-[searchView]-0-|", options: [], metrics: nil, views: ["searchView": searchView]))
         view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-0-[tableView]-0-|", options: [], metrics: nil, views: ["tableView": tableView]))
         view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[searchView(65)]-0-[tableView]-0-|", options: [], metrics: nil, views: ["tableView": tableView, "searchView": searchView]))
@@ -39,6 +56,23 @@ class ConversationsViewController : UISideMenuNavigationController {
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return UIStatusBarStyle.lightContent
+    }
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return conversations.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: ConversationTableViewCell.REUSE_ID, for: indexPath) as! ConversationTableViewCell
+        let conversation = conversations[indexPath.row]
+        cell.setupWithConversation(conversation: conversation)
+        return cell
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let conversation = conversations[indexPath.row]
+        dismiss(animated: true, completion: nil)
     }
 
 }
