@@ -71,7 +71,7 @@ class ConversationsViewController : UISideMenuNavigationController, UITableViewD
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let conversation = conversations[indexPath.row]
+        _ = conversations[indexPath.row]
         dismiss(animated: true, completion: nil)
     }
 

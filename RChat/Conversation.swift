@@ -8,7 +8,6 @@
 
 import RealmSwift
 
-
 class Conversation : Object {
 
     dynamic var conversationId : String = UUID().uuidString
@@ -16,6 +15,14 @@ class Conversation : Object {
 
     override static func primaryKey() -> String? {
         return "conversationId"
+    }
+
+}
+
+extension Conversation {
+
+    static func createConversation(userIds: [String]){
+
     }
 
 }

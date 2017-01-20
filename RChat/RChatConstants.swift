@@ -8,16 +8,24 @@
 
 import UIKit
 import Foundation
+import RealmSwift
 
 struct RChatConstants {
 
     static var myUserId : String! {
         get {
-            return "mbalex99"
-            //return UserDefaults.standard.string(forKey: "_myUserId")
+            return SyncUser.current?.identity
         }set (value){
             UserDefaults.standard.set(value, forKey: "_myUserId")
         }
+    }
+
+    static var isLoggedIn : Bool {
+        return SyncUser.current != nil
+    }
+
+    static var objectServerEndpoint : URL {
+        return URL(string: "http://localhost:9080" )!
     }
 
     /// Referencing Flat Colors from here : https://flatuicolors.com/
