@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.backgroundColor = UIColor.white
         window?.makeKeyAndVisible()
-        window?.rootViewController = UINavigationController(rootViewController: ChatViewController(conversationId: ""))
+        window?.rootViewController = UINavigationController(rootViewController: WelcomeViewController())
 
         return true
     }

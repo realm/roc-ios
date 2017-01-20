@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		5003AF341E3297B400057F8A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5003AF331E3297B400057F8A /* LoginViewController.swift */; };
+		5003AF361E329B1600057F8A /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5003AF351E329B1600057F8A /* LoginViewModel.swift */; };
+		5003AF381E32A09800057F8A /* RChatButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5003AF371E32A09800057F8A /* RChatButton.swift */; };
+		5003AF3A1E32A1A800057F8A /* WelcomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5003AF391E32A1A800057F8A /* WelcomeViewModel.swift */; };
 		501825391E2469C200E9A535 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501825381E2469C200E9A535 /* AppDelegate.swift */; };
 		501825401E2469C200E9A535 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5018253F1E2469C200E9A535 /* Assets.xcassets */; };
 		501825431E2469C200E9A535 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 501825411E2469C200E9A535 /* LaunchScreen.storyboard */; };
@@ -73,6 +76,9 @@
 /* Begin PBXFileReference section */
 		37B61F1CFAB1215008258AF3 /* Pods-RChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RChat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RChat/Pods-RChat.debug.xcconfig"; sourceTree = "<group>"; };
 		5003AF331E3297B400057F8A /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		5003AF351E329B1600057F8A /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		5003AF371E32A09800057F8A /* RChatButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RChatButton.swift; sourceTree = "<group>"; };
+		5003AF391E32A1A800057F8A /* WelcomeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewModel.swift; sourceTree = "<group>"; };
 		501825351E2469C200E9A535 /* RChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		501825381E2469C200E9A535 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5018253F1E2469C200E9A535 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -171,6 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				5003AF331E3297B400057F8A /* LoginViewController.swift */,
+				5003AF351E329B1600057F8A /* LoginViewModel.swift */,
 			);
 			name = LoginViewController;
 			sourceTree = "<group>";
@@ -308,6 +315,7 @@
 			isa = PBXGroup;
 			children = (
 				5047F8151E2567DB00E60B63 /* ColorLabel.swift */,
+				5003AF371E32A09800057F8A /* RChatButton.swift */,
 			);
 			name = CustomViews;
 			sourceTree = "<group>";
@@ -346,6 +354,7 @@
 			isa = PBXGroup;
 			children = (
 				507AD9F01E32955700C432BB /* WelcomeViewController.swift */,
+				5003AF391E32A1A800057F8A /* WelcomeViewModel.swift */,
 			);
 			name = WelcomeViewController;
 			sourceTree = "<group>";
@@ -675,9 +684,12 @@
 				5047F7FF1E255EEE00E60B63 /* ChatMessage+MessageModelProtocol.swift in Sources */,
 				5047F8231E256C7100E60B63 /* UIColor+Hex.swift in Sources */,
 				5047F8301E257A5B00E60B63 /* RChatTextMessageCollectionViewCellStyle.swift in Sources */,
+				5003AF3A1E32A1A800057F8A /* WelcomeViewModel.swift in Sources */,
 				5047F7FD1E255E1800E60B63 /* RChatConstants.swift in Sources */,
+				5003AF361E329B1600057F8A /* LoginViewModel.swift in Sources */,
 				5047F82C1E25798B00E60B63 /* SendingStatusPresenter.swift in Sources */,
 				5047F8211E256B2200E60B63 /* RChatDecorator.swift in Sources */,
+				5003AF381E32A09800057F8A /* RChatButton.swift in Sources */,
 				501825391E2469C200E9A535 /* AppDelegate.swift in Sources */,
 				5047F8111E25678300E60B63 /* TimeSeperatorModel.swift in Sources */,
 				5047F8031E2560CE00E60B63 /* RChatMessageModelProtocol.swift in Sources */,
