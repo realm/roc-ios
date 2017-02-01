@@ -13,6 +13,7 @@ PODS:
     - SDWebImage/Core (= 3.8.2)
   - SDWebImage/Core (3.8.2)
   - SideMenu (2.1.4)
+  - TURecipientBar (2.0.4)
 
 DEPENDENCIES:
   - Cartography (= 1.0.1)
@@ -22,6 +23,7 @@ DEPENDENCIES:
   - RealmSwift (~> 2.1.2)
   - SDWebImage (~> 3.8.2)
   - SideMenu (~> 2.1.3)
+  - TURecipientBar (~> 2.0.4)
 
 SPEC CHECKSUMS:
   Cartography: c1460e99395b824d9d75360b0382faeb0b33dcd7
@@ -32,7 +34,8 @@ SPEC CHECKSUMS:
   RealmSwift: 17d6ee30b6f9df86364408c2197492e33bfea567
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
   SideMenu: 74b93b251064668fc7523aae897157b767733f04
+  TURecipientBar: 4904645f476ad056e17c9458fa9894552339e63a
 
-PODFILE CHECKSUM: 941d455e5e0aabfb29fbaa163f083467dced4d42
+PODFILE CHECKSUM: 82c837c03ac9541bcd0955963d948ae6aa1610ee
 
 COCOAPODS: 1.2.0.rc.1

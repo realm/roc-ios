@@ -28,6 +28,18 @@ class ConversationsViewController : UISideMenuNavigationController, UITableViewD
         return c
     }()
 
+    lazy var penButton : UIButton = {
+        let b = UIButton()
+        b.imageEdgeInsets = UIEdgeInsetsMake(4, 4, 4, 4)
+        b.imageView?.contentMode = .scaleAspectFit
+        b.layer.cornerRadius = 44 / 2
+        b.layer.masksToBounds = true
+        b.tintColor = .white
+        b.setImage(RChatConstants.Images.penIcon, for: .normal)
+        b.backgroundColor = RChatConstants.Colors.primaryColor
+        return b
+    }()
+
     var conversations : [Conversation] = []
 
     override func viewDidLoad() {
@@ -35,6 +47,9 @@ class ConversationsViewController : UISideMenuNavigationController, UITableViewD
         view.backgroundColor = RChatConstants.Colors.primaryColorDark
         view.addSubview(tableView)
         view.addSubview(searchView)
+        view.addSubview(penButton)
+
+        penButton.addTarget(self, action: #selector(ConversationsViewController.penButtonDidTap(button:)), for: .touchUpInside)
 
         tableView.dataSource = self
         tableView.delegate = self
@@ -50,7 +65,7 @@ class ConversationsViewController : UISideMenuNavigationController, UITableViewD
 
         tableView.reloadData()
 
-        constrain(searchView, tableView) { (searchView, tableView) in
+        constrain(searchView, tableView, penButton) { (searchView, tableView, penButton) in
             searchView.left == searchView.superview!.left
             searchView.right == searchView.superview!.right
             searchView.height == 65
@@ -60,11 +75,21 @@ class ConversationsViewController : UISideMenuNavigationController, UITableViewD
             tableView.left == tableView.superview!.left
             tableView.right == tableView.superview!.right
             tableView.bottom == tableView.superview!.bottom
+
+            penButton.width == 44
+            penButton.height == 44
+            penButton.right == penButton.superview!.right - RChatConstants.Numbers.horizontalSpacing
+            penButton.bottom == penButton.superview!.bottom - RChatConstants.Numbers.verticalSpacing
         }
     }
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return UIStatusBarStyle.lightContent
+    }
+
+    func penButtonDidTap(button: UIButton){
+        let controller = CustomNavController(rootViewController: ComposeViewController())
+        present(controller, animated: true, completion: nil)
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

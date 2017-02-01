@@ -13,6 +13,8 @@ target 'RChat' do
   pod 'SDWebImage', '~> 3.8.2'
   pod 'Eureka', '~> 2.0.0-beta.1'
   pod 'Cartography', '1.0.1'
+  pod 'TURecipientBar', '~> 2.0.4'
+
   target 'RChatTests' do
     inherit! :search_paths
     # Pods for testing

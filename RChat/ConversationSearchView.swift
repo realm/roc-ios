@@ -107,7 +107,7 @@ class ConversationSearchView : UIView, UITextFieldDelegate {
 
                 searchTextField.left == iconButton.right + RChatConstants.Numbers.minorHorizontalSpacing
                 searchTextField.right == searchTextField.superview!.right - RChatConstants.Numbers.minorHorizontalSpacing
-                searchTextField.bottom == cancelButton.superview!.bottom - RChatConstants.Numbers.verticalSpacing
+                searchTextField.bottom == searchTextField.superview!.bottom - RChatConstants.Numbers.verticalSpacing
                 searchTextField.height == 33
             })
         }

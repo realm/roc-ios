@@ -57,6 +57,7 @@ struct RChatConstants {
         static var sendIcon = UIImage(named: "send_icon")?.withRenderingMode(.alwaysTemplate)
         static var menuIcon = UIImage(named: "menu_icon")?.withRenderingMode(.alwaysTemplate)
         static var profileIcon = UIImage(named: "profile_icon")?.withRenderingMode(.alwaysTemplate)
+        static var penIcon = UIImage(named: "pen_icon")?.withRenderingMode(.alwaysTemplate)
     }
 
     struct Numbers {
@@ -64,6 +65,24 @@ struct RChatConstants {
         static var minorHorizontalSpacing : CGFloat = 8
         static var verticalSpacing : CGFloat = 8
         static var cornerRadius : CGFloat = 4
+    }
+
+    struct Realms {
+        static var globalUsers : Realm {
+            let syncServerURL = URL(string: "\(RChatConstants.objectServerEndpoint.absoluteString)/users")!
+            let config = Realm.Configuration(syncConfiguration: SyncConfiguration(user: SyncUser.current!, realmURL: syncServerURL))
+            return try! Realm(configuration: config)
+        }
+        static var myRealm : Realm {
+            let syncServerURL = URL(string: "\(RChatConstants.objectServerEndpoint.absoluteString)/~/userRealm")!
+            let config = Realm.Configuration(syncConfiguration: SyncConfiguration(user: SyncUser.current!, realmURL: syncServerURL))
+            return try! Realm(configuration: config)
+        }
+        static var chatMessages : Realm {
+            let syncServerURL = URL(string: "\(RChatConstants.objectServerEndpoint.absoluteString)/~/conversations")!
+            let config = Realm.Configuration(syncConfiguration: SyncConfiguration(user: SyncUser.current!, realmURL: syncServerURL))
+            return try! Realm(configuration: config)
+        }
     }
 
 }
