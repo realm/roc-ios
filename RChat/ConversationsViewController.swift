@@ -8,6 +8,7 @@
 
 import UIKit
 import SideMenu
+import Cartography
 
 class ConversationsViewController : UISideMenuNavigationController, UITableViewDataSource, UITableViewDelegate {
 
@@ -31,7 +32,7 @@ class ConversationsViewController : UISideMenuNavigationController, UITableViewD
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = RChatConstants.Colors.wetAsphalt
+        view.backgroundColor = RChatConstants.Colors.primaryColorDark
         view.addSubview(tableView)
         view.addSubview(searchView)
 
@@ -49,9 +50,17 @@ class ConversationsViewController : UISideMenuNavigationController, UITableViewD
 
         tableView.reloadData()
 
-        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-0-[searchView]-0-|", options: [], metrics: nil, views: ["searchView": searchView]))
-        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-0-[tableView]-0-|", options: [], metrics: nil, views: ["tableView": tableView]))
-        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[searchView(65)]-0-[tableView]-0-|", options: [], metrics: nil, views: ["tableView": tableView, "searchView": searchView]))
+        constrain(searchView, tableView) { (searchView, tableView) in
+            searchView.left == searchView.superview!.left
+            searchView.right == searchView.superview!.right
+            searchView.height == 65
+            searchView.top == searchView.superview!.top
+
+            tableView.top == searchView.bottom
+            tableView.left == tableView.superview!.left
+            tableView.right == tableView.superview!.right
+            tableView.bottom == tableView.superview!.bottom
+        }
     }
 
     override var preferredStatusBarStyle: UIStatusBarStyle {

@@ -39,7 +39,7 @@ class ChatViewController : BaseChatViewController, RChatInputViewDelegate {
         view.backgroundColor = UIColor.white
         navigationItem.leftBarButtonItem = {
             let barButtonItem = UIBarButtonItem(image: RChatConstants.Images.menuIcon, style: .plain, target: self, action: #selector(ChatViewController.menuTapped))
-            barButtonItem.tintColor = RChatConstants.Colors.primaryColor
+            barButtonItem.tintColor = .white
             return barButtonItem
         }()
 

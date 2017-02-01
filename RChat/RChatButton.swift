@@ -17,6 +17,7 @@ class RChatButton : UIButton {
         layer.backgroundColor = RChatConstants.Colors.primaryColor.cgColor
         setTitleColor(.white, for: .normal)
         setTitleColor(.lightGray, for: .disabled)
+        titleLabel?.font = RChatConstants.Fonts.boldFont
     }
     
     required init?(coder aDecoder: NSCoder) {

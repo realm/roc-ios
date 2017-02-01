@@ -26,3 +26,8 @@ extension Conversation {
     }
 
 }
+
+class ConversationPointer : Object {
+    dynamic var id : String = ""
+
+}

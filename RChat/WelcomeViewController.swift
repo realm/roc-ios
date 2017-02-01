@@ -33,10 +33,8 @@ class WelcomeViewController : UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = RChatConstants.Colors.primaryColorDark
         setupSubviewsAndLayout()
-
-
         // FROM VIEWMODEL
         viewModel.isAlreadyLoggedIn = { [weak self] isAlreadyLogged in
             if(isAlreadyLogged){
@@ -66,6 +64,8 @@ class WelcomeViewController : UIViewController {
 extension WelcomeViewController  {
 
     func setupSubviewsAndLayout(){
+        navigationItem.backBarButtonItem = nil
+        
         view.addSubview(loginButton)
         view.addSubview(registerButton)
 

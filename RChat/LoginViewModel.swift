@@ -29,17 +29,19 @@ class LoginViewModel {
         let usernameCredentials = SyncCredentials.usernamePassword(username: username, password: password)
         isProcessingCallback?(true)
         SyncUser.logIn(with: usernameCredentials, server: RChatConstants.objectServerEndpoint) { [weak self] (user, error) in
-            self?.isProcessingCallback?(false)
-            if let user = user {
-                self?.authSuccessCallback?(user)
-                return
-            } else if let error = error {
-                let description = error.localizedDescription
-                self?.authErrorCallback?(description)
-                return
+            DispatchQueue.main.sync {
+                self?.isProcessingCallback?(false)
+                if let user = user {
+                    self?.authSuccessCallback?(user)
+                    return
+                } else if let error = error {
+                    let description = error.localizedDescription
+                    self?.authErrorCallback?(description)
+                    return
+                }
+                let errorMessage = "No user was found!"
+                self?.authErrorCallback?(errorMessage)
             }
-            let errorMessage = "No user was found!"
-            self?.authErrorCallback?(errorMessage)
         }
     }
 
@@ -47,17 +49,19 @@ class LoginViewModel {
         let usernameCredentials = SyncCredentials.usernamePassword(username: username, password: password, register: true)
         isProcessingCallback?(true)
         SyncUser.logIn(with: usernameCredentials, server: RChatConstants.objectServerEndpoint) { [weak self] (user, error) in
-            self?.isProcessingCallback?(false)
-            if let user = user {
-                self?.authSuccessCallback?(user)
-                return
-            } else if let error = error {
-                let description = error.localizedDescription
-                self?.authErrorCallback?(description)
-                return
+            DispatchQueue.main.sync {
+                self?.isProcessingCallback?(false)
+                if let user = user {
+                    self?.authSuccessCallback?(user)
+                    return
+                } else if let error = error {
+                    let description = error.localizedDescription
+                    self?.authErrorCallback?(description)
+                    return
+                }
+                let errorMessage = "No user was found!"
+                self?.authErrorCallback?(errorMessage)
             }
-            let errorMessage = "No user was found!"
-            self?.authErrorCallback?(errorMessage)
         }
     }
 
@@ -74,5 +78,5 @@ class LoginViewModel {
             modeCallback?(self.mode)
         }
     }
-
+    
 }

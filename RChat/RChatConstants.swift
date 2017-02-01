@@ -31,7 +31,8 @@ struct RChatConstants {
     /// Referencing Flat Colors from here : https://flatuicolors.com/
     struct Colors {
         //APP
-        static var primaryColor = UIColor(hexString: "#487CFF")
+        static var primaryColor = UIColor(hexString: "#39477F")
+        static var primaryColorDark = UIColor(hexString: "#1C233F")
 
         //WHITES AND GRAY
         static var clouds = UIColor(hexString: "#ecf0f1")
@@ -55,6 +56,14 @@ struct RChatConstants {
         static var attachIcon = UIImage(named: "attach_icon")?.withRenderingMode(.alwaysTemplate)
         static var sendIcon = UIImage(named: "send_icon")?.withRenderingMode(.alwaysTemplate)
         static var menuIcon = UIImage(named: "menu_icon")?.withRenderingMode(.alwaysTemplate)
+        static var profileIcon = UIImage(named: "profile_icon")?.withRenderingMode(.alwaysTemplate)
+    }
+
+    struct Numbers {
+        static var horizontalSpacing : CGFloat = 16
+        static var minorHorizontalSpacing : CGFloat = 8
+        static var verticalSpacing : CGFloat = 8
+        static var cornerRadius : CGFloat = 4
     }
 
 }
