@@ -26,3 +26,12 @@ class ChatMessage : Object {
         return "messageId"
     }
 }
+
+
+extension ChatMessage {
+
+    func sendChatMessage(chatMessage: ChatMessage){
+
+    }
+
+}

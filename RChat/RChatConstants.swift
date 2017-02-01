@@ -58,18 +58,25 @@ struct RChatConstants {
         static var menuIcon = UIImage(named: "menu_icon")?.withRenderingMode(.alwaysTemplate)
         static var profileIcon = UIImage(named: "profile_icon")?.withRenderingMode(.alwaysTemplate)
         static var penIcon = UIImage(named: "pen_icon")?.withRenderingMode(.alwaysTemplate)
+        static var launchLogo = UIImage(named: "launch_logo")?.withRenderingMode(.alwaysTemplate)
     }
 
     struct Numbers {
         static var horizontalSpacing : CGFloat = 16
         static var minorHorizontalSpacing : CGFloat = 8
         static var verticalSpacing : CGFloat = 8
+        static var majorVerticalSpacing : CGFloat = 16
         static var cornerRadius : CGFloat = 4
     }
 
     struct Realms {
         static var globalUsers : Realm {
             let syncServerURL = URL(string: "\(RChatConstants.objectServerEndpoint.absoluteString)/users")!
+            let config = Realm.Configuration(syncConfiguration: SyncConfiguration(user: SyncUser.current!, realmURL: syncServerURL))
+            return try! Realm(configuration: config)
+        }
+        static var conversations : Realm {
+            let syncServerURL = URL(string: "\(RChatConstants.objectServerEndpoint.absoluteString)/conversations")!
             let config = Realm.Configuration(syncConfiguration: SyncConfiguration(user: SyncUser.current!, realmURL: syncServerURL))
             return try! Realm(configuration: config)
         }

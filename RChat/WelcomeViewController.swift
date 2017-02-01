@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Cartography
 
 class WelcomeViewController : UIViewController {
 
@@ -22,6 +23,13 @@ class WelcomeViewController : UIViewController {
         b.setTitle("Register", for: .normal)
         b.translatesAutoresizingMaskIntoConstraints = false
         return b
+    }()
+
+    lazy var launchLogoImageView : UIImageView = {
+        let i = UIImageView()
+        i.image = RChatConstants.Images.launchLogo
+        i.tintColor = .white
+        return i
     }()
 
     let viewModel = WelcomeViewModel()
@@ -68,19 +76,29 @@ extension WelcomeViewController  {
         
         view.addSubview(loginButton)
         view.addSubview(registerButton)
+        view.addSubview(launchLogoImageView)
 
         loginButton.addTarget(self, action: #selector(loginButtonDidTap(button:)), for: .touchUpInside)
         registerButton.addTarget(self, action: #selector(registerButtonDidTap(button:)), for: .touchUpInside)
 
-        view.addConstraint(NSLayoutConstraint(item: loginButton, attribute: .left, relatedBy: .equal, toItem: view, attribute: .left, multiplier: 1, constant: 16))
-        view.addConstraint(NSLayoutConstraint(item: loginButton, attribute: .right, relatedBy: .equal, toItem: view, attribute: .centerX, multiplier: 1, constant: -16))
-        view.addConstraint(NSLayoutConstraint(item: loginButton, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1, constant: -16))
-        view.addConstraint(NSLayoutConstraint(item: loginButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 50))
+        constrain(loginButton, registerButton, launchLogoImageView) { (loginButton, registerButton, launchLogoImageView) in
 
-        view.addConstraint(NSLayoutConstraint(item: registerButton, attribute: .left, relatedBy: .equal, toItem: view, attribute: .centerX, multiplier: 1, constant: 16))
-        view.addConstraint(NSLayoutConstraint(item: registerButton, attribute: .right, relatedBy: .equal, toItem: view, attribute: .right, multiplier: 1, constant: -16))
-        view.addConstraint(NSLayoutConstraint(item: registerButton, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1, constant: -16))
-        view.addConstraint(NSLayoutConstraint(item: registerButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 50))
+            loginButton.left == loginButton.superview!.left + RChatConstants.Numbers.horizontalSpacing
+            loginButton.height == 50
+            loginButton.bottom == loginButton.superview!.bottom - RChatConstants.Numbers.majorVerticalSpacing
+            loginButton.right == loginButton.superview!.centerX - RChatConstants.Numbers.minorHorizontalSpacing
+
+            registerButton.left == registerButton.superview!.centerX + RChatConstants.Numbers.minorHorizontalSpacing
+            registerButton.height == 50
+            registerButton.bottom == registerButton.superview!.bottom - RChatConstants.Numbers.majorVerticalSpacing
+            registerButton.right == registerButton.superview!.right - RChatConstants.Numbers.horizontalSpacing
+
+            launchLogoImageView.height == 100
+            launchLogoImageView.width == 100
+            launchLogoImageView.centerX == launchLogoImageView.superview!.centerX
+            launchLogoImageView.centerY == launchLogoImageView.superview!.centerY
+
+        }
     }
 
 }
