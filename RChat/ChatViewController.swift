@@ -21,7 +21,7 @@ class ChatViewController : BaseChatViewController, RChatInputViewDelegate {
     init(conversationId : String) {
         self.conversationId = conversationId
         super.init(nibName: nil, bundle: nil)
-        self.chatDataSource = RChatDataSource(conversationId: conversationId)
+        self.chatDataSource = RChatDataSource()
         self.chatItemsDecorator = RChatDecorator()
     }
     

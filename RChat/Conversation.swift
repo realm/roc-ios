@@ -13,6 +13,7 @@ class Conversation : Object {
     dynamic var conversationId : String = UUID().uuidString
     dynamic var displayName : String = ""
     let users = List<User>()
+    let chatMessages = List<ChatMessage>()
 
     override static func primaryKey() -> String? {
         return "conversationId"

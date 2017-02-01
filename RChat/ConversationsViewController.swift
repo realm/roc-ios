@@ -8,6 +8,7 @@
 
 import UIKit
 import SideMenu
+import RealmSwift
 import Cartography
 
 class ConversationsViewController : UISideMenuNavigationController, UITableViewDataSource, UITableViewDelegate {
@@ -40,7 +41,8 @@ class ConversationsViewController : UISideMenuNavigationController, UITableViewD
         return b
     }()
 
-    var conversations : [Conversation] = []
+    var conversations : Results<Conversation>!
+    var notificationToken : NotificationToken?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,17 +55,6 @@ class ConversationsViewController : UISideMenuNavigationController, UITableViewD
 
         tableView.dataSource = self
         tableView.delegate = self
-
-        let one = Conversation()
-        one.displayName = "Engineering"
-
-        let two = Conversation()
-        two.displayName = "Marketing"
-
-        conversations.append(one)
-        conversations.append(two)
-
-        tableView.reloadData()
 
         constrain(searchView, tableView, penButton) { (searchView, tableView, penButton) in
             searchView.left == searchView.superview!.left
@@ -81,6 +72,35 @@ class ConversationsViewController : UISideMenuNavigationController, UITableViewD
             penButton.right == penButton.superview!.right - RChatConstants.Numbers.horizontalSpacing
             penButton.bottom == penButton.superview!.bottom - RChatConstants.Numbers.verticalSpacing
         }
+
+        let realm = RChatConstants.Realms.conversations
+        let predicate = NSPredicate(format: "users.userId = %@", RChatConstants.myUserId)
+        conversations = realm.objects(Conversation.self).filter(predicate)
+
+        notificationToken = conversations
+            .addNotificationBlock { [weak self] (changes) in
+                guard let `self` = self else { return }
+                switch changes {
+                case .initial:
+                    self.tableView.reloadData()
+                    break
+                case .update(_, let deletions, let insertions, let modifications):
+                    // Query results have changed, so apply them to the UITableView
+                    self.tableView.beginUpdates()
+                    self.tableView.insertRows(at: insertions.map({ IndexPath(row: $0, section: 0) }),
+                                         with: .automatic)
+                    self.tableView.deleteRows(at: deletions.map({ IndexPath(row: $0, section: 0)}),
+                                         with: .automatic)
+                    self.tableView.reloadRows(at: modifications.map({ IndexPath(row: $0, section: 0) }),
+                                         with: .automatic)
+                    self.tableView.endUpdates()
+                    break
+                case .error(let error):
+                    fatalError(error.localizedDescription)
+                    break
+                }
+            }
+
     }
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -109,4 +129,7 @@ class ConversationsViewController : UISideMenuNavigationController, UITableViewD
         dismiss(animated: true, completion: nil)
     }
 
+    deinit {
+        notificationToken?.stop()
+    }
 }

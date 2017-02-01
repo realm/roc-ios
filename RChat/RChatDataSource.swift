@@ -8,14 +8,24 @@
 
 import Foundation
 import Chatto
+import RealmSwift
 
 class RChatDataSource : ChatDataSourceProtocol {
 
     var delegate: ChatDataSourceDelegateProtocol?
     var chatItems: [ChatItemProtocol] = []
+    var notificationToken : NotificationToken?
 
-    init(conversationId: String){
+    var conversation : Conversation? {
+        didSet {
+            notificationToken?.stop()
+            guard let c = conversation else { return }
+            notificationToken = c.chatMessages.sorted(byProperty: "timestamp", ascending: false)
+                .addNotificationBlock({ [weak self] (changes) in
+                    guard let `self` = self else { return }
 
+                })
+        }
     }
 
     var hasMoreNext: Bool {
