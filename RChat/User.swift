@@ -28,7 +28,7 @@ extension User {
 
     static func searchForUsers(searchTerm: String) -> Results<User> {
         let realm = RChatConstants.Realms.globalUsers
-        let predicate = NSPredicate(format: "username contains[c] %@ OR displayName contains[c] %@", searchTerm, searchTerm)
+        let predicate = NSPredicate(format: "(username contains[c] %@ OR displayName contains[c] %@) AND (userId != %@)", searchTerm, searchTerm, RChatConstants.myUserId)
         return realm.objects(User.self).filter(predicate)
     }
 

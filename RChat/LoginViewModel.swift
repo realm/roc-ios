@@ -105,6 +105,8 @@ class LoginViewModel {
         try! realm.write {
             realm.add(newUser, update: true)
         }
+
+        Conversation.generateDefaultConversation()
     }
 
 }

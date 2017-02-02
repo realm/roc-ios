@@ -23,12 +23,19 @@ class RChatDataSource : ChatDataSourceProtocol {
             notificationToken = c.chatMessages.sorted(byProperty: "timestamp", ascending: false)
                 .addNotificationBlock({ [weak self] (changes) in
                     guard let `self` = self else { return }
-                    let detachedChatMessages = Array(c.chatMessages).map({ ChatMessage(value: $0) })
-                    self.chatItems = detachedChatMessages
+                    var items = [ChatItemProtocol]()
+                    for m in Array(c.chatMessages).map({ ChatMessage(value: $0) }) {
+                        if m.mimeType == MimeType.textPlain.rawValue {
+                            items.append(RChatTextMessageModel(messageModel: m))
+                        }
+                    }
+                    self.chatItems = items
                     self.delegate?.chatDataSourceDidUpdate(self)
                 })
         }
     }
+
+    
 
     var hasMoreNext: Bool {
         return false

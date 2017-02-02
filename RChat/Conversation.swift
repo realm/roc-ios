@@ -46,6 +46,17 @@ extension Conversation {
         return conversation
     }
 
+    static func generateDefaultConversation() -> Conversation {
+        let conversation = Conversation()
+        conversation.conversationId = RChatConstants.genericConversationId
+        conversation.displayName = "Welcome to RChat"
+        let realm = RChatConstants.Realms.conversations
+        try! realm.write {
+            realm.add(conversation, update: true)
+        }
+        return conversation
+    }
+
 
 }
 

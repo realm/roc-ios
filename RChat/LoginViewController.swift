@@ -93,7 +93,7 @@ class LoginViewControler : FormViewController {
         }
 
         viewModel.authSuccessCallback = { [weak self] _ in
-            self?.navigationController?.setViewControllers([ChatViewController(conversationId: "")], animated: true)
+            self?.navigationController?.setViewControllers([ChatViewController()], animated: true)
         }
 
         viewModel.modeCallback = { [weak self] mode in

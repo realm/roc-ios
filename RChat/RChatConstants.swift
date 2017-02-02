@@ -33,6 +33,8 @@ struct RChatConstants {
         return URL(string: "http://138.197.85.79:9080" )!
     }
 
+    static var genericConversationId : String = "pub|generic"
+
     /// Referencing Flat Colors from here : https://flatuicolors.com/
     struct Colors {
         //APP

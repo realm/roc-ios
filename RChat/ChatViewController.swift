@@ -15,11 +15,10 @@ class ChatViewController : BaseChatViewController, RChatInputViewDelegate, Conve
 
     let chatInputView = RChatInputView()
     let messageHandler = RChatBaseMessageHandler()
+    var conversation: Conversation
 
-    let conversationId : String
-
-    init(conversationId : String) {
-        self.conversationId = conversationId
+    init(conversation : Conversation = Conversation.generateDefaultConversation()) {
+        self.conversation = conversation
         super.init(nibName: nil, bundle: nil)
         self.chatDataSource = RChatDataSource()
         self.chatItemsDecorator = RChatDecorator()
@@ -44,6 +43,7 @@ class ChatViewController : BaseChatViewController, RChatInputViewDelegate, Conve
         }()
 
         chatInputView.delegate = self
+        (chatDataSource as! RChatDataSource).conversation = conversation
 
         SideMenuManager.menuLeftNavigationController = {
             let conversationsViewController = ConversationsViewController()

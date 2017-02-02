@@ -46,7 +46,7 @@ class WelcomeViewController : UIViewController {
         // FROM VIEWMODEL
         viewModel.isAlreadyLoggedIn = { [weak self] isAlreadyLogged in
             if(isAlreadyLogged){
-                self?.navigationController?.setViewControllers([ChatViewController(conversationId: "")], animated: true)
+                self?.navigationController?.setViewControllers([ChatViewController()], animated: true)
             }
         }
 
