@@ -22,7 +22,7 @@ class RChatDataSource : ChatDataSourceProtocol {
             guard let c = conversation else { return }
             let chatMessages = RChatConstants.Realms.conversations.objects(ChatMessage.self)
                 .filter("conversationId = %@", c.conversationId)
-                .sorted(byProperty: "timestamp", ascending: false)
+                .sorted(byProperty: "timestamp", ascending: true)
 
             notificationToken = chatMessages
                 .addNotificationBlock({ [weak self] (changes) in
