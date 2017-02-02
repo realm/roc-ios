@@ -8,7 +8,7 @@ target 'RChat' do
   # Pods for RChat
   pod 'Chatto', '~> 3.0.1'
   pod 'ChattoAdditions', '~> 3.0.1'
-  pod 'RealmSwift', '~> 2.1.2'
+  pod 'RealmSwift'
   pod 'SideMenu', '~> 2.1.3'
   pod 'SDWebImage', '~> 3.8.2'
   pod 'Eureka', '~> 2.0.0-beta.1'
