@@ -30,4 +30,8 @@ class WelcomeViewModel {
     var goToLogin : (() -> Void)?
     var goToSignup : (() -> Void)?
 
+    init(){
+        
+    }
+
 }

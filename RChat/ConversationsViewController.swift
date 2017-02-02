@@ -11,7 +11,18 @@ import SideMenu
 import RealmSwift
 import Cartography
 
-class ConversationsViewController : UISideMenuNavigationController, UITableViewDataSource, UITableViewDelegate {
+
+protocol ConversationsViewControllerDelegate: class {
+    func changeConversation(conversation: Conversation)
+}
+
+class ConversationsViewController : UISideMenuNavigationController,
+    UITableViewDataSource,
+    UITableViewDelegate,
+    ComposeViewControllerDelegate
+{
+
+    weak var changeConversationDelegate: ConversationsViewControllerDelegate?
 
     lazy var tableView : UITableView = {
         let t = UITableView()
@@ -74,7 +85,7 @@ class ConversationsViewController : UISideMenuNavigationController, UITableViewD
         }
 
         let realm = RChatConstants.Realms.conversations
-        let predicate = NSPredicate(format: "users.userId = %@", RChatConstants.myUserId)
+        let predicate = NSPredicate(format: "ANY users.userId = %@", RChatConstants.myUserId)
         conversations = realm.objects(Conversation.self).filter(predicate)
 
         notificationToken = conversations
@@ -125,7 +136,14 @@ class ConversationsViewController : UISideMenuNavigationController, UITableViewD
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        _ = conversations[indexPath.row]
+        let conversation = conversations[indexPath.row]
+        changeConversationDelegate?.changeConversation(conversation: conversation)
+        dismiss(animated: true, completion: nil)
+    }
+
+    func composeWithUsers(users: [User]) {
+        let conversation = Conversation.putConversation(users: users)
+        changeConversationDelegate?.changeConversation(conversation: conversation)
         dismiss(animated: true, completion: nil)
     }
 

@@ -9,7 +9,13 @@
 import UIKit
 import Cartography
 
+protocol ConversationSearchViewDelegate : class {
+    func fireChatSearch(searchTerm: String)
+}
+
 class ConversationSearchView : UIView, UITextFieldDelegate {
+
+    weak var delegate: ConversationSearchViewDelegate?
 
     lazy var iconButton : UIButton = {
         let i = UIButton()

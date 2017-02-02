@@ -11,7 +11,7 @@ import Chatto
 import ChattoAdditions
 import SideMenu
 
-class ChatViewController : BaseChatViewController, RChatInputViewDelegate {
+class ChatViewController : BaseChatViewController, RChatInputViewDelegate, ConversationsViewControllerDelegate {
 
     let chatInputView = RChatInputView()
     let messageHandler = RChatBaseMessageHandler()
@@ -48,6 +48,7 @@ class ChatViewController : BaseChatViewController, RChatInputViewDelegate {
         SideMenuManager.menuLeftNavigationController = {
             let conversationsViewController = ConversationsViewController()
             conversationsViewController.leftSide = true
+            conversationsViewController.changeConversationDelegate = self
             return conversationsViewController
         }()
         SideMenuManager.menuPresentMode = .viewSlideInOut
@@ -107,5 +108,9 @@ class ChatViewController : BaseChatViewController, RChatInputViewDelegate {
         let dataSource = chatDataSource as! RChatDataSource
         dataSource.sendMessage(text: text)
 
+    }
+
+    func changeConversation(conversation: Conversation) {
+        (chatDataSource as! RChatDataSource).conversation = conversation
     }
 }

@@ -10,7 +10,13 @@ import UIKit
 import TURecipientBar
 import Cartography
 
+protocol ComposeViewControllerDelegate : class {
+    func composeWithUsers(users: [User])
+}
+
 class ComposeViewController: UIViewController, TURecipientsBarDelegate, UITableViewDataSource, UITableViewDelegate {
+
+    weak var delegate: ComposeViewControllerDelegate?
 
     lazy var recipientBar : RChatRecipientBar = {
         let recipientBar = RChatRecipientBar()
@@ -61,11 +67,25 @@ class ComposeViewController: UIViewController, TURecipientsBarDelegate, UITableV
     }
 
     func doneButtonDidTap(button: UIBarButtonItem){
-        dismiss(animated: true, completion: nil)
+        let users = recipientBar.users
+        var mutableUsers = [User]()
+        mutableUsers.append(contentsOf: users)
+        mutableUsers.append(User.getMe()) // lets add me
+        dismiss(animated: true) { 
+            self.delegate?.composeWithUsers(users: mutableUsers)
+        }
+    }
+
+    func recipientsBar(_ recipientsBar: TURecipientsBar, textDidChange searchText: String?) {
+        let searchTextNonOptional = searchText ?? ""
+        let users = User.searchForUsers(searchTerm: searchTextNonOptional)
+        self.users = Array(users)
+        self.tableView.reloadData()
     }
 
     func recipientsBar(_ recipientsBar: TURecipientsBar, didAdd recipient: TURecipientProtocol) {
         evaluateDoneButton()
+        recipientsBar.text = ""
     }
 
     func recipientsBar(_ recipientsBar: TURecipientsBar, didRemove recipient: TURecipientProtocol) {

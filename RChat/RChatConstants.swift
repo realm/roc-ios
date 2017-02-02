@@ -25,7 +25,12 @@ struct RChatConstants {
     }
 
     static var objectServerEndpoint : URL {
-        return URL(string: "http://localhost:9080" )!
+        return URL(string: "realm://138.197.85.79:9080" )!
+    }
+
+
+    static var authServerEndpoint : URL {
+        return URL(string: "http://138.197.85.79:9080" )!
     }
 
     /// Referencing Flat Colors from here : https://flatuicolors.com/
@@ -82,11 +87,6 @@ struct RChatConstants {
         }
         static var myRealm : Realm {
             let syncServerURL = URL(string: "\(RChatConstants.objectServerEndpoint.absoluteString)/~/userRealm")!
-            let config = Realm.Configuration(syncConfiguration: SyncConfiguration(user: SyncUser.current!, realmURL: syncServerURL))
-            return try! Realm(configuration: config)
-        }
-        static var chatMessages : Realm {
-            let syncServerURL = URL(string: "\(RChatConstants.objectServerEndpoint.absoluteString)/~/conversations")!
             let config = Realm.Configuration(syncConfiguration: SyncConfiguration(user: SyncUser.current!, realmURL: syncServerURL))
             return try! Realm(configuration: config)
         }

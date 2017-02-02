@@ -21,6 +21,7 @@ class ChatMessage : Object {
     /// possible storage of JSON information. Represented as a JSON
     dynamic var extraInfo: NSData?
     dynamic var timestamp: Date = Date()
+    let conversations = LinkingObjects(fromType: Conversation.self, property: "chatMessages")
 
     override static func primaryKey() -> String? {
         return "messageId"
@@ -30,8 +31,15 @@ class ChatMessage : Object {
 
 extension ChatMessage {
 
-    func sendChatMessage(chatMessage: ChatMessage){
-
+    static func sendTextChatMessage(conversation: Conversation, text: String){
+        let chatMessage = ChatMessage()
+        chatMessage.userId = RChatConstants.myUserId
+        chatMessage.conversationId = conversation.conversationId
+        chatMessage.text = text
+        let realm = RChatConstants.Realms.conversations
+        try! realm.write {
+            conversation.chatMessages.append(chatMessage)
+        }
     }
 
 }

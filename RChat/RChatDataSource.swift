@@ -23,7 +23,9 @@ class RChatDataSource : ChatDataSourceProtocol {
             notificationToken = c.chatMessages.sorted(byProperty: "timestamp", ascending: false)
                 .addNotificationBlock({ [weak self] (changes) in
                     guard let `self` = self else { return }
-
+                    let detachedChatMessages = Array(c.chatMessages).map({ ChatMessage(value: $0) })
+                    self.chatItems = detachedChatMessages
+                    self.delegate?.chatDataSourceDidUpdate(self)
                 })
         }
     }
@@ -49,12 +51,8 @@ class RChatDataSource : ChatDataSourceProtocol {
     }
 
     func sendMessage(text: String){
-        let chatMessage = ChatMessage()
-        chatMessage.messageId = NSUUID().uuidString
-        chatMessage.text = text
-        chatMessage.userId = "mbalex99"
-        chatItems.append(RChatTextMessageModel(messageModel: chatMessage))
-        delegate?.chatDataSourceDidUpdate(self)
+        guard let conversation = self.conversation else { fatalError("We are not attached to a conversation. It is nil") }
+        ChatMessage.sendTextChatMessage(conversation: conversation, text: text)
     }
 
 }

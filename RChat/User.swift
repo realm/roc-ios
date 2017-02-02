@@ -21,9 +21,14 @@ class User : Object {
 
 extension User {
 
-    func searchForUsers(searchTerm: String) -> Results<User> {
+    static func getMe() -> User! {
         let realm = RChatConstants.Realms.globalUsers
-        let predicate = NSPredicate(format: "username LIKE[c] %@", searchTerm)
+        return realm.object(ofType: User.self, forPrimaryKey: RChatConstants.myUserId)
+    }
+
+    static func searchForUsers(searchTerm: String) -> Results<User> {
+        let realm = RChatConstants.Realms.globalUsers
+        let predicate = NSPredicate(format: "username contains[c] %@ OR displayName contains[c] %@", searchTerm, searchTerm)
         return realm.objects(User.self).filter(predicate)
     }
 
