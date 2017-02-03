@@ -58,6 +58,8 @@
 		507AD9F11E32955700C432BB /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507AD9F01E32955700C432BB /* WelcomeViewController.swift */; };
 		507F29B31E25EC7B00F1D2ED /* ConversationSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507F29B21E25EC7B00F1D2ED /* ConversationSearchView.swift */; };
 		507F29B51E25EF6700F1D2ED /* ConversationTableViewCell .swift in Sources */ = {isa = PBXBuildFile; fileRef = 507F29B41E25EF6700F1D2ED /* ConversationTableViewCell .swift */; };
+		50F657A01E44F60600AB32A9 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F6579F1E44F60600AB32A9 /* SettingsViewController.swift */; };
+		50F657A21E44F64C00AB32A9 /* ProfileImageRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F657A11E44F64C00AB32A9 /* ProfileImageRow.swift */; };
 		68953DF73E0255FCB1BF51AB /* Pods_RChatTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8AB35D9E3146EA01066A608 /* Pods_RChatTests.framework */; };
 		74AAC82A174F5791435E3049 /* Pods_RChatUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF46AEB72E02B5B9F1B1D926 /* Pods_RChatUITests.framework */; };
 		88951EEF5C3ADF44902A22FF /* Pods_RChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7328AD7549EFFB9770BF4246 /* Pods_RChat.framework */; };
@@ -139,6 +141,8 @@
 		507AD9F01E32955700C432BB /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		507F29B21E25EC7B00F1D2ED /* ConversationSearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversationSearchView.swift; sourceTree = "<group>"; };
 		507F29B41E25EF6700F1D2ED /* ConversationTableViewCell .swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ConversationTableViewCell .swift"; sourceTree = "<group>"; };
+		50F6579F1E44F60600AB32A9 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		50F657A11E44F64C00AB32A9 /* ProfileImageRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileImageRow.swift; sourceTree = "<group>"; };
 		5DFF720C447BADFD54790C8C /* Pods-RChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RChat.release.xcconfig"; path = "Pods/Target Support Files/Pods-RChat/Pods-RChat.release.xcconfig"; sourceTree = "<group>"; };
 		7328AD7549EFFB9770BF4246 /* Pods_RChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		877A8327B46D9DFEBCC20809 /* Pods-RChatUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RChatUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RChatUITests/Pods-RChatUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -264,6 +268,7 @@
 		5018256A1E246D1500E9A535 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				50F6579E1E44F5AF00AB32A9 /* SettingsViewController */,
 				5000D6741E41F623007EF087 /* ComposeViewController */,
 				505412041E41CE14008E591A /* CustomNavController */,
 				5003AF311E3297A100057F8A /* LoginViewController */,
@@ -394,6 +399,15 @@
 				5003AF391E32A1A800057F8A /* WelcomeViewModel.swift */,
 			);
 			name = WelcomeViewController;
+			sourceTree = "<group>";
+		};
+		50F6579E1E44F5AF00AB32A9 /* SettingsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				50F6579F1E44F60600AB32A9 /* SettingsViewController.swift */,
+				50F657A11E44F64C00AB32A9 /* ProfileImageRow.swift */,
+			);
+			name = SettingsViewController;
 			sourceTree = "<group>";
 		};
 		5FD1F75CE3E0255EFB0D3A00 /* Pods */ = {
@@ -719,7 +733,9 @@
 				507F29B31E25EC7B00F1D2ED /* ConversationSearchView.swift in Sources */,
 				5000D6781E41F640007EF087 /* RChatRecipientBar.swift in Sources */,
 				5047F82E1E25799C00E60B63 /* SendingStatusCollectionViewCell.swift in Sources */,
+				50F657A01E44F60600AB32A9 /* SettingsViewController.swift in Sources */,
 				5047F8051E2561F600E60B63 /* RChatTextMessageViewModel.swift in Sources */,
+				50F657A21E44F64C00AB32A9 /* ProfileImageRow.swift in Sources */,
 				5047F81C1E25692000E60B63 /* TimeSeparatorPresenter.swift in Sources */,
 				5047F80B1E2563BF00E60B63 /* RChatInputView.swift in Sources */,
 				5047F8131E2567AE00E60B63 /* TimeSeperatorCollectionViewCell.swift in Sources */,

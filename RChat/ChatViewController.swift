@@ -48,7 +48,7 @@ class ChatViewController : BaseChatViewController, RChatInputViewDelegate, Conve
         SideMenuManager.menuLeftNavigationController = {
             let conversationsViewController = ConversationsViewController()
             conversationsViewController.leftSide = true
-            conversationsViewController.changeConversationDelegate = self
+            conversationsViewController.conversationsViewControllerDelegate = self
             return conversationsViewController
         }()
         SideMenuManager.menuPresentMode = .viewSlideInOut
@@ -111,7 +111,13 @@ class ChatViewController : BaseChatViewController, RChatInputViewDelegate, Conve
 
     }
 
+    // ConversationsViewControllerDelegate
+
     func changeConversation(conversation: Conversation) {
         (chatDataSource as! RChatDataSource).conversation = conversation
+    }
+
+    func goToProfile() {
+        navigationController?.pushViewController(SettingsViewController(), animated: true)
     }
 }

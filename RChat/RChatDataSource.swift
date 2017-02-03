@@ -16,17 +16,21 @@ class RChatDataSource : ChatDataSourceProtocol {
     var chatItems: [ChatItemProtocol] = []
     var notificationToken : NotificationToken?
 
+    private var isFirst: Bool = true
+
     var conversation : Conversation? {
         didSet {
             notificationToken?.stop()
+            isFirst = true
             guard let c = conversation else { return }
             let chatMessages = RChatConstants.Realms.conversations.objects(ChatMessage.self)
                 .filter("conversationId = %@", c.conversationId)
-                .sorted(byProperty: "timestamp", ascending: true)
+                .sorted(byKeyPath: "timestamp", ascending: true)
 
             notificationToken = chatMessages
                 .addNotificationBlock({ [weak self] (changes) in
                     guard let `self` = self else { return }
+                    self.isFirst = false
                     var items = [ChatItemProtocol]()
                     for m in Array(chatMessages).map({ ChatMessage(value: $0) }) {
                         if m.mimeType == MimeType.textPlain.rawValue {
@@ -34,7 +38,7 @@ class RChatDataSource : ChatDataSourceProtocol {
                         }
                     }
                     self.chatItems = items
-                    self.delegate?.chatDataSourceDidUpdate(self)
+                    self.delegate?.chatDataSourceDidUpdate(self, updateType: self.isFirst ? .reload : .normal)
                 })
         }
     }

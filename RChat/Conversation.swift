@@ -46,6 +46,7 @@ extension Conversation {
         return conversation
     }
 
+    @discardableResult
     static func generateDefaultConversation() -> Conversation {
         let conversation = Conversation()
         conversation.conversationId = RChatConstants.genericConversationId

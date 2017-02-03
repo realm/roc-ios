@@ -37,6 +37,16 @@ class ComposeViewController: UIViewController, TURecipientsBarDelegate, UITableV
 
     var users = [User]()
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        recipientBar.becomeFirstResponder()
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        recipientBar.resignFirstResponder()
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(recipientBar)

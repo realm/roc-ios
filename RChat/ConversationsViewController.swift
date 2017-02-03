@@ -14,6 +14,7 @@ import Cartography
 
 protocol ConversationsViewControllerDelegate: class {
     func changeConversation(conversation: Conversation)
+    func goToProfile()
 }
 
 class ConversationsViewController : UISideMenuNavigationController,
@@ -22,7 +23,7 @@ class ConversationsViewController : UISideMenuNavigationController,
     ComposeViewControllerDelegate
 {
 
-    weak var changeConversationDelegate: ConversationsViewControllerDelegate?
+    weak var conversationsViewControllerDelegate: ConversationsViewControllerDelegate?
 
     lazy var tableView : UITableView = {
         let t = UITableView()
@@ -63,6 +64,7 @@ class ConversationsViewController : UISideMenuNavigationController,
         view.addSubview(penButton)
 
         penButton.addTarget(self, action: #selector(ConversationsViewController.penButtonDidTap(button:)), for: .touchUpInside)
+        searchView.iconButton.addTarget(self, action: #selector(ConversationsViewController.profileIconButtonDidTap(button:)), for: .touchUpInside)
 
         tableView.dataSource = self
         tableView.delegate = self
@@ -123,6 +125,11 @@ class ConversationsViewController : UISideMenuNavigationController,
         present(controller, animated: true, completion: nil)
     }
 
+    func profileIconButtonDidTap(button: UIButton) {
+        dismiss(animated: true, completion: nil)
+        conversationsViewControllerDelegate?.goToProfile()
+    }
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return conversations.count
     }
@@ -137,13 +144,13 @@ class ConversationsViewController : UISideMenuNavigationController,
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let conversation = conversations[indexPath.row]
-        changeConversationDelegate?.changeConversation(conversation: conversation)
+        conversationsViewControllerDelegate?.changeConversation(conversation: conversation)
         dismiss(animated: true, completion: nil)
     }
 
     func composeWithUsers(users: [User]) {
         let conversation = Conversation.putConversation(users: users)
-        changeConversationDelegate?.changeConversation(conversation: conversation)
+        conversationsViewControllerDelegate?.changeConversation(conversation: conversation)
         dismiss(animated: true, completion: nil)
     }
 

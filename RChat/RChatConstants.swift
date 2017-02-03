@@ -38,7 +38,7 @@ struct RChatConstants {
     /// Referencing Flat Colors from here : https://flatuicolors.com/
     struct Colors {
         //APP
-        static var primaryColor = UIColor(hexString: "#39477F")
+        static var primaryColor = UIColor(hexString: "#38457c")
         static var primaryColorDark = UIColor(hexString: "#1C233F")
 
         //WHITES AND GRAY
