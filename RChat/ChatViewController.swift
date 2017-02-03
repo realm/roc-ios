@@ -16,11 +16,14 @@ class ChatViewController : BaseChatViewController, RChatInputViewDelegate, Conve
     let chatInputView = RChatInputView()
     let messageHandler = RChatBaseMessageHandler()
     var conversation: Conversation
+    var viewModel : ChatViewModel {
+        return self.chatDataSource as! ChatViewModel
+    }
 
     init(conversation : Conversation = Conversation.generateDefaultConversation()) {
         self.conversation = conversation
         super.init(nibName: nil, bundle: nil)
-        self.chatDataSource = RChatDataSource()
+        self.chatDataSource = ChatViewModel()
         self.chatItemsDecorator = RChatDecorator()
     }
     
@@ -43,7 +46,7 @@ class ChatViewController : BaseChatViewController, RChatInputViewDelegate, Conve
         }()
 
         chatInputView.delegate = self
-        (chatDataSource as! RChatDataSource).conversation = conversation
+        viewModel.conversation = conversation
 
         SideMenuManager.menuLeftNavigationController = {
             let conversationsViewController = ConversationsViewController()
@@ -58,6 +61,11 @@ class ChatViewController : BaseChatViewController, RChatInputViewDelegate, Conve
         SideMenuManager.menuAnimationPresentDuration = 0.25
         SideMenuManager.menuAnimationDismissDuration = 0.25
         SideMenuManager.menuAddScreenEdgePanGesturesToPresent(toView: self.view)
+
+        viewModel.defaultingNameCallback = { [weak self] defaultingName in
+            guard let `self` = self else { return }
+            self.title = defaultingName
+        }
 
     }
 
@@ -106,15 +114,12 @@ class ChatViewController : BaseChatViewController, RChatInputViewDelegate, Conve
     }
 
     func sendMessage(text: String) {
-        let dataSource = chatDataSource as! RChatDataSource
-        dataSource.sendMessage(text: text)
-
+        viewModel.sendMessage(text: text)
     }
 
     // ConversationsViewControllerDelegate
-
     func changeConversation(conversation: Conversation) {
-        (chatDataSource as! RChatDataSource).conversation = conversation
+        viewModel.conversation = conversation
     }
 
     func goToProfile() {

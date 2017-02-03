@@ -102,7 +102,9 @@ class LoginViewModel {
         newUser.displayName = self.username
 
         let realm = RChatConstants.Realms.global
+        let defaultConvo = Conversation.generateDefaultConversation()
         try! realm.write {
+            defaultConvo.users.append(newUser)
             realm.add(newUser, update: true)
         }
 

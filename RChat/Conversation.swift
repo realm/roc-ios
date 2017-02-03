@@ -12,6 +12,7 @@ class Conversation : Object {
 
     dynamic var conversationId: String = UUID().uuidString
     dynamic var displayName: String = ""
+    dynamic var unreadCount: Int = 0
     let users = List<User>()
     let chatMessages = List<ChatMessage>()
 
@@ -20,7 +21,9 @@ class Conversation : Object {
         if !displayName.isEmptyOrWhitespace {
             return displayName
         }
-        return users.map({ $0.defaultingName }).joined(separator: ",")
+        return users
+            .filter({ $0.userId != RChatConstants.myUserId })
+            .map({ $0.defaultingName }).joined(separator: ",")
     }
 
     override static func primaryKey() -> String? {
@@ -70,6 +73,14 @@ extension Conversation {
         return conversation
     }
 
+    static func observeConversationBy(conversationId: String, callback: @escaping ((Conversation?) -> Void)) -> NotificationToken {
+        let realm = RChatConstants.Realms.global
+        let results = realm.objects(Conversation.self).filter("conversationId = %@", conversationId)
+        return results.addNotificationBlock({ (_) in
+            let conversation = results.first
+            callback(conversation)
+        })
+    }
 
 }
 

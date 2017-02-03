@@ -1,25 +1,33 @@
 //
-//  RChatDataSource.swift
+//  ChatViewModel.swift
 //  RChat
 //
-//  Created by Max Alexander on 1/10/17.
+//  Created by Max Alexander on 2/3/17.
 //  Copyright © 2017 Max Alexander. All rights reserved.
 //
 
 import Foundation
-import Chatto
 import RealmSwift
+import Chatto
 
-class RChatDataSource : ChatDataSourceProtocol {
+class ChatViewModel : ChatDataSourceProtocol {
 
     var delegate: ChatDataSourceDelegateProtocol?
     var chatItems: [ChatItemProtocol] = []
     var notificationToken : NotificationToken?
+    var observeConversationToken : NotificationToken?
 
     private var isFirst: Bool = true
 
+    var defaultingNameCallback : ((String) -> Void)? {
+        didSet {
+            self.defaultingNameCallback?(conversation?.defaultingName ?? "")
+        }
+    }
+
     var conversation : Conversation? {
         didSet {
+            observeConversationToken?.stop()
             notificationToken?.stop()
             isFirst = true
             guard let c = conversation else { return }
@@ -40,10 +48,13 @@ class RChatDataSource : ChatDataSourceProtocol {
                     self.chatItems = items
                     self.delegate?.chatDataSourceDidUpdate(self, updateType: self.isFirst ? .reload : .normal)
                 })
+
+            observeConversationToken = Conversation.observeConversationBy(conversationId: c.conversationId) { [weak self] conversation in
+                guard let `self` = self else { return }
+                self.defaultingNameCallback?(conversation?.defaultingName ?? "")
+            }
         }
     }
-
-
 
     var hasMoreNext: Bool {
         return false
@@ -68,6 +79,12 @@ class RChatDataSource : ChatDataSourceProtocol {
     func sendMessage(text: String){
         guard let conversation = self.conversation else { fatalError("We are not attached to a conversation. It is nil") }
         ChatMessage.sendTextChatMessage(conversation: conversation, text: text)
+    }
+
+    deinit {
+        notificationToken?.stop()
+        observeConversationToken?.stop()
+
     }
 
 }
