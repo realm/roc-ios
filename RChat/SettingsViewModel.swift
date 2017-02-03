@@ -22,11 +22,20 @@ class SettingsViewModel {
         SyncUser.current?.logOut()
         returnToWelcomeViewController?()
     }
+    func saveRowDidTap(){
+        let myUser = User.getMe()
+        let realm = RChatConstants.Realms.global
+        try! realm.write {
+            myUser?.displayName = self.displayName ?? ""
+        }
+        showSaveSuccessBanner?()
+    }
 
     // TO UI
     var presentProfileImageChangeAlert: ((Void) -> ())?
     var presentLogoutAlert: ((Void) -> ())?
     var returnToWelcomeViewController: ((Void) -> ())?
+    var showSaveSuccessBanner: ((Void) -> ())?
 
     var username: String?
     var displayName: String?

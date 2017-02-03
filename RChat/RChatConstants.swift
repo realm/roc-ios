@@ -51,6 +51,8 @@ struct RChatConstants {
         static var belizeHole = UIColor(hexString: "#2980b9")
         static var wetAsphalt = UIColor(hexString: "#34495e")
         static var midnightBlue = UIColor(hexString: "#2c3e50")
+        //GREENS
+        static var nephritis = UIColor(hexString: "#27ae60")
     }
 
     struct Fonts {

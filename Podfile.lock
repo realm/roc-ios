@@ -1,4 +1,5 @@
 PODS:
+  - BRYXBanner (0.7.1)
   - Cartography (1.0.1)
   - Chatto (3.0.1)
   - ChattoAdditions (3.0.1):
@@ -17,6 +18,7 @@ PODS:
   - TURecipientBar (2.0.4)
 
 DEPENDENCIES:
+  - BRYXBanner (~> 0.7.1)
   - Cartography (= 1.0.1)
   - Chatto (~> 3.0.1)
   - ChattoAdditions (~> 3.0.1)
@@ -28,6 +30,7 @@ DEPENDENCIES:
   - TURecipientBar (~> 2.0.4)
 
 SPEC CHECKSUMS:
+  BRYXBanner: 34eabf9c6c009f187948ca78a4f3bba3767d0f04
   Cartography: c1460e99395b824d9d75360b0382faeb0b33dcd7
   Chatto: 484273a793e06a33cef2f7e5b5b88a5a375df015
   ChattoAdditions: efd743b47dbd063eac824cd4bd94756cbf503f70
@@ -39,6 +42,6 @@ SPEC CHECKSUMS:
   SideMenu: bcd2d7b7d4395af088e213cebd11c3ac7d958f5a
   TURecipientBar: 4904645f476ad056e17c9458fa9894552339e63a
 
-PODFILE CHECKSUM: 26f9d16ad189355753d5c3c03ecf50df293c6abd
+PODFILE CHECKSUM: 0919106e4685f138423ba5b06e65593b0c0d62e4
 
 COCOAPODS: 1.2.0

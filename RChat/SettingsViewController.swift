@@ -8,6 +8,7 @@
 
 import UIKit
 import Eureka
+import BRYXBanner
 
 class SettingsViewController : FormViewController {
 
@@ -65,7 +66,10 @@ class SettingsViewController : FormViewController {
             })
 
         form +++ Section()
-            <<< saveButtonRow
+            <<< saveButtonRow.onCellSelection({ [weak self] (_, _) in
+                guard let `self` = self else { return }
+                self.viewModel.saveRowDidTap()
+            })
 
         form +++ Section()
             <<< logoutButtonRow.onCellSelection({ [weak self] (_, _) in
@@ -103,6 +107,13 @@ class SettingsViewController : FormViewController {
         viewModel.returnToWelcomeViewController = { [weak self] in
             guard let `self` = self else { return }
             self.navigationController?.setViewControllers([WelcomeViewController()], animated: true)
+        }
+
+        viewModel.showSaveSuccessBanner = {
+            let banner = Banner(title: "Settings Saved")
+            banner.backgroundColor = RChatConstants.Colors.nephritis
+            banner.dismissesOnTap = true
+            banner.show(duration: 2.0)
         }
     }
 
