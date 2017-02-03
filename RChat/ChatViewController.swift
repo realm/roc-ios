@@ -57,6 +57,7 @@ class ChatViewController : BaseChatViewController, RChatInputViewDelegate, Conve
         SideMenuManager.menuShadowOpacity = 0
         SideMenuManager.menuAnimationPresentDuration = 0.25
         SideMenuManager.menuAnimationDismissDuration = 0.25
+        SideMenuManager.menuAddScreenEdgePanGesturesToPresent(toView: self.view)
 
     }
 
