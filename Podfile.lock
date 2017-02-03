@@ -4,15 +4,15 @@ PODS:
   - ChattoAdditions (3.0.1):
     - Chatto
   - Eureka (2.0.0-beta.1)
-  - Realm (2.1.2):
-    - Realm/Headers (= 2.1.2)
-  - Realm/Headers (2.1.2)
-  - RealmSwift (2.1.2):
-    - Realm (= 2.1.2)
+  - Realm (2.4.2):
+    - Realm/Headers (= 2.4.2)
+  - Realm/Headers (2.4.2)
+  - RealmSwift (2.4.2):
+    - Realm (= 2.4.2)
   - SDWebImage (3.8.2):
     - SDWebImage/Core (= 3.8.2)
   - SDWebImage/Core (3.8.2)
-  - SideMenu (2.1.4)
+  - SideMenu (2.1.5)
   - TURecipientBar (2.0.4)
 
 DEPENDENCIES:
@@ -20,7 +20,7 @@ DEPENDENCIES:
   - Chatto (~> 3.0.1)
   - ChattoAdditions (~> 3.0.1)
   - Eureka (~> 2.0.0-beta.1)
-  - RealmSwift (~> 2.1.2)
+  - RealmSwift
   - SDWebImage (~> 3.8.2)
   - SideMenu (~> 2.1.3)
   - TURecipientBar (~> 2.0.4)
@@ -30,12 +30,12 @@ SPEC CHECKSUMS:
   Chatto: 484273a793e06a33cef2f7e5b5b88a5a375df015
   ChattoAdditions: efd743b47dbd063eac824cd4bd94756cbf503f70
   Eureka: d014adf16406745e1a78d5790ea37ed130a0a8e5
-  Realm: efe855f4d977c8ce5a82d3116d9f1ff155a6550c
-  RealmSwift: 17d6ee30b6f9df86364408c2197492e33bfea567
+  Realm: d27b758e12d62a3371879a065d4c40aa212c5a54
+  RealmSwift: 9556c0fe0f0cfecacfb755ae9e68ff379fc6bead
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
-  SideMenu: 74b93b251064668fc7523aae897157b767733f04
+  SideMenu: bcd2d7b7d4395af088e213cebd11c3ac7d958f5a
   TURecipientBar: 4904645f476ad056e17c9458fa9894552339e63a
 
-PODFILE CHECKSUM: 82c837c03ac9541bcd0955963d948ae6aa1610ee
+PODFILE CHECKSUM: 4e98eb75781fed71ab4977ae0a40dd5952f5ab0b
 
-COCOAPODS: 1.2.0.rc.1
+COCOAPODS: 1.2.0
