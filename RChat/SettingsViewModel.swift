@@ -23,8 +23,6 @@ class SettingsViewModel {
         returnToWelcomeViewController?()
     }
 
-
-
     // TO UI
     var presentProfileImageChangeAlert: ((Void) -> ())?
     var presentLogoutAlert: ((Void) -> ())?
