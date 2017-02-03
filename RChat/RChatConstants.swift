@@ -77,13 +77,8 @@ struct RChatConstants {
     }
 
     struct Realms {
-        static var globalUsers : Realm {
-            let syncServerURL = URL(string: "\(RChatConstants.objectServerEndpoint.absoluteString)/users")!
-            let config = Realm.Configuration(syncConfiguration: SyncConfiguration(user: SyncUser.current!, realmURL: syncServerURL))
-            return try! Realm(configuration: config)
-        }
-        static var conversations : Realm {
-            let syncServerURL = URL(string: "\(RChatConstants.objectServerEndpoint.absoluteString)/conversations")!
+        static var global : Realm {
+            let syncServerURL = URL(string: "\(RChatConstants.objectServerEndpoint.absoluteString)/global")!
             let config = Realm.Configuration(syncConfiguration: SyncConfiguration(user: SyncUser.current!, realmURL: syncServerURL))
             return try! Realm(configuration: config)
         }

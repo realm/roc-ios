@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import RealmSwift
 
 class SettingsViewModel {
 
@@ -14,13 +15,20 @@ class SettingsViewModel {
     func profileRowDidTap(){
         presentProfileImageChangeAlert?()
     }
-    func confirmLogoutDidTap(){
-
+    func logoutRowDidTap(){
+        presentLogoutAlert?()
     }
+    func confirmLogoutDidTap(){
+        SyncUser.current?.logOut()
+        returnToWelcomeViewController?()
+    }
+
+
 
     // TO UI
     var presentProfileImageChangeAlert: ((Void) -> ())?
     var presentLogoutAlert: ((Void) -> ())?
+    var returnToWelcomeViewController: ((Void) -> ())?
 
     var username: String?
     var displayName: String?

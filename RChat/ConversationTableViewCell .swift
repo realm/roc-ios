@@ -27,7 +27,7 @@ class ConversationTableViewCell : UITableViewCell {
     }
 
     func setupWithConversation(conversation: Conversation){
-        textLabel?.text = conversation.displayName
+        textLabel?.text = conversation.defaultingName
     }
 
     override func prepareForReuse() {

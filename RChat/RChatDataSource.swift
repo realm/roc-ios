@@ -23,7 +23,7 @@ class RChatDataSource : ChatDataSourceProtocol {
             notificationToken?.stop()
             isFirst = true
             guard let c = conversation else { return }
-            let chatMessages = RChatConstants.Realms.conversations.objects(ChatMessage.self)
+            let chatMessages = RChatConstants.Realms.global.objects(ChatMessage.self)
                 .filter("conversationId = %@", c.conversationId)
                 .sorted(byKeyPath: "timestamp", ascending: true)
 

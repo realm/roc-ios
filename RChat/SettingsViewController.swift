@@ -68,7 +68,10 @@ class SettingsViewController : FormViewController {
             <<< saveButtonRow
 
         form +++ Section()
-            <<< logoutButtonRow
+            <<< logoutButtonRow.onCellSelection({ [weak self] (_, _) in
+                guard let `self` = self else { return }
+                self.viewModel.logoutRowDidTap()
+            })
 
 
         usernameRow.value = viewModel.username
@@ -85,6 +88,21 @@ class SettingsViewController : FormViewController {
             }))
             alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
             self.present(alertController, animated: true, completion: nil)
+        }
+
+        viewModel.presentLogoutAlert = { [weak self] in
+            guard let `self` = self else { return }
+            let alertController = UIAlertController(title: "Are you sure?", message: nil, preferredStyle: .actionSheet)
+            alertController.addAction(UIAlertAction(title: "Yes, Log me out", style: .destructive, handler: { (_) in
+                self.viewModel.confirmLogoutDidTap()
+            }))
+            alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            self.present(alertController, animated: true, completion: nil)
+        }
+
+        viewModel.returnToWelcomeViewController = { [weak self] in
+            guard let `self` = self else { return }
+            self.navigationController?.setViewControllers([WelcomeViewController()], animated: true)
         }
     }
 

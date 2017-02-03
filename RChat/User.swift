@@ -14,20 +14,30 @@ class User : Object {
     dynamic var username: String = ""
     dynamic var displayName : String = ""
 
+    var defaultingName: String {
+        if !displayName.isEmpty {
+            return displayName
+        }
+        return "@\(username)"
+    }
+
     override static func primaryKey() -> String? {
         return "userId"
+    }
+    override static func ignoredProperties() -> [String] {
+        return ["defaultingName"]
     }
 }
 
 extension User {
 
     static func getMe() -> User! {
-        let realm = RChatConstants.Realms.globalUsers
+        let realm = RChatConstants.Realms.global
         return realm.object(ofType: User.self, forPrimaryKey: RChatConstants.myUserId)
     }
 
     static func searchForUsers(searchTerm: String) -> Results<User> {
-        let realm = RChatConstants.Realms.globalUsers
+        let realm = RChatConstants.Realms.global
         let predicate = NSPredicate(format: "(username contains[c] %@ OR displayName contains[c] %@) AND (userId != %@)", searchTerm, searchTerm, RChatConstants.myUserId)
         return realm.objects(User.self).filter(predicate)
     }

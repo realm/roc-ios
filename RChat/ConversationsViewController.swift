@@ -56,6 +56,11 @@ class ConversationsViewController : UISideMenuNavigationController,
     var conversations : Results<Conversation>!
     var notificationToken : NotificationToken?
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = RChatConstants.Colors.primaryColorDark
@@ -86,7 +91,7 @@ class ConversationsViewController : UISideMenuNavigationController,
             penButton.bottom == penButton.superview!.bottom - RChatConstants.Numbers.verticalSpacing
         }
 
-        let realm = RChatConstants.Realms.conversations
+        let realm = RChatConstants.Realms.global
         let predicate = NSPredicate(format: "ANY users.userId = %@", RChatConstants.myUserId)
         conversations = realm.objects(Conversation.self).filter(predicate)
 
@@ -95,6 +100,7 @@ class ConversationsViewController : UISideMenuNavigationController,
                 guard let `self` = self else { return }
                 switch changes {
                 case .initial:
+                    print(self.conversations.count)
                     self.tableView.reloadData()
                     break
                 case .update(_, let deletions, let insertions, let modifications):
@@ -121,13 +127,19 @@ class ConversationsViewController : UISideMenuNavigationController,
     }
 
     func penButtonDidTap(button: UIButton){
-        let controller = CustomNavController(rootViewController: ComposeViewController())
+        let composeViewController = ComposeViewController()
+        composeViewController.delegate = self
+        let controller = CustomNavController(rootViewController: composeViewController)
         present(controller, animated: true, completion: nil)
     }
 
     func profileIconButtonDidTap(button: UIButton) {
         dismiss(animated: true, completion: nil)
         conversationsViewControllerDelegate?.goToProfile()
+    }
+
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

@@ -101,7 +101,7 @@ class LoginViewModel {
         newUser.username = self.username
         newUser.displayName = self.username
 
-        let realm = RChatConstants.Realms.globalUsers
+        let realm = RChatConstants.Realms.global
         try! realm.write {
             realm.add(newUser, update: true)
         }

@@ -36,7 +36,7 @@ extension ChatMessage {
         chatMessage.userId = RChatConstants.myUserId
         chatMessage.conversationId = conversation.conversationId
         chatMessage.text = text
-        let realm = RChatConstants.Realms.conversations
+        let realm = RChatConstants.Realms.global
         try! realm.write {
             conversation.chatMessages.append(chatMessage)
         }

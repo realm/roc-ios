@@ -10,13 +10,25 @@ import RealmSwift
 
 class Conversation : Object {
 
-    dynamic var conversationId : String = UUID().uuidString
-    dynamic var displayName : String = ""
+    dynamic var conversationId: String = UUID().uuidString
+    dynamic var displayName: String = ""
     let users = List<User>()
     let chatMessages = List<ChatMessage>()
 
+    // This should show some sort of name even if the display name is empty
+    var defaultingName: String {
+        if !displayName.isEmptyOrWhitespace {
+            return displayName
+        }
+        return users.map({ $0.defaultingName }).joined(separator: ",")
+    }
+
     override static func primaryKey() -> String? {
         return "conversationId"
+    }
+
+    override static func ignoredProperties() -> [String] {
+        return ["defaultingName"]
     }
 
 }
@@ -36,7 +48,7 @@ extension Conversation {
         if users.count == 2 {
             conversationId = generateDirectMessage(userId1: users[0].userId, userId2: users[1].userId)
         }
-        let realm = RChatConstants.Realms.conversations
+        let realm = RChatConstants.Realms.global
         let conversation = Conversation()
         conversation.conversationId = conversationId
         conversation.users.append(objectsIn: users)
@@ -51,7 +63,7 @@ extension Conversation {
         let conversation = Conversation()
         conversation.conversationId = RChatConstants.genericConversationId
         conversation.displayName = "Welcome to RChat"
-        let realm = RChatConstants.Realms.conversations
+        let realm = RChatConstants.Realms.global
         try! realm.write {
             realm.add(conversation, update: true)
         }

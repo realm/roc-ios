@@ -14,6 +14,7 @@ target 'RChat' do
   pod 'Eureka', '~> 2.0.0-beta.1'
   pod 'Cartography', '1.0.1'
   pod 'TURecipientBar', '~> 2.0.4'
+  pod 'NVActivityIndicatorView', '3.3'
 
   target 'RChatTests' do
     inherit! :search_paths

@@ -82,24 +82,33 @@ class LoginViewControler : FormViewController {
 
         // FROM VIEWMODEL
         viewModel.isProcessingCallback = { [weak self] isProcessing in
-            self?.buttonRow.disabled = Condition(booleanLiteral: isProcessing)
-            self?.buttonRow.reload()
+            guard let `self` = self else { return }
+            self.buttonRow.disabled = Condition(booleanLiteral: isProcessing)
+            self.buttonRow.reload()
+            if isProcessing {
+                LoadingView.show(superView: self.view)
+            }else{
+                LoadingView.hide(superView: self.view)
+            }
         }
 
         viewModel.authErrorCallback = { [weak self] errorMessage in
+            guard let `self` = self else { return }
             let alertViewController = UIAlertController(title: errorMessage, message: nil, preferredStyle: .alert)
             alertViewController.addAction(UIAlertAction(title: "Okay", style: .cancel, handler: nil))
-            self?.present(alertViewController, animated: true, completion: nil)
+            self.present(alertViewController, animated: true, completion: nil)
         }
 
         viewModel.authSuccessCallback = { [weak self] _ in
-            self?.navigationController?.setViewControllers([ChatViewController()], animated: true)
+            guard let `self` = self else { return }
+            self.navigationController?.setViewControllers([ChatViewController()], animated: true)
         }
 
         viewModel.modeCallback = { [weak self] mode in
-            self?.title = mode == .login ? "Login" : "Signup"
-            self?.buttonRow.title = mode == .login ? "Login" : "Signup"
-            self?.buttonRow.reload()
+            guard let `self` = self else { return }
+            self.title = mode == .login ? "Login" : "Signup"
+            self.buttonRow.title = mode == .login ? "Login" : "Signup"
+            self.buttonRow.reload()
         }
     }
 
