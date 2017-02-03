@@ -60,6 +60,8 @@
 		507F29B51E25EF6700F1D2ED /* ConversationTableViewCell .swift in Sources */ = {isa = PBXBuildFile; fileRef = 507F29B41E25EF6700F1D2ED /* ConversationTableViewCell .swift */; };
 		50F657A01E44F60600AB32A9 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F6579F1E44F60600AB32A9 /* SettingsViewController.swift */; };
 		50F657A21E44F64C00AB32A9 /* ProfileImageRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F657A11E44F64C00AB32A9 /* ProfileImageRow.swift */; };
+		50F657A41E44FF7900AB32A9 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F657A31E44FF7900AB32A9 /* SettingsViewModel.swift */; };
+		50F657A61E45016D00AB32A9 /* SettingsViewController+ImagePicking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F657A51E45016D00AB32A9 /* SettingsViewController+ImagePicking.swift */; };
 		68953DF73E0255FCB1BF51AB /* Pods_RChatTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8AB35D9E3146EA01066A608 /* Pods_RChatTests.framework */; };
 		74AAC82A174F5791435E3049 /* Pods_RChatUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF46AEB72E02B5B9F1B1D926 /* Pods_RChatUITests.framework */; };
 		88951EEF5C3ADF44902A22FF /* Pods_RChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7328AD7549EFFB9770BF4246 /* Pods_RChat.framework */; };
@@ -143,6 +145,8 @@
 		507F29B41E25EF6700F1D2ED /* ConversationTableViewCell .swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ConversationTableViewCell .swift"; sourceTree = "<group>"; };
 		50F6579F1E44F60600AB32A9 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		50F657A11E44F64C00AB32A9 /* ProfileImageRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileImageRow.swift; sourceTree = "<group>"; };
+		50F657A31E44FF7900AB32A9 /* SettingsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		50F657A51E45016D00AB32A9 /* SettingsViewController+ImagePicking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SettingsViewController+ImagePicking.swift"; sourceTree = "<group>"; };
 		5DFF720C447BADFD54790C8C /* Pods-RChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RChat.release.xcconfig"; path = "Pods/Target Support Files/Pods-RChat/Pods-RChat.release.xcconfig"; sourceTree = "<group>"; };
 		7328AD7549EFFB9770BF4246 /* Pods_RChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		877A8327B46D9DFEBCC20809 /* Pods-RChatUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RChatUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RChatUITests/Pods-RChatUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -406,6 +410,8 @@
 			children = (
 				50F6579F1E44F60600AB32A9 /* SettingsViewController.swift */,
 				50F657A11E44F64C00AB32A9 /* ProfileImageRow.swift */,
+				50F657A31E44FF7900AB32A9 /* SettingsViewModel.swift */,
+				50F657A51E45016D00AB32A9 /* SettingsViewController+ImagePicking.swift */,
 			);
 			name = SettingsViewController;
 			sourceTree = "<group>";
@@ -734,11 +740,13 @@
 				5000D6781E41F640007EF087 /* RChatRecipientBar.swift in Sources */,
 				5047F82E1E25799C00E60B63 /* SendingStatusCollectionViewCell.swift in Sources */,
 				50F657A01E44F60600AB32A9 /* SettingsViewController.swift in Sources */,
+				50F657A41E44FF7900AB32A9 /* SettingsViewModel.swift in Sources */,
 				5047F8051E2561F600E60B63 /* RChatTextMessageViewModel.swift in Sources */,
 				50F657A21E44F64C00AB32A9 /* ProfileImageRow.swift in Sources */,
 				5047F81C1E25692000E60B63 /* TimeSeparatorPresenter.swift in Sources */,
 				5047F80B1E2563BF00E60B63 /* RChatInputView.swift in Sources */,
 				5047F8131E2567AE00E60B63 /* TimeSeperatorCollectionViewCell.swift in Sources */,
+				50F657A61E45016D00AB32A9 /* SettingsViewController+ImagePicking.swift in Sources */,
 				5047F7F91E255D7600E60B63 /* RChatTextMessageHandler.swift in Sources */,
 				5047F7FF1E255EEE00E60B63 /* ChatMessage+MessageModelProtocol.swift in Sources */,
 				5047F8231E256C7100E60B63 /* UIColor+Hex.swift in Sources */,

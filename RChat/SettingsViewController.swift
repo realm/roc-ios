@@ -45,21 +45,47 @@ class SettingsViewController : FormViewController {
         return row
     }()
 
+    var viewModel = SettingsViewModel()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         title = "Profile"
 
         form +++ Section()
-            <<< profileRow
+            <<< profileRow.onCellSelection({ [weak self] (cell, row) in
+                guard let `self` = self else { return }
+                row.deselect(animated: true)
+                self.viewModel.profileRowDidTap()
+            })
             <<< usernameRow
-            <<< displayNameRow
+            <<< displayNameRow.onChange({ [weak self] (r) in
+                guard let `self` = self else { return }
+                self.viewModel.displayName = r.value
+            })
 
         form +++ Section()
             <<< saveButtonRow
 
         form +++ Section()
             <<< logoutButtonRow
+
+
+        usernameRow.value = viewModel.username
+        displayNameRow.value = viewModel.displayName
+
+        viewModel.presentProfileImageChangeAlert = { [weak self] in
+            guard let `self` = self else { return }
+            let alertController = UIAlertController(title: "Change Profile Image", message: nil, preferredStyle: .actionSheet)
+            alertController.addAction(UIAlertAction(title: "From Camera", style: .default, handler: { (_) in
+                self.presentCamera()
+            }))
+            alertController.addAction(UIAlertAction(title: "From Photo Library", style: .default, handler: { (_) in
+                self.presentPhotoLibrary()
+            }))
+            alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            self.present(alertController, animated: true, completion: nil)
+        }
     }
 
 }
