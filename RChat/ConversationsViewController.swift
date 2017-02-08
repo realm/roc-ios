@@ -34,6 +34,7 @@ class ConversationsViewController : UISideMenuNavigationController,
         t.separatorColor = .clear
         t.register(ConversationTableViewCell.self, forCellReuseIdentifier: ConversationTableViewCell.REUSE_ID)
         t.rowHeight = ConversationTableViewCell.HEIGHT
+        t.contentInset = UIEdgeInsetsMake(0, 0, 200, 0)
         return t
     }()
 

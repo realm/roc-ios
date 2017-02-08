@@ -34,15 +34,15 @@ class ConversationTableViewCell : UITableViewCell {
         contentView.addSubview(unreadIndicatorLabel)
 
         constrain(textLabel!, unreadIndicatorLabel) { (textLabel, unreadIndicatorLabel) in
-            unreadIndicatorLabel.right == unreadIndicatorLabel.superview!.right - RChatConstants.Numbers.horizontalSpacing
+            unreadIndicatorLabel.left == unreadIndicatorLabel.superview!.left + RChatConstants.Numbers.horizontalSpacing
             unreadIndicatorLabel.height == 33
             unreadIndicatorLabel.width == 33
             unreadIndicatorLabel.centerY == unreadIndicatorLabel.superview!.centerY
 
-            textLabel.left == textLabel.superview!.left + RChatConstants.Numbers.horizontalSpacing
+            textLabel.left == unreadIndicatorLabel.right + RChatConstants.Numbers.horizontalSpacing
             textLabel.top == textLabel.superview!.top
             textLabel.bottom == textLabel.superview!.bottom
-            textLabel.right == unreadIndicatorLabel.left - RChatConstants.Numbers.minorHorizontalSpacing
+            textLabel.right == unreadIndicatorLabel.superview!.right - RChatConstants.Numbers.minorHorizontalSpacing
         }
     }
     
