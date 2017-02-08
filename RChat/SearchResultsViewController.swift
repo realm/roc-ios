@@ -59,5 +59,8 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
         return cell
     }
 
+    func searchConversationsAndUsers(searchTerm: String){
+
+    }
 
 }

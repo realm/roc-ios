@@ -184,7 +184,9 @@ class ConversationsViewController : UISideMenuNavigationController,
     }
 
     func fireChatSearch(searchTerm: String) {
-
+        let selector = #selector(SearchResultsViewController.searchConversationsAndUsers(searchTerm:))
+        NSObject.cancelPreviousPerformRequests(withTarget: searchResultsController, selector: selector, object: nil)
+        searchResultsController.perform(selector, with: nil, afterDelay: 0.5)
     }
 
     func searchStateChanged(isFirstResponder: Bool) {

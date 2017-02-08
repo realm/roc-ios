@@ -62,6 +62,7 @@ class ConversationSearchView : UIView, UITextFieldDelegate {
         addSubview(cancelButton)
 
         searchTextField.delegate = self
+        searchTextField.addTarget(self, action: #selector(ConversationSearchView.textFieldDidChange(textField:)), for: .editingChanged)
         cancelButton.addTarget(self, action: #selector(cancelButtonDidTap(button:)), for: .touchUpInside)
 
         toggle(isEditing: false)
@@ -69,6 +70,10 @@ class ConversationSearchView : UIView, UITextFieldDelegate {
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    func textFieldDidChange(textField: String){
+        delegate?.fireChatSearch(searchTerm: textField)
     }
 
     func textFieldDidBeginEditing(_ textField: UITextField) {
