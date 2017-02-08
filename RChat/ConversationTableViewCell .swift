@@ -13,7 +13,7 @@ class ConversationTableViewCell : UITableViewCell {
 
     lazy var unreadIndicatorLabel : UILabel = {
         let label = UILabel()
-        label.backgroundColor = .red
+        label.backgroundColor = .clear
         label.layer.cornerRadius = RChatConstants.Numbers.cornerRadius
         label.layer.masksToBounds = true
         label.textColor = .white
@@ -54,7 +54,8 @@ class ConversationTableViewCell : UITableViewCell {
         textLabel?.text = conversation.defaultingName
         textLabel?.font = conversation.unreadCount > 0 ? RChatConstants.Fonts.boldFont : RChatConstants.Fonts.regularFont
         unreadIndicatorLabel.text = "\(conversation.unreadCount)"
-        unreadIndicatorLabel.isHidden = conversation.unreadCount == 0
+        unreadIndicatorLabel.layer.borderColor = conversation.unreadCount == 0 ? UIColor.darkGray.cgColor : UIColor.clear.cgColor
+        unreadIndicatorLabel.layer.borderWidth = conversation.unreadCount == 0 ? 1.0 : 0
     }
 
     override func prepareForReuse() {

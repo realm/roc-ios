@@ -101,7 +101,7 @@ class ConversationsViewController : UISideMenuNavigationController,
             tableView.right == tableView.superview!.right
             tableView.bottom == tableView.superview!.bottom
 
-            searchResultsView.top == tableView.top
+            searchResultsView.top == searchResultsView.superview!.top
             searchResultsView.bottom == tableView.bottom
             searchResultsView.left == tableView.left
             searchResultsView.right == tableView.right

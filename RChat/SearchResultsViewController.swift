@@ -33,9 +33,7 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .red
         view.addSubview(tableView)
-
         constrain(tableView) { (tableView) in
             tableView.left == tableView.superview!.left
             tableView.right == tableView.superview!.right
