@@ -66,6 +66,7 @@ struct RChatConstants {
         static var profileIcon = UIImage(named: "profile_icon")?.withRenderingMode(.alwaysTemplate)
         static var penIcon = UIImage(named: "pen_icon")?.withRenderingMode(.alwaysTemplate)
         static var launchLogo = UIImage(named: "launch_logo")?.withRenderingMode(.alwaysTemplate)
+        static var verticalMoreIcon = UIImage(named: "more_verticle_icon")?.withRenderingMode(.alwaysTemplate)
     }
 
     struct Numbers {

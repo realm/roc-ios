@@ -11,7 +11,11 @@ import Chatto
 import ChattoAdditions
 import SideMenu
 
-class ChatViewController : BaseChatViewController, RChatInputViewDelegate, ConversationsViewControllerDelegate {
+class ChatViewController : BaseChatViewController,
+    RChatInputViewDelegate,
+    ConversationsViewControllerDelegate,
+    MembersViewControllerDelegate
+{
 
     let chatInputView = RChatInputView()
     let messageHandler = RChatBaseMessageHandler()
@@ -40,7 +44,12 @@ class ChatViewController : BaseChatViewController, RChatInputViewDelegate, Conve
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
         navigationItem.leftBarButtonItem = {
-            let barButtonItem = UIBarButtonItem(image: RChatConstants.Images.menuIcon, style: .plain, target: self, action: #selector(ChatViewController.menuTapped))
+            let barButtonItem = UIBarButtonItem(image: RChatConstants.Images.menuIcon, style: .plain, target: self, action: #selector(ChatViewController.menuBarButtonTapped))
+            barButtonItem.tintColor = .white
+            return barButtonItem
+        }()
+        navigationItem.rightBarButtonItem = {
+            let barButtonItem = UIBarButtonItem(image: RChatConstants.Images.verticalMoreIcon, style: .plain, target: self, action: #selector(ChatViewController.membersBarButtonTapped))
             barButtonItem.tintColor = .white
             return barButtonItem
         }()
@@ -54,6 +63,13 @@ class ChatViewController : BaseChatViewController, RChatInputViewDelegate, Conve
             conversationsViewController.conversationsViewControllerDelegate = self
             return conversationsViewController
         }()
+        SideMenuManager.menuRightNavigationController = {
+            let membersViewController = MembersViewController()
+            membersViewController.leftSide = false
+            membersViewController.membersViewControllerDelegate = self
+            return membersViewController
+        }()
+
         SideMenuManager.menuPresentMode = .viewSlideInOut
         SideMenuManager.menuFadeStatusBar = false
         SideMenuManager.menuWidth = max(round(min(UIScreen.main.bounds.width, UIScreen.main.bounds.height) * 0.85), 240)
@@ -95,8 +111,12 @@ class ChatViewController : BaseChatViewController, RChatInputViewDelegate, Conve
         ]
     }
 
-    func menuTapped(){
+    func menuBarButtonTapped(){
         present(SideMenuManager.menuLeftNavigationController!, animated: true, completion: nil)
+    }
+
+    func membersBarButtonTapped(){
+        present(SideMenuManager.menuRightNavigationController!, animated: true, completion: nil)
     }
 
     func attachmentButtonDidTapped() {
@@ -125,5 +145,10 @@ class ChatViewController : BaseChatViewController, RChatInputViewDelegate, Conve
     func goToProfile() {
         removeBackButtonTitle()
         navigationController?.pushViewController(SettingsViewController(), animated: true)
+    }
+
+    // MembersViewControllerDelegate
+    func memberSelected(user: User) {
+
     }
 }

@@ -30,6 +30,7 @@
 		502122EF1E453416004B8EE7 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502122EE1E453416004B8EE7 /* LoadingView.swift */; };
 		5024D6291E4B15FA002586A1 /* SearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5024D6281E4B15FA002586A1 /* SearchResultsViewController.swift */; };
 		5024D62B1E4B16A8002586A1 /* SearchResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5024D62A1E4B16A8002586A1 /* SearchResultTableViewCell.swift */; };
+		5024D62E1E4B30AD002586A1 /* MembersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5024D62D1E4B30AD002586A1 /* MembersViewController.swift */; };
 		5047F7F91E255D7600E60B63 /* RChatTextMessageHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5047F7F81E255D7600E60B63 /* RChatTextMessageHandler.swift */; };
 		5047F7FB1E255D9B00E60B63 /* RChatTextMessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5047F7FA1E255D9B00E60B63 /* RChatTextMessageModel.swift */; };
 		5047F7FD1E255E1800E60B63 /* RChatConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5047F7FC1E255E1800E60B63 /* RChatConstants.swift */; };
@@ -120,6 +121,7 @@
 		502122EE1E453416004B8EE7 /* LoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		5024D6281E4B15FA002586A1 /* SearchResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultsViewController.swift; sourceTree = "<group>"; };
 		5024D62A1E4B16A8002586A1 /* SearchResultTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultTableViewCell.swift; sourceTree = "<group>"; };
+		5024D62D1E4B30AD002586A1 /* MembersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MembersViewController.swift; sourceTree = "<group>"; };
 		5047F7F81E255D7600E60B63 /* RChatTextMessageHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RChatTextMessageHandler.swift; sourceTree = "<group>"; };
 		5047F7FA1E255D9B00E60B63 /* RChatTextMessageModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RChatTextMessageModel.swift; sourceTree = "<group>"; };
 		5047F7FC1E255E1800E60B63 /* RChatConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RChatConstants.swift; sourceTree = "<group>"; };
@@ -282,6 +284,7 @@
 		5018256A1E246D1500E9A535 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				5024D62C1E4B3094002586A1 /* MembersViewController */,
 				50F6579E1E44F5AF00AB32A9 /* SettingsViewController */,
 				5000D6741E41F623007EF087 /* ComposeViewController */,
 				505412041E41CE14008E591A /* CustomNavController */,
@@ -323,6 +326,14 @@
 				5024D62A1E4B16A8002586A1 /* SearchResultTableViewCell.swift */,
 			);
 			name = SearchResultsViewController;
+			sourceTree = "<group>";
+		};
+		5024D62C1E4B3094002586A1 /* MembersViewController */ = {
+			isa = PBXGroup;
+			children = (
+				5024D62D1E4B30AD002586A1 /* MembersViewController.swift */,
+			);
+			name = MembersViewController;
 			sourceTree = "<group>";
 		};
 		5047F7F71E255D5B00E60B63 /* ChatViewController */ = {
@@ -752,6 +763,7 @@
 				5047F8091E25634A00E60B63 /* RChatBaseMessageHandler.swift in Sources */,
 				5047F8071E25627D00E60B63 /* RChatMessageViewModelProtocol.swift in Sources */,
 				5047F81A1E2568FD00E60B63 /* TimeSeperatorPresenterBuilder.swift in Sources */,
+				5024D62E1E4B30AD002586A1 /* MembersViewController.swift in Sources */,
 				5000D6711E41D362007EF087 /* User.swift in Sources */,
 				507F29B31E25EC7B00F1D2ED /* ConversationSearchView.swift in Sources */,
 				5000D6781E41F640007EF087 /* RChatRecipientBar.swift in Sources */,
