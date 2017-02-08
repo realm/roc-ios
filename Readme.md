@@ -26,3 +26,11 @@ static var authServerEndpoint : URL {
     return URL(string: "http://138.197.85.79:9080" )!
 }
 ```
+
+## Important Things to Consider
+
+1. You need to create a default Conversation, which new installed users will join automatically. We are working on the best way to "bootstrap" this default Conversation
+
+    Run `Conversation.generateDefaultConversation()` immediately upon logging in before going to the main ChatViewController 
+
+2. Do not run that again or it will remove any other users.
