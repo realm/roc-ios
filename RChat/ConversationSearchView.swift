@@ -72,8 +72,8 @@ class ConversationSearchView : UIView, UITextFieldDelegate {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func textFieldDidChange(textField: String){
-        delegate?.fireChatSearch(searchTerm: textField)
+    func textFieldDidChange(textField: UITextField){
+        delegate?.fireChatSearch(searchTerm: textField.text ?? "")
     }
 
     func textFieldDidBeginEditing(_ textField: UITextField) {
@@ -88,6 +88,7 @@ class ConversationSearchView : UIView, UITextFieldDelegate {
 
     func cancelButtonDidTap(button: UIButton){
         searchTextField.resignFirstResponder()
+        searchTextField.text = ""
     }
 
     func toggle(isEditing: Bool, animated: Bool = false){

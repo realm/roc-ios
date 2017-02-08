@@ -21,7 +21,8 @@ class ConversationsViewController : UISideMenuNavigationController,
     UITableViewDataSource,
     UITableViewDelegate,
     ComposeViewControllerDelegate,
-    ConversationSearchViewDelegate
+    ConversationSearchViewDelegate,
+    SearchResultsViewControllerDelegate
 {
 
     weak var conversationsViewControllerDelegate: ConversationsViewControllerDelegate?
@@ -85,6 +86,8 @@ class ConversationsViewController : UISideMenuNavigationController,
         tableView.delegate = self
 
         searchView.delegate = self
+
+        searchResultsController.delegate = self
 
         constrain(searchView, tableView, penButton, searchResultsController.view) { (searchView, tableView, penButton, searchResultsView) in
             searchView.left == searchView.superview!.left
@@ -177,6 +180,12 @@ class ConversationsViewController : UISideMenuNavigationController,
         dismiss(animated: true, completion: nil)
     }
 
+    func selectedSearchedConversation(conversation: Conversation) {
+        searchView.searchTextField.text = ""
+        conversationsViewControllerDelegate?.changeConversation(conversation: conversation)
+        dismiss(animated: true, completion: nil)
+    }
+
     func composeWithUsers(users: [User]) {
         let conversation = Conversation.putConversation(users: users)
         conversationsViewControllerDelegate?.changeConversation(conversation: conversation)
@@ -186,7 +195,7 @@ class ConversationsViewController : UISideMenuNavigationController,
     func fireChatSearch(searchTerm: String) {
         let selector = #selector(SearchResultsViewController.searchConversationsAndUsers(searchTerm:))
         NSObject.cancelPreviousPerformRequests(withTarget: searchResultsController, selector: selector, object: nil)
-        searchResultsController.perform(selector, with: nil, afterDelay: 0.5)
+        searchResultsController.perform(selector, with: searchTerm, afterDelay: 0.5)
     }
 
     func searchStateChanged(isFirstResponder: Bool) {

@@ -38,6 +38,12 @@ class Conversation : Object {
 
 extension Conversation {
 
+    static func searchForConversations(searchTerm: String) -> Results<Conversation> {
+        let realm = RChatConstants.Realms.global
+        let predicate = NSPredicate(format: "displayName contains[c] %@", searchTerm, searchTerm, RChatConstants.myUserId)
+        return realm.objects(Conversation.self).filter(predicate)
+    }
+
     static func generateDirectMessage(userId1: String, userId2: String) -> String {
         let parts = [userId1, userId2].sorted(by: { $0 < $1 })
         return "dm|\(parts[0])|\(parts[1])"
@@ -84,7 +90,3 @@ extension Conversation {
 
 }
 
-class ConversationPointer : Object {
-    dynamic var id : String = ""
-
-}

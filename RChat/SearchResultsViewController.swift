@@ -8,11 +8,18 @@
 
 import UIKit
 import Cartography
+import RealmSwift
+
+protocol SearchResultsViewControllerDelegate : class {
+    func selectedSearchedConversation(conversation: Conversation)
+}
 
 class SearchResultsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
-    var conversations: [Conversation] = []
-    var users: [User] = []
+    weak var delegate: SearchResultsViewControllerDelegate?
+
+    var conversations : Results<Conversation>?
+    var users: Results<User>?
 
     lazy var tableView : UITableView = {
         let t = UITableView()
@@ -20,6 +27,7 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
         t.separatorColor = .clear
         t.backgroundColor = RChatConstants.Colors.primaryColorDark
         t.keyboardDismissMode = .interactive
+        t.register(SearchResultTableViewCell.self, forCellReuseIdentifier: SearchResultTableViewCell.REUSE_ID)
         return t
     }()
 
@@ -46,9 +54,9 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0:
-            return conversations.count
+            return conversations?.count ?? 0
         case 1:
-            return users.count
+            return users?.count ?? 0
         default:
             return 0
         }
@@ -56,11 +64,48 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: SearchResultTableViewCell.REUSE_ID, for: indexPath) as! SearchResultTableViewCell
+
+        switch indexPath.section {
+        case 0:
+            if let conversation = conversations?[indexPath.row] {
+                cell.setupWithConversation(conversation: conversation)
+            }
+        case 1:
+            if let user = users?[indexPath.row] {
+                cell.setupWithUser(user: user)
+            }
+        default:
+            fatalError("No such section exists")
+        }
         return cell
     }
 
-    func searchConversationsAndUsers(searchTerm: String){
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        switch indexPath.section {
+        case 0:
+            if let conversation = conversations?[indexPath.row] {
+                delegate?.selectedSearchedConversation(conversation: conversation)
+            }
+            return;
+        case 1:
+            if let user = users?[indexPath.row] {
+                var mutableUsers = [User]()
+                mutableUsers.append(user)
+                mutableUsers.append(User.getMe()) // lets add me
+                let conversation = Conversation.putConversation(users: mutableUsers)
+                delegate?.selectedSearchedConversation(conversation: conversation)
+            }
+            return;
+        default:
+            fatalError("No such section exists")
+        }
+    }
 
+    func searchConversationsAndUsers(searchTerm: String){
+        conversations = Conversation.searchForConversations(searchTerm: searchTerm)
+        users = User.searchForUsers(searchTerm: searchTerm)
+        tableView.reloadData()
     }
 
 }
