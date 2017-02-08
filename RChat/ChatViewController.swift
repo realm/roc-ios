@@ -123,6 +123,7 @@ class ChatViewController : BaseChatViewController, RChatInputViewDelegate, Conve
     }
 
     func goToProfile() {
+        removeBackButtonTitle()
         navigationController?.pushViewController(SettingsViewController(), animated: true)
     }
 }

@@ -11,6 +11,7 @@ import Cartography
 
 protocol ConversationSearchViewDelegate : class {
     func fireChatSearch(searchTerm: String)
+    func searchStateChanged(isFirstResponder: Bool)
 }
 
 class ConversationSearchView : UIView, UITextFieldDelegate {
@@ -38,6 +39,7 @@ class ConversationSearchView : UIView, UITextFieldDelegate {
             NSForegroundColorAttributeName : UIColor.lightGray,
             NSFontAttributeName: RChatConstants.Fonts.regularFont
         ])
+        t.keyboardAppearance = .dark
         return t
     }()
 
@@ -71,10 +73,12 @@ class ConversationSearchView : UIView, UITextFieldDelegate {
 
     func textFieldDidBeginEditing(_ textField: UITextField) {
         toggle(isEditing: true, animated: true)
+        delegate?.searchStateChanged(isFirstResponder: true)
     }
 
     func textFieldDidEndEditing(_ textField: UITextField, reason: UITextFieldDidEndEditingReason) {
         toggle(isEditing: false, animated: true)
+        delegate?.searchStateChanged(isFirstResponder: false)
     }
 
     func cancelButtonDidTap(button: UIButton){

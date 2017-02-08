@@ -15,8 +15,6 @@ struct RChatConstants {
     static var myUserId : String! {
         get {
             return SyncUser.current?.identity
-        }set (value){
-            UserDefaults.standard.set(value, forKey: "_myUserId")
         }
     }
 

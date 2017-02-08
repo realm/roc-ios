@@ -20,7 +20,8 @@ protocol ConversationsViewControllerDelegate: class {
 class ConversationsViewController : UISideMenuNavigationController,
     UITableViewDataSource,
     UITableViewDelegate,
-    ComposeViewControllerDelegate
+    ComposeViewControllerDelegate,
+    ConversationSearchViewDelegate
 {
 
     weak var conversationsViewControllerDelegate: ConversationsViewControllerDelegate?
@@ -53,6 +54,12 @@ class ConversationsViewController : UISideMenuNavigationController,
         return b
     }()
 
+    lazy var searchResultsController : SearchResultsViewController = {
+        let s = SearchResultsViewController()
+        s.view.alpha = 0
+        return s
+    }()
+
     var conversations : Results<Conversation>!
     var notificationToken : NotificationToken?
 
@@ -65,6 +72,9 @@ class ConversationsViewController : UISideMenuNavigationController,
         super.viewDidLoad()
         view.backgroundColor = RChatConstants.Colors.primaryColorDark
         view.addSubview(tableView)
+
+        addChildViewController(searchResultsController)
+        view.addSubview(searchResultsController.view)
         view.addSubview(searchView)
         view.addSubview(penButton)
 
@@ -74,7 +84,9 @@ class ConversationsViewController : UISideMenuNavigationController,
         tableView.dataSource = self
         tableView.delegate = self
 
-        constrain(searchView, tableView, penButton) { (searchView, tableView, penButton) in
+        searchView.delegate = self
+
+        constrain(searchView, tableView, penButton, searchResultsController.view) { (searchView, tableView, penButton, searchResultsView) in
             searchView.left == searchView.superview!.left
             searchView.right == searchView.superview!.right
             searchView.height == 65
@@ -84,6 +96,11 @@ class ConversationsViewController : UISideMenuNavigationController,
             tableView.left == tableView.superview!.left
             tableView.right == tableView.superview!.right
             tableView.bottom == tableView.superview!.bottom
+
+            searchResultsView.top == tableView.top
+            searchResultsView.bottom == tableView.bottom
+            searchResultsView.left == tableView.left
+            searchResultsView.right == tableView.right
 
             penButton.width == 44
             penButton.height == 44
@@ -164,6 +181,16 @@ class ConversationsViewController : UISideMenuNavigationController,
         let conversation = Conversation.putConversation(users: users)
         conversationsViewControllerDelegate?.changeConversation(conversation: conversation)
         dismiss(animated: true, completion: nil)
+    }
+
+    func fireChatSearch(searchTerm: String) {
+
+    }
+
+    func searchStateChanged(isFirstResponder: Bool) {
+        UIView.animate(withDuration: 0.25) { 
+            self.searchResultsController.view.alpha = isFirstResponder ? 1 : 0
+        }
     }
 
     deinit {
