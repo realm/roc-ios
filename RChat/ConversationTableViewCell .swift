@@ -35,8 +35,8 @@ class ConversationTableViewCell : UITableViewCell {
 
         constrain(textLabel!, unreadIndicatorLabel) { (textLabel, unreadIndicatorLabel) in
             unreadIndicatorLabel.left == unreadIndicatorLabel.superview!.left + RChatConstants.Numbers.horizontalSpacing
-            unreadIndicatorLabel.height == 33
-            unreadIndicatorLabel.width == 33
+            unreadIndicatorLabel.height == 28
+            unreadIndicatorLabel.width == 28
             unreadIndicatorLabel.centerY == unreadIndicatorLabel.superview!.centerY
 
             textLabel.left == unreadIndicatorLabel.right + RChatConstants.Numbers.horizontalSpacing
@@ -53,9 +53,10 @@ class ConversationTableViewCell : UITableViewCell {
     func setupWithConversation(conversation: Conversation){
         textLabel?.text = conversation.defaultingName
         textLabel?.font = conversation.unreadCount > 0 ? RChatConstants.Fonts.boldFont : RChatConstants.Fonts.regularFont
-        unreadIndicatorLabel.text = "\(conversation.unreadCount)"
-        unreadIndicatorLabel.layer.borderColor = conversation.unreadCount == 0 ? UIColor.darkGray.cgColor : UIColor.clear.cgColor
-        unreadIndicatorLabel.layer.borderWidth = conversation.unreadCount == 0 ? 1.0 : 0
+        unreadIndicatorLabel.text = conversation.unreadCount == 0 ? "" : "\(conversation.unreadCount)"
+        unreadIndicatorLabel.layer.borderColor = conversation.unreadCount == 0 ? UIColor.lightGray.cgColor : UIColor.clear.cgColor
+        unreadIndicatorLabel.layer.borderWidth = conversation.unreadCount == 0 ? 2.0 : 0
+        unreadIndicatorLabel.backgroundColor = conversation.unreadCount == 0 ? UIColor.clear : UIColor.red
     }
 
     override func prepareForReuse() {
