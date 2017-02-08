@@ -29,10 +29,12 @@ class MembersViewController:
         tableView.separatorInset = .zero
         tableView.contentInset = UIEdgeInsetsMake(80, 0, 300, 0)
         tableView.register(MemberTableViewCell.self, forCellReuseIdentifier: MemberTableViewCell.REUSE_ID)
+        tableView.rowHeight = MemberTableViewCell.HEIGHT
         return tableView
     }()
 
-    var members: Results<User>?
+    var members: List<User>?
+    var token : NotificationToken?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,5 +79,36 @@ class MembersViewController:
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         guard let user = members?[indexPath.row] else { return }
+        membersViewControllerDelegate?.memberSelected(user: user)
+        dismiss(animated: true, completion: nil)
+    }
+
+    func setupWithConversation(conversation: Conversation) {
+        token?.stop()
+        members = conversation.users
+        token = conversation.users.addNotificationBlock({ [weak self] (changes) in
+            guard let `self` = self else { return }
+            switch changes {
+            case .initial:
+                // Results are now populated and can be accessed without blocking the UI
+                self.tableView.reloadData()
+                break
+            case .update(_, let deletions, let insertions, let modifications):
+                // Query results have changed, so apply them to the UITableView
+                self.tableView.beginUpdates()
+                self.tableView.insertRows(at: insertions.map({ IndexPath(row: $0, section: 0) }),
+                                     with: .automatic)
+                self.tableView.deleteRows(at: deletions.map({ IndexPath(row: $0, section: 0)}),
+                                     with: .automatic)
+                self.tableView.reloadRows(at: modifications.map({ IndexPath(row: $0, section: 0) }),
+                                     with: .automatic)
+                self.tableView.endUpdates()
+                break
+            case .error(let error):
+                // An error occurred while opening the Realm file on the background worker thread
+                fatalError("\(error)")
+                break
+            }
+        })
     }
 }

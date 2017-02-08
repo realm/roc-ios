@@ -116,7 +116,9 @@ class ChatViewController : BaseChatViewController,
     }
 
     func membersBarButtonTapped(){
-        present(SideMenuManager.menuRightNavigationController!, animated: true, completion: nil)
+        let membersViewController = SideMenuManager.menuRightNavigationController as! MembersViewController
+        membersViewController.setupWithConversation(conversation: self.conversation)
+        present(membersViewController, animated: true, completion: nil)
     }
 
     func attachmentButtonDidTapped() {
