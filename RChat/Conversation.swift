@@ -10,7 +10,7 @@ import RealmSwift
 
 class Conversation : Object {
 
-    dynamic var conversationId: String = UUID().uuidString
+    dynamic var conversationId: String = RChatConstants.genericConversationId
     dynamic var displayName: String = ""
     dynamic var unreadCount: Int = 0
     let users = List<User>()
@@ -69,13 +69,14 @@ extension Conversation {
 
     @discardableResult
     static func generateDefaultConversation() -> Conversation {
-        let conversation = Conversation()
-        conversation.conversationId = RChatConstants.genericConversationId
-        conversation.displayName = "Welcome to RChat"
         let realm = RChatConstants.Realms.global
-        try! realm.write {
-            realm.add(conversation, update: true)
-        }
+        realm.beginWrite()
+        let conversation = realm.create(Conversation.self, value: [
+            "conversationId": RChatConstants.genericConversationId,
+            "displayName": "Welcome to RChat"
+        ], update: true)
+        conversation.users.append(User.getMe())
+        try! realm.commitWrite()
         return conversation
     }
 

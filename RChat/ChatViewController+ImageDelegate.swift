@@ -29,7 +29,9 @@ extension ChatViewController : UINavigationControllerDelegate, UIImagePickerCont
     }
 
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        print("Not yet implemented")
+        picker.dismiss(animated: true, completion: nil)
+        guard let image = info[UIImagePickerControllerOriginalImage] as? UIImage else { return }
+        print("you've selected an image. \(image)")
     }
 
 }

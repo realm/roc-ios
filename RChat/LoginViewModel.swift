@@ -54,7 +54,7 @@ class LoginViewModel {
             DispatchQueue.main.sync {
                 self.isProcessingCallback?(false)
                 if let user = user {
-                    //self.setPermissions(user: user)
+                    self.setPermissions(user: user)
                     self.authSuccessCallback?(user)
                     return
                 } else if let error = error {
@@ -101,18 +101,14 @@ class LoginViewModel {
         newUser.userId = user.identity!
         newUser.username = self.username
         newUser.displayName = self.username
-
-
         try! realm.write {
+            //realm.create(User.self, value: [:], update: true)
             realm.add(newUser, update: true)
         }
-
         let defaultConversation  = Conversation.generateDefaultConversation()
-
         try! realm.write {
             defaultConversation.users.append(newUser)
         }
-
     }
 
 }
