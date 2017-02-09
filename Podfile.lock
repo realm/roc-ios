@@ -1,4 +1,7 @@
 PODS:
+  - AWSCore (2.5.0)
+  - AWSS3 (2.5.0):
+    - AWSCore (= 2.5.0)
   - BRYXBanner (0.7.1)
   - Cartography (1.0.1)
   - Chatto (3.0.1)
@@ -18,6 +21,7 @@ PODS:
   - TURecipientBar (2.0.4)
 
 DEPENDENCIES:
+  - AWSS3 (~> 2.5.0)
   - BRYXBanner (~> 0.7.1)
   - Cartography (= 1.0.1)
   - Chatto (~> 3.0.1)
@@ -30,6 +34,8 @@ DEPENDENCIES:
   - TURecipientBar (~> 2.0.4)
 
 SPEC CHECKSUMS:
+  AWSCore: e9839d27ceaa2db75934a9c418630ce63c23e347
+  AWSS3: 3678dd99006ff77c825fb857fc7cbaca0db848c6
   BRYXBanner: 34eabf9c6c009f187948ca78a4f3bba3767d0f04
   Cartography: c1460e99395b824d9d75360b0382faeb0b33dcd7
   Chatto: 484273a793e06a33cef2f7e5b5b88a5a375df015
@@ -42,6 +48,6 @@ SPEC CHECKSUMS:
   SideMenu: bcd2d7b7d4395af088e213cebd11c3ac7d958f5a
   TURecipientBar: 4904645f476ad056e17c9458fa9894552339e63a
 
-PODFILE CHECKSUM: 0919106e4685f138423ba5b06e65593b0c0d62e4
+PODFILE CHECKSUM: 7abb3ea54edd50ba510eed78bc367a789c829825
 
 COCOAPODS: 1.2.0

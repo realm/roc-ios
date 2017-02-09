@@ -16,6 +16,7 @@ target 'RChat' do
   pod 'TURecipientBar', '~> 2.0.4'
   pod 'NVActivityIndicatorView', '3.3'
   pod 'BRYXBanner', '~> 0.7.1'
+  pod 'AWSS3', '~> 2.5.0'
 
   target 'RChatTests' do
     inherit! :search_paths
