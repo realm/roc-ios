@@ -69,13 +69,12 @@ extension Conversation {
 
     @discardableResult
     static func generateDefaultConversation() -> Conversation {
-        let conversation = Conversation()
+        let realm = RChatConstants.Realms.global
+        realm.beginWrite()
+        let conversation = realm.create(Conversation.self)
         conversation.conversationId = RChatConstants.genericConversationId
         conversation.displayName = "Welcome to RChat"
-        let realm = RChatConstants.Realms.global
-        try! realm.write {
-            realm.add(conversation, update: true)
-        }
+        try! realm.commitWrite()
         return conversation
     }
 
