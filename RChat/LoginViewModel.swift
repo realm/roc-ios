@@ -24,6 +24,8 @@ class LoginViewModel {
     var username: String = ""
     var password: String = ""
 
+    var permToken: NotificationToken!
+    
     // FROM UI
     func attemptLogin(){
         let usernameCredentials = SyncCredentials.usernamePassword(username: username, password: password)
@@ -83,20 +85,37 @@ class LoginViewModel {
     }
 
     private func setPermissions(user: SyncUser){
-        // set permissions
         let managementRealm = try! user.managementRealm()
+        let realm = RChatConstants.Realms.global
+        
+        // set permissions
+        let permissionChange = SyncPermissionChange(realmURL: realm.configuration.syncConfiguration!.realmURL.absoluteString,  // The remote Realm URL on which to apply the changes
+            userID: "*",            // The user ID for which these permission changes should be applied
+            mayRead: true,         // Grant read access
+            mayWrite: true,        // Grant write access
+            mayManage: false)      // Grant management access
+        
+        // and watch for the result...
+        self.permToken = managementRealm.objects(SyncPermissionChange.self).filter("id = %@", permissionChange.id).addNotificationBlock { notification in
+            if case .update(let changes, _, _, _) = notification, let change = changes.first {
+                // Object Server processed the permission change operation
+                switch change.status {
+                case .notProcessed:
+                    print("not processed.")
+                case .success:
+                    print("succeeded.")
+                case .error:
+                    print("Error.")
+                }
+                print("change notification(s): \(changes.debugDescription)")
+            }
+        }
+        print("about to request a permission change as follows: \(permissionChange)\n\n\n")
         try! managementRealm.write {
-            let permissionChange = SyncPermissionChange(realmURL: RChatConstants.objectServerEndpoint.absoluteString,
-                                                        // The remote Realm URL on which to apply the changes
-                userID: "*", // The user ID for which these permission changes should be applied
-                mayRead: true,         // Grant read access
-                mayWrite: true,        // Grant write access
-                mayManage: false)      // Grant management access
             managementRealm.add(permissionChange)
         }
-
-        let realm = RChatConstants.Realms.global
-
+        
+        
         let newUser = User()
         newUser.userId = user.identity!
         newUser.username = self.username
