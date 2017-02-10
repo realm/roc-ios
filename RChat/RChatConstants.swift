@@ -10,8 +10,13 @@ import UIKit
 import Foundation
 import RealmSwift
 
-struct RChatConstants {
+// note: was:138.197.85.79 - this was shared with Teamwork and also 
+// waiting for server team to example possible JS crasher re: permission bug
 
+let realmServerAddress = "45.55.173.122" // Now a dedicated server
+
+struct RChatConstants {
+    
     static var myUserId : String! {
         get {
             return SyncUser.current?.identity
@@ -23,12 +28,11 @@ struct RChatConstants {
     }
 
     static var objectServerEndpoint : URL {
-        return URL(string: "realm://138.197.85.79:9080" )!
+        return URL(string: "realm://\(realmServerAddress):9080" )!
     }
 
-
     static var authServerEndpoint : URL {
-        return URL(string: "http://138.197.85.79:9080" )!
+        return URL(string: "http://\(realmServerAddress):9080" )!
     }
     
     static var globalRealmURL : URL {
