@@ -30,6 +30,14 @@ struct RChatConstants {
     static var authServerEndpoint : URL {
         return URL(string: "http://138.197.85.79:9080" )!
     }
+    
+    static var globalRealmURL : URL {
+        return URL(string: "\(RChatConstants.objectServerEndpoint.absoluteString)/global")!
+    }
+    
+    static var myRealmURL : URL {
+        return URL(string: "\(RChatConstants.objectServerEndpoint.absoluteString)/~/userRealm")!
+    }
 
     static var genericConversationId : String = "pub|generic"
 
@@ -79,12 +87,12 @@ struct RChatConstants {
 
     struct Realms {
         static var global : Realm {
-            let syncServerURL = URL(string: "\(RChatConstants.objectServerEndpoint.absoluteString)/global")!
+            let syncServerURL = RChatConstants.globalRealmURL
             let config = Realm.Configuration(syncConfiguration: SyncConfiguration(user: SyncUser.current!, realmURL: syncServerURL))
             return try! Realm(configuration: config)
         }
         static var myRealm : Realm {
-            let syncServerURL = URL(string: "\(RChatConstants.objectServerEndpoint.absoluteString)/~/userRealm")!
+            let syncServerURL = RChatConstants.myRealmURL
             let config = Realm.Configuration(syncConfiguration: SyncConfiguration(user: SyncUser.current!, realmURL: syncServerURL))
             return try! Realm(configuration: config)
         }

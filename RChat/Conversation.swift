@@ -70,13 +70,26 @@ extension Conversation {
     @discardableResult
     static func generateDefaultConversation() -> Conversation {
         let realm = RChatConstants.Realms.global
+        
+        let createConversation = { () -> Conversation in
+            let conversation = realm.create(Conversation.self, value: [
+                "conversationId": RChatConstants.genericConversationId,
+                "displayName": "Welcome to RChat"
+                ], update: true)
+            conversation.users.append(User.getMe())
+            
+            return conversation
+        }
+        
+        // Just call block, already in transaction
+        if realm.isInWriteTransaction {
+            return createConversation()
+        }
+        
         realm.beginWrite()
-        let conversation = realm.create(Conversation.self, value: [
-            "conversationId": RChatConstants.genericConversationId,
-            "displayName": "Welcome to RChat"
-        ], update: true)
-        conversation.users.append(User.getMe())
+        let conversation = createConversation()
         try! realm.commitWrite()
+        
         return conversation
     }
 
