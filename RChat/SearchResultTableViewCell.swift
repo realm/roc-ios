@@ -43,4 +43,13 @@ class SearchResultTableViewCell: UITableViewCell {
     func setupWithConversation(conversation: Conversation){
         label.text = conversation.defaultingName
     }
+    
+    // Added support for searching inside chats
+    func setupWithChat(chat: ChatMessage){
+        let realm = RChatConstants.Realms.global
+        let conversation = realm.objects(Conversation.self).filter("conversationId = %@", chat.conversationId).first
+        label.text = conversation!.defaultingName
+    }
+    
+
 }

@@ -42,4 +42,10 @@ extension ChatMessage {
         }
     }
 
+    
+    static func searchInChats(searchTerm: String) -> Results<ChatMessage> {
+        let realm = RChatConstants.Realms.global        
+        let predicate = NSPredicate(format: "text contains[c] %@", searchTerm)
+        return realm.objects(ChatMessage.self).filter(predicate)
+    }
 }

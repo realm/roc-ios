@@ -20,6 +20,7 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
 
     var conversations : Results<Conversation>?
     var users: Results<User>?
+    var chats: Results<ChatMessage>?
 
     lazy var tableView : UITableView = {
         let t = UITableView()
@@ -46,7 +47,7 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 3    // Was 2
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -55,6 +56,10 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
             return conversations?.count ?? 0
         case 1:
             return users?.count ?? 0
+            
+        // Added support for searching inside chats
+        case 2:
+            return chats?.count ?? 0
         default:
             return 0
         }
@@ -71,6 +76,12 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
         case 1:
             if let user = users?[indexPath.row] {
                 cell.setupWithUser(user: user)
+            }
+            
+        // Added support for searching inside chats
+        case 2:
+            if let chat = chats?[indexPath.row] {
+                cell.setupWithChat(chat: chat)
             }
         default:
             fatalError("No such section exists")
@@ -95,6 +106,16 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
                 delegate?.selectedSearchedConversation(conversation: conversation)
             }
             return;
+            
+        // Added support for searching inside chats
+        case 2:
+            if let chat = chats?[indexPath.row] {
+                let realm = RChatConstants.Realms.global
+                let conversation = realm.objects(Conversation.self).filter("conversationId = %@", chat.conversationId).first
+                delegate?.selectedSearchedConversation(conversation: conversation!)
+            }
+            return;
+
         default:
             fatalError("No such section exists")
         }
@@ -103,6 +124,10 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
     func searchConversationsAndUsers(searchTerm: String){
         conversations = Conversation.searchForConversations(searchTerm: searchTerm)
         users = User.searchForUsers(searchTerm: searchTerm)
+
+        // Added support for searching inside chats
+        chats = ChatMessage.searchInChats(searchTerm: searchTerm)
+
         tableView.reloadData()
     }
 

@@ -39,28 +39,11 @@ class Conversation : Object {
 extension Conversation {
 
     static func searchForConversations(searchTerm: String) -> Results<Conversation> {
-        var conversationIds = [String]()
         let realm = RChatConstants.Realms.global
         
-        // the old version was looking as the user's display name... not thru the chat message text
-        //let predicate = NSPredicate(format: "displayName contains[c] %@", searchTerm, searchTerm, RChatConstants.myUserId)
-        //return realm.objects(Conversation.self).filter(predicate)
+        let predicate = NSPredicate(format: "displayName contains[c] %@", searchTerm)
+        return realm.objects(Conversation.self).filter(predicate)
 
-        // messages with the search term to which I am party
-        let predicate = NSPredicate(format: "text contains[c] %@  AND userId = %@", searchTerm, RChatConstants.myUserId)
-        let results = realm.objects(ChatMessage.self).filter(predicate)
-        
-        // this is a little ugly, for some reason using map() on a list of Realm <results> doesn't 
-        // seem to work as I expect - so realm.objects(ChatMessage.self).filter(predicate).map{$0.conversationId}
-        // returns a list of objects rather than the list of conversationId's
-        //
-        results.forEach { (chatMessage) in // gather the conversationId's
-            conversationIds.append(chatMessage.conversationId)
-        }
-        
-        conversationIds = Array(Set(conversationIds)) // unique them
-        
-        return realm.objects(Conversation.self).filter("conversationId in %@", conversationIds)
     }
 
     static func generateDirectMessage(userId1: String, userId2: String) -> String {
