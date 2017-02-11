@@ -40,8 +40,10 @@ extension Conversation {
 
     static func searchForConversations(searchTerm: String) -> Results<Conversation> {
         let realm = RChatConstants.Realms.global
-        let predicate = NSPredicate(format: "displayName contains[c] %@", searchTerm, searchTerm, RChatConstants.myUserId)
+        
+        let predicate = NSPredicate(format: "displayName contains[c] %@", searchTerm)
         return realm.objects(Conversation.self).filter(predicate)
+
     }
 
     static func generateDirectMessage(userId1: String, userId2: String) -> String {

@@ -535,7 +535,6 @@
 				TargetAttributes = {
 					501825341E2469C200E9A535 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = G47H383S4Y;
 						ProvisioningStyle = Automatic;
 					};
 					501825481E2469C200E9A535 = {
@@ -943,7 +942,7 @@
 			baseConfigurationReference = 37B61F1CFAB1215008258AF3 /* Pods-RChat.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = G47H383S4Y;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = RChat/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Maximilian.RChat;
@@ -957,7 +956,7 @@
 			baseConfigurationReference = 5DFF720C447BADFD54790C8C /* Pods-RChat.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = G47H383S4Y;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = RChat/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Maximilian.RChat;
