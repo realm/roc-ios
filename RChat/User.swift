@@ -13,6 +13,7 @@ class User : Object {
     dynamic var userId: String = ""
     dynamic var username: String = ""
     dynamic var displayName : String = ""
+    dynamic var avatarImage: NSData?
 
     var defaultingName: String {
         if !displayName.isEmpty {
