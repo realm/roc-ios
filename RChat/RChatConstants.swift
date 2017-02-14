@@ -15,6 +15,10 @@ import RealmSwift
 
 let realmServerAddress = "45.55.173.122" // Now a dedicated server
 
+// Right now the right nav isn't useful for testing and just confuses users.
+let shouldDisplayRightNavItem = false
+
+
 struct RChatConstants {
     
     static var myUserId : String! {

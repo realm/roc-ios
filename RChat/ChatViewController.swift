@@ -48,11 +48,15 @@ class ChatViewController : BaseChatViewController,
             barButtonItem.tintColor = .white
             return barButtonItem
         }()
-        navigationItem.rightBarButtonItem = {
-            let barButtonItem = UIBarButtonItem(image: RChatConstants.Images.verticalMoreIcon, style: .plain, target: self, action: #selector(ChatViewController.membersBarButtonTapped))
-            barButtonItem.tintColor = .white
-            return barButtonItem
-        }()
+        
+        // @FIXME right now this shows a ist of users who recently chatted? Confusing to internal users
+        if shouldDisplayRightNavItem {
+            navigationItem.rightBarButtonItem = {
+                let barButtonItem = UIBarButtonItem(image: RChatConstants.Images.verticalMoreIcon, style: .plain, target: self, action: #selector(ChatViewController.membersBarButtonTapped))
+                barButtonItem.tintColor = .white
+                return barButtonItem
+            }()
+        }
 
         chatInputView.delegate = self
         viewModel.conversation = conversation
