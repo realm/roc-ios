@@ -29,8 +29,14 @@ extension SettingsViewController : UIImagePickerControllerDelegate, UINavigation
     }
 
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        picker.dismiss(animated: true, completion: nil)
         guard let image = info[UIImagePickerControllerEditedImage] as? UIImage else { return }
+        let resizedImage = image.resizeImage(targetSize: CGSize(width: 100, height: 100))
+        // Note that since we allow the user to abandon changes we are *not* setting the actual user record here
+        // only this view's dipslay elements, in the case the image in the row, and the SettingViewController's
+        // avatarImage property
+        self.profileRow.cell.imageView?.image = resizedImage
+        viewModel.avatarImage = resizedImage
+        picker.dismiss(animated: true, completion: nil)
     }
 
 }

@@ -58,6 +58,9 @@ class SettingsViewController : FormViewController {
                 guard let `self` = self else { return }
                 row.deselect(animated: true)
                 self.viewModel.profileRowDidTap()
+            }).onChange({ (r) in
+                r.reload()
+                print("in profileRow.onChange()")
             })
             <<< usernameRow
             <<< displayNameRow.onChange({ [weak self] (r) in
@@ -81,6 +84,10 @@ class SettingsViewController : FormViewController {
         usernameRow.value = viewModel.username
         displayNameRow.value = viewModel.displayName
 
+        // Note: this cell supports a text field - don't use it, e.g.: profileRow.value = "this will show up as a caption"
+        // instead we want to put the user's avatar if present, or a paceholder
+        profileRow.cell.profileImageView.image = viewModel.avatarImage
+        
         viewModel.presentProfileImageChangeAlert = { [weak self] in
             guard let `self` = self else { return }
             let alertController = UIAlertController(title: "Change Profile Image", message: nil, preferredStyle: .actionSheet)
