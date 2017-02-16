@@ -11,7 +11,7 @@ import Cartography
 import Eureka
 
 
-final class ProfileCell : Cell<String>, CellType {
+final class ProfileCell : Cell<UIImage>, CellType {
 
     private static let IMAGE_VIEW_LENGTH : CGFloat = 100
 
@@ -36,6 +36,11 @@ final class ProfileCell : Cell<String>, CellType {
             profileImageView.width == ProfileCell.IMAGE_VIEW_LENGTH
             profileImageView.height == ProfileCell.IMAGE_VIEW_LENGTH
         }
+    }
+    
+    override func update() {
+        super.update()
+        profileImageView.image = row.value
     }
 
 

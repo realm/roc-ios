@@ -35,7 +35,7 @@ class SettingsViewModel {
             // And,
             //    2) That if they DO have a custom avatar that the user has, in fact, changed the image.
             //    We check that by comparing the hashes of the stored image and the one currently on display; only
-            //    update for a different image here.
+            //    update for a different image here.'
             if User.getMe().hasCustomAvatar() == false && depictedAvatarIsPlaceholder == false ||
                 User.getMe().hasCustomAvatar() == true && User.getMe().avatarHash() != String(describing:avatarImage?.hashValue)  {
              myUser?.avatarImage = UIImagePNGRepresentation(avatarImage!) as Data?

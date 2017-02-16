@@ -34,8 +34,7 @@ extension SettingsViewController : UIImagePickerControllerDelegate, UINavigation
         // Note that since we allow the user to abandon changes we are *not* setting the actual user record here
         // only this view's dipslay elements, in the case the image in the row, and the SettingViewController's
         // avatarImage property
-        self.profileRow.cell.imageView?.image = resizedImage
-        viewModel.avatarImage = resizedImage
+        self.profileRow.value = resizedImage
         picker.dismiss(animated: true, completion: nil)
     }
 
