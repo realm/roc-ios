@@ -81,7 +81,7 @@ class ConversationSearchView : UIView, UITextFieldDelegate {
         delegate?.searchStateChanged(isFirstResponder: true)
     }
 
-    func textFieldDidEndEditing(_ textField: UITextField, reason: UITextFieldDidEndEditingReason) {
+    func textFieldDidEndEditing(_ textField: UITextField) {
         toggle(isEditing: false, animated: true)
         delegate?.searchStateChanged(isFirstResponder: false)
     }
