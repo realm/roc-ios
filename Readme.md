@@ -26,3 +26,28 @@ static var authServerEndpoint : URL {
     return URL(string: "http://138.197.85.79:9080" )!
 }
 ```
+
+
+## Regarding 3rd Party Image Upload with AWS S3
+
+You'll need a property list in the project directory `RChat/thirdparty.plist`
+
+The contents should look like this: 
+
+Replace the BLAHBLAHCognitoApplicationIdBLAHBLAH with your AWSCognitoApplicationId. Make sure the application pool id is anonymous or has the right credentials
+Replace the BLAHBLAHMyBucketNameBLAHBLAH with your AWS S3 BucketName
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>S3</key>
+    <dict/>
+        <key>CognitoApplicationId</key>
+        <string>BLAHBLAHCognitoApplicationIdBLAHBLAH</string>
+        <key>BucketName</key>
+        <string>BLAHBLAHMyBucketNameBLAHBLAH</string>
+    </dict>
+</plist>
+```

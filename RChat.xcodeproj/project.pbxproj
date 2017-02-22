@@ -63,6 +63,8 @@
 		507AD9F11E32955700C432BB /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507AD9F01E32955700C432BB /* WelcomeViewController.swift */; };
 		507F29B31E25EC7B00F1D2ED /* ConversationSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507F29B21E25EC7B00F1D2ED /* ConversationSearchView.swift */; };
 		507F29B51E25EF6700F1D2ED /* ConversationTableViewCell .swift in Sources */ = {isa = PBXBuildFile; fileRef = 507F29B41E25EF6700F1D2ED /* ConversationTableViewCell .swift */; };
+		5094EBE01E4C719C005A41BF /* ImageUploadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5094EBDF1E4C719C005A41BF /* ImageUploadService.swift */; };
+		5094EBE21E4C71D3005A41BF /* thirdparty.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5094EBE11E4C71D3005A41BF /* thirdparty.plist */; };
 		509AEB0E1E4539DF00EC2FFE /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509AEB0D1E4539DF00EC2FFE /* ChatViewModel.swift */; };
 		509AEB101E45459B00EC2FFE /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509AEB0F1E45459B00EC2FFE /* UIViewController+Extensions.swift */; };
 		50F657A01E44F60600AB32A9 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F6579F1E44F60600AB32A9 /* SettingsViewController.swift */; };
@@ -155,6 +157,8 @@
 		507AD9F01E32955700C432BB /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		507F29B21E25EC7B00F1D2ED /* ConversationSearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversationSearchView.swift; sourceTree = "<group>"; };
 		507F29B41E25EF6700F1D2ED /* ConversationTableViewCell .swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ConversationTableViewCell .swift"; sourceTree = "<group>"; };
+		5094EBDF1E4C719C005A41BF /* ImageUploadService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageUploadService.swift; sourceTree = "<group>"; };
+		5094EBE11E4C71D3005A41BF /* thirdparty.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = thirdparty.plist; sourceTree = "<group>"; };
 		509AEB0D1E4539DF00EC2FFE /* ChatViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
 		509AEB0F1E45459B00EC2FFE /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		50F6579F1E44F60600AB32A9 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -252,6 +256,7 @@
 		501825371E2469C200E9A535 /* RChat */ = {
 			isa = PBXGroup;
 			children = (
+				5094EBDE1E4C7192005A41BF /* ThirdParty */,
 				5047F8141E2567D200E60B63 /* CustomViews */,
 				5018256C1E246D2900E9A535 /* Data */,
 				5018256B1E246D1D00E9A535 /* Utils */,
@@ -434,6 +439,15 @@
 			name = WelcomeViewController;
 			sourceTree = "<group>";
 		};
+		5094EBDE1E4C7192005A41BF /* ThirdParty */ = {
+			isa = PBXGroup;
+			children = (
+				5094EBDF1E4C719C005A41BF /* ImageUploadService.swift */,
+				5094EBE11E4C71D3005A41BF /* thirdparty.plist */,
+			);
+			name = ThirdParty;
+			sourceTree = "<group>";
+		};
 		50F6579E1E44F5AF00AB32A9 /* SettingsViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -577,6 +591,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5047F82A1E25797400E60B63 /* SendingStatusCollectionViewCell.xib in Resources */,
+				5094EBE21E4C71D3005A41BF /* thirdparty.plist in Resources */,
 				501825431E2469C200E9A535 /* LaunchScreen.storyboard in Resources */,
 				501825401E2469C200E9A535 /* Assets.xcassets in Resources */,
 			);
@@ -783,6 +798,7 @@
 				5047F7FF1E255EEE00E60B63 /* ChatMessage+MessageModelProtocol.swift in Sources */,
 				5047F8231E256C7100E60B63 /* UIColor+Hex.swift in Sources */,
 				502122EF1E453416004B8EE7 /* LoadingView.swift in Sources */,
+				5094EBE01E4C719C005A41BF /* ImageUploadService.swift in Sources */,
 				5047F8301E257A5B00E60B63 /* RChatTextMessageCollectionViewCellStyle.swift in Sources */,
 				5003AF3A1E32A1A800057F8A /* WelcomeViewModel.swift in Sources */,
 				5047F7FD1E255E1800E60B63 /* RChatConstants.swift in Sources */,
