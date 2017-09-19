@@ -10,10 +10,7 @@ import UIKit
 import Foundation
 import RealmSwift
 
-// note: was:138.197.85.79 - this was shared with Teamwork and also 
-// waiting for server team to example possible JS crasher re: permission bug
-
-let realmServerAddress = "45.55.173.122" // Now a dedicated server
+let realmServerAddress = "138.197.205.99" // Server - shared with a few other Realm demos apps
 
 // Right now the right nav isn't useful for testing and just confuses users.
 let shouldDisplayRightNavItem = false
@@ -40,11 +37,11 @@ struct RChatConstants {
     }
     
     static var globalRealmURL : URL {
-        return URL(string: "\(RChatConstants.objectServerEndpoint.absoluteString)/global")!
+        return URL(string: "\(RChatConstants.objectServerEndpoint.absoluteString)/RC-global")!
     }
     
     static var myRealmURL : URL {
-        return URL(string: "\(RChatConstants.objectServerEndpoint.absoluteString)/~/userRealm")!
+        return URL(string: "\(RChatConstants.objectServerEndpoint.absoluteString)/~/RC-userRealm")!
     }
 
     static var genericConversationId : String = "pub|generic"

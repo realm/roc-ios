@@ -106,7 +106,8 @@ class SettingsViewController : FormViewController {
 
         viewModel.returnToWelcomeViewController = { [weak self] in
             guard let `self` = self else { return }
-            self.navigationController?.setViewControllers([WelcomeViewController()], animated: true)
+            self.navigationController?.setViewControllers([RLMLoginViewController()], animated: true)
+            //self.navigationController?.setViewControllers([WelcomeViewController()], animated: true)
         }
 
         viewModel.showSaveSuccessBanner = {

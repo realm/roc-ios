@@ -20,7 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.backgroundColor = UIColor.white
         window?.makeKeyAndVisible()
-        window?.rootViewController = CustomNavController(rootViewController: WelcomeViewController())
+        //window?.rootViewController = CustomNavController(rootViewController: WelcomeViewController())
+        window?.rootViewController = CustomNavController(rootViewController: RLMLoginViewController())
 
         return true
     }
