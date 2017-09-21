@@ -10,6 +10,12 @@ import UIKit
 import Eureka
 import BRYXBanner
 
+struct Platform {
+    static var isSimulator: Bool {
+        return TARGET_OS_SIMULATOR != 0
+    }
+    
+}
 
 
 class SettingsViewController : FormViewController {
@@ -116,9 +122,13 @@ class SettingsViewController : FormViewController {
         viewModel.presentProfileImageChangeAlert = { [weak self] in
             guard let `self` = self else { return }
             let alertController = UIAlertController(title: "Change Profile Image", message: nil, preferredStyle: .actionSheet)
-            alertController.addAction(UIAlertAction(title: "From Camera", style: .default, handler: { (_) in
+            
+            if !Platform.isSimulator {
+                alertController.addAction(UIAlertAction(title: "From Camera", style: .default, handler: { (_) in
                 self.presentCamera()
-            }))
+                }))
+            }
+
             alertController.addAction(UIAlertAction(title: "From Photo Library", style: .default, handler: { (_) in
                 self.presentPhotoLibrary()
             }))
