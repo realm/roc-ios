@@ -123,7 +123,7 @@ class SettingsViewController : FormViewController {
             guard let `self` = self else { return }
             let alertController = UIAlertController(title: "Change Profile Image", message: nil, preferredStyle: .actionSheet)
             
-            if !Platform.isSimulator {
+            if !Platform.isSimulator { // Only allow the user to select the camera on a real device, else we'll crash 😱
                 alertController.addAction(UIAlertAction(title: "From Camera", style: .default, handler: { (_) in
                 self.presentCamera()
                 }))
@@ -149,14 +149,13 @@ class SettingsViewController : FormViewController {
         viewModel.returnToWelcomeViewController = { [weak self] in
             guard let `self` = self else { return }
             self.navigationController?.setViewControllers([RLMLoginViewController()], animated: true)
-            //self.navigationController?.setViewControllers([WelcomeViewController()], animated: true)
         }
 
         viewModel.showSaveSuccessBanner = {
             let banner = Banner(title: "Settings Saved")
             banner.backgroundColor = RChatConstants.Colors.nephritis
             banner.dismissesOnTap = true
-            banner.show(duration: 2.0)
+            banner.show(duration: 1.5)
         }
     }
 
