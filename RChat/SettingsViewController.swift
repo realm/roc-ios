@@ -10,8 +10,12 @@ import UIKit
 import Eureka
 import BRYXBanner
 
-class SettingsViewController : FormViewController {
 
+
+class SettingsViewController : FormViewController {
+    private var tmpImage: UIImage?
+    
+    
     lazy var profileRow : ProfileRow = {
         let row = ProfileRow()
         return row
@@ -32,6 +36,21 @@ class SettingsViewController : FormViewController {
         return row
     }()
 
+    lazy var shareLocationRow : SwitchRow = {
+        let row = SwitchRow() { row in
+            row.title = "Share Location:"
+        }
+        return row
+    }()
+
+    lazy var sharePresenceRow : SwitchRow = {
+        let row = SwitchRow() { row in
+            row.title = "Share Online/Offline Presence:"
+        }
+        return row
+    }()
+
+    
     lazy var saveButtonRow : ButtonRow = {
         let row = ButtonRow() { row in
             row.title = "Save Changes"
@@ -64,7 +83,17 @@ class SettingsViewController : FormViewController {
                 guard let `self` = self else { return }
                 self.viewModel.displayName = r.value
             })
+        
+            <<< shareLocationRow.onChange({ [weak self] (r) in
+                guard let `self` = self else { return }
+                self.viewModel.shareLocation = r.value
+            })
+            <<< sharePresenceRow.onChange({ [weak self] (r) in
+                guard let `self` = self else { return }
+                self.viewModel.sharePresence = r.value
+            })
 
+        
         form +++ Section()
             <<< saveButtonRow.onCellSelection({ [weak self] (_, _) in
                 guard let `self` = self else { return }
@@ -77,10 +106,13 @@ class SettingsViewController : FormViewController {
                 self.viewModel.logoutRowDidTap()
             })
 
-
+        
         usernameRow.value = viewModel.username
         displayNameRow.value = viewModel.displayName
-
+        sharePresenceRow.value = viewModel.sharePresence
+        shareLocationRow.value = viewModel.shareLocation
+        profileRow.cell.profileImageView.image = viewModel.avatarImage
+        
         viewModel.presentProfileImageChangeAlert = { [weak self] in
             guard let `self` = self else { return }
             let alertController = UIAlertController(title: "Change Profile Image", message: nil, preferredStyle: .actionSheet)
@@ -117,5 +149,7 @@ class SettingsViewController : FormViewController {
             banner.show(duration: 2.0)
         }
     }
+
+
 
 }

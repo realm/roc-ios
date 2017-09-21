@@ -10,7 +10,7 @@ import UIKit
 import Foundation
 import RealmSwift
 
-let realmServerAddress = "138.197.205.99" // Server - shared with a few other Realm demos apps
+let realmServerAddress = "127.0.0.1" //"138.197.205.99" // Server - shared with a few other Realm demos apps
 
 // Right now the right nav isn't useful for testing and just confuses users.
 let shouldDisplayRightNavItem = false

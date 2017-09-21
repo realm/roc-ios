@@ -13,6 +13,13 @@ class User : Object {
     dynamic var userId: String = ""
     dynamic var username: String = ""
     dynamic var displayName : String = ""
+    // New additions... 20-Sept-2017
+    dynamic var avatarImage : Data?
+    dynamic var latitude : Double = -999.0
+    dynamic var longitude : Double = -999.0
+    dynamic var shareLocation = false
+    dynamic var sharePresence = false
+    dynamic var lastSeenAt: Date? // will power a ring or glow around hte users avatar; grey=offline; yellow=seenc in last 10 mins; green = seen in last minute
 
     var defaultingName: String {
         if !displayName.isEmpty {

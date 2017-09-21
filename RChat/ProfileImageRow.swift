@@ -38,7 +38,6 @@ final class ProfileCell : Cell<String>, CellType {
         }
     }
 
-
 }
 
 final class ProfileRow : Row<ProfileCell>, RowType {
@@ -48,4 +47,5 @@ final class ProfileRow : Row<ProfileCell>, RowType {
         // We set the cellProvider to load the .xib corresponding to our cell
         cellProvider = CellProvider<ProfileCell>()
     }
+    
 }
