@@ -127,9 +127,11 @@ class ChatViewController : BaseChatViewController,
 
     func attachmentButtonDidTapped() {
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        alertController.addAction(UIAlertAction(title: "Camera", style: .default, handler: { [weak self] (_) in
-            self?.presentCamera()
-        }))
+        if !Platform.isSimulator { // Only allow the user to select the camera on a real device, else we'll crash 😱
+            alertController.addAction(UIAlertAction(title: "Camera", style: .default, handler: { [weak self] (_) in
+                self?.presentCamera()
+            }))
+        }
         alertController.addAction(UIAlertAction(title: "Library", style: .default, handler: { [weak self] (_) in
             self?.presentPhotoLibrary()
         }))

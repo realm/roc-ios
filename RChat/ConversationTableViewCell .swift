@@ -31,6 +31,11 @@ class ConversationTableViewCell : UITableViewCell {
         backgroundColor = .clear
         textLabel?.textColor = UIColor.white
         textLabel?.translatesAutoresizingMaskIntoConstraints = false
+        
+        textLabel?.numberOfLines = 0
+        textLabel?.textAlignment = .left
+        textLabel?.lineBreakMode = .byWordWrapping
+        
         contentView.addSubview(unreadIndicatorLabel)
 
         constrain(textLabel!, unreadIndicatorLabel) { (textLabel, unreadIndicatorLabel) in
@@ -38,7 +43,7 @@ class ConversationTableViewCell : UITableViewCell {
             unreadIndicatorLabel.height == 28
             unreadIndicatorLabel.width == 28
             unreadIndicatorLabel.centerY == unreadIndicatorLabel.superview!.centerY
-
+            
             textLabel.left == unreadIndicatorLabel.right + RChatConstants.Numbers.horizontalSpacing
             textLabel.top == textLabel.superview!.top
             textLabel.bottom == textLabel.superview!.bottom
@@ -53,10 +58,27 @@ class ConversationTableViewCell : UITableViewCell {
     func setupWithConversation(conversation: Conversation){
         textLabel?.text = conversation.defaultingName
         textLabel?.font = conversation.unreadCount > 0 ? RChatConstants.Fonts.boldFont : RChatConstants.Fonts.regularFont
-        unreadIndicatorLabel.text = conversation.unreadCount == 0 ? "" : "\(conversation.unreadCount)"
-        unreadIndicatorLabel.layer.borderColor = conversation.unreadCount == 0 ? UIColor.lightGray.cgColor : UIColor.clear.cgColor
+        unreadIndicatorLabel.text = conversation.unreadCount == 0 ? "0" : "\(conversation.unreadCount)"
         unreadIndicatorLabel.layer.borderWidth = conversation.unreadCount == 0 ? 2.0 : 0
-        unreadIndicatorLabel.backgroundColor = conversation.unreadCount == 0 ? UIColor.clear : UIColor.red
+
+        // let's colorize the unread count depending on how far behind the user is on a conversation...
+        switch conversation.unreadCount {
+        case 0:
+            unreadIndicatorLabel.layer.borderColor = UIColor.lightGray.cgColor
+            unreadIndicatorLabel.backgroundColor = UIColor.clear
+            break
+        case 1...25:
+            unreadIndicatorLabel.layer.borderColor = UIColor.green.cgColor
+            unreadIndicatorLabel.backgroundColor = UIColor.clear
+            break
+        case 26...50:
+            unreadIndicatorLabel.layer.borderColor = UIColor.yellow.cgColor
+            unreadIndicatorLabel.backgroundColor = UIColor.darkGray
+            break
+        default:
+            unreadIndicatorLabel.layer.borderColor = UIColor.black.cgColor
+            unreadIndicatorLabel.backgroundColor = UIColor.red
+        }
     }
 
     override func prepareForReuse() {

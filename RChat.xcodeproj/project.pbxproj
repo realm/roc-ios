@@ -79,6 +79,7 @@
 		8BC5D7C41F73056F00D422F3 /* Bundle+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC5D7BE1F73056E00D422F3 /* Bundle+Utilities.swift */; };
 		8BC5D7C51F73056F00D422F3 /* TextField+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC5D7BF1F73056E00D422F3 /* TextField+Utilities.swift */; };
 		8BC5D7C61F73056F00D422F3 /* Color+Uilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC5D7C01F73056E00D422F3 /* Color+Uilities.swift */; };
+		8BC5D7C91F7387D700D422F3 /* PresenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC5D7C81F7387D600D422F3 /* PresenceManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -178,6 +179,7 @@
 		8BC5D7BE1F73056E00D422F3 /* Bundle+Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Bundle+Utilities.swift"; sourceTree = "<group>"; };
 		8BC5D7BF1F73056E00D422F3 /* TextField+Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TextField+Utilities.swift"; sourceTree = "<group>"; };
 		8BC5D7C01F73056E00D422F3 /* Color+Uilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Color+Uilities.swift"; sourceTree = "<group>"; };
+		8BC5D7C81F7387D600D422F3 /* PresenceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresenceManager.swift; sourceTree = "<group>"; };
 		AA9FE0DA4BEF16EE81B46A6A /* Pods-RChatUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RChatUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RChatUITests/Pods-RChatUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		E89082463C8A6EE3921EFFA4 /* Pods-RChatTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RChatTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RChatTests/Pods-RChatTests.debug.xcconfig"; sourceTree = "<group>"; };
 		EF46AEB72E02B5B9F1B1D926 /* Pods_RChatUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RChatUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -245,6 +247,7 @@
 		5018252C1E2469C200E9A535 = {
 			isa = PBXGroup;
 			children = (
+				8BC5D7C71F7387D600D422F3 /* Misc */,
 				8BC5D7BA1F73056E00D422F3 /* Extensions */,
 				501825371E2469C200E9A535 /* RChat */,
 				5018254C1E2469C200E9A535 /* RChatTests */,
@@ -485,6 +488,14 @@
 				8BC5D7C01F73056E00D422F3 /* Color+Uilities.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		8BC5D7C71F7387D600D422F3 /* Misc */ = {
+			isa = PBXGroup;
+			children = (
+				8BC5D7C81F7387D600D422F3 /* PresenceManager.swift */,
+			);
+			path = Misc;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -860,6 +871,7 @@
 				5047F8301E257A5B00E60B63 /* RChatTextMessageCollectionViewCellStyle.swift in Sources */,
 				5003AF3A1E32A1A800057F8A /* WelcomeViewModel.swift in Sources */,
 				5047F7FD1E255E1800E60B63 /* RChatConstants.swift in Sources */,
+				8BC5D7C91F7387D700D422F3 /* PresenceManager.swift in Sources */,
 				5003AF361E329B1600057F8A /* LoginViewModel.swift in Sources */,
 				509AEB101E45459B00EC2FFE /* UIViewController+Extensions.swift in Sources */,
 				8BC5D7C11F73056F00D422F3 /* Image+Utilties.swift in Sources */,
