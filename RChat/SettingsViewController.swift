@@ -10,8 +10,18 @@ import UIKit
 import Eureka
 import BRYXBanner
 
-class SettingsViewController : FormViewController {
+struct Platform {
+    static var isSimulator: Bool {
+        return TARGET_OS_SIMULATOR != 0
+    }
+    
+}
 
+
+class SettingsViewController : FormViewController {
+    private var tmpImage: UIImage?
+    
+    
     lazy var profileRow : ProfileRow = {
         let row = ProfileRow()
         return row
@@ -32,6 +42,21 @@ class SettingsViewController : FormViewController {
         return row
     }()
 
+    lazy var shareLocationRow : SwitchRow = {
+        let row = SwitchRow() { row in
+            row.title = "Share Location:"
+        }
+        return row
+    }()
+
+    lazy var sharePresenceRow : SwitchRow = {
+        let row = SwitchRow() { row in
+            row.title = "Share Online/Offline Presence:"
+        }
+        return row
+    }()
+
+    
     lazy var saveButtonRow : ButtonRow = {
         let row = ButtonRow() { row in
             row.title = "Save Changes"
@@ -64,7 +89,17 @@ class SettingsViewController : FormViewController {
                 guard let `self` = self else { return }
                 self.viewModel.displayName = r.value
             })
+        
+            <<< shareLocationRow.onChange({ [weak self] (r) in
+                guard let `self` = self else { return }
+                self.viewModel.shareLocation = r.value
+            })
+            <<< sharePresenceRow.onChange({ [weak self] (r) in
+                guard let `self` = self else { return }
+                self.viewModel.sharePresence = r.value
+            })
 
+        
         form +++ Section()
             <<< saveButtonRow.onCellSelection({ [weak self] (_, _) in
                 guard let `self` = self else { return }
@@ -77,16 +112,23 @@ class SettingsViewController : FormViewController {
                 self.viewModel.logoutRowDidTap()
             })
 
-
+        
         usernameRow.value = viewModel.username
         displayNameRow.value = viewModel.displayName
-
+        sharePresenceRow.value = viewModel.sharePresence
+        shareLocationRow.value = viewModel.shareLocation
+        profileRow.cell.profileImageView.image = viewModel.avatarImage
+        
         viewModel.presentProfileImageChangeAlert = { [weak self] in
             guard let `self` = self else { return }
             let alertController = UIAlertController(title: "Change Profile Image", message: nil, preferredStyle: .actionSheet)
-            alertController.addAction(UIAlertAction(title: "From Camera", style: .default, handler: { (_) in
+            
+            if !Platform.isSimulator { // Only allow the user to select the camera on a real device, else we'll crash 😱
+                alertController.addAction(UIAlertAction(title: "From Camera", style: .default, handler: { (_) in
                 self.presentCamera()
-            }))
+                }))
+            }
+
             alertController.addAction(UIAlertAction(title: "From Photo Library", style: .default, handler: { (_) in
                 self.presentPhotoLibrary()
             }))
@@ -107,15 +149,16 @@ class SettingsViewController : FormViewController {
         viewModel.returnToWelcomeViewController = { [weak self] in
             guard let `self` = self else { return }
             self.navigationController?.setViewControllers([RLMLoginViewController()], animated: true)
-            //self.navigationController?.setViewControllers([WelcomeViewController()], animated: true)
         }
 
         viewModel.showSaveSuccessBanner = {
             let banner = Banner(title: "Settings Saved")
             banner.backgroundColor = RChatConstants.Colors.nephritis
             banner.dismissesOnTap = true
-            banner.show(duration: 2.0)
+            banner.show(duration: 1.5)
         }
     }
+
+
 
 }

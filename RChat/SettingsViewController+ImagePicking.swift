@@ -31,6 +31,10 @@ extension SettingsViewController : UIImagePickerControllerDelegate, UINavigation
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         picker.dismiss(animated: true, completion: nil)
         guard let image = info[UIImagePickerControllerEditedImage] as? UIImage else { return }
+        self.viewModel.avatarImage = image
+        self.profileRow.cell.profileImageView.image = self.viewModel.avatarImage
     }
 
+    
+    
 }

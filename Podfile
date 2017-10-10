@@ -19,6 +19,9 @@ target 'RChat' do
   pod 'BRYXBanner', '~> 0.7.1'
   pod 'RealmLoginKit'
   
+  pod 'ImagePicker'
+  pod 'AAPhotoCircleCrop'
+
   
   target 'RChatTests' do
     inherit! :search_paths

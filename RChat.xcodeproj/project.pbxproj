@@ -73,6 +73,18 @@
 		74AAC82A174F5791435E3049 /* Pods_RChatUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF46AEB72E02B5B9F1B1D926 /* Pods_RChatUITests.framework */; };
 		88951EEF5C3ADF44902A22FF /* Pods_RChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7328AD7549EFFB9770BF4246 /* Pods_RChat.framework */; };
 		8B02949C1F708073009058AB /* RLMLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B02949B1F708073009058AB /* RLMLoginViewController.swift */; };
+		8B1B71C91F8D84E1001C95E9 /* RChatImageMessageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1B71C41F8D84E1001C95E9 /* RChatImageMessageViewModel.swift */; };
+		8B1B71CA1F8D84E1001C95E9 /* RChatImageMessageHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1B71C51F8D84E1001C95E9 /* RChatImageMessageHandler.swift */; };
+		8B1B71CB1F8D84E1001C95E9 /* RChatImageMessageCollectionViewCellStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1B71C61F8D84E1001C95E9 /* RChatImageMessageCollectionViewCellStyle.swift */; };
+		8B1B71CC1F8D84E1001C95E9 /* RChatImageMessageViewModelBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1B71C71F8D84E1001C95E9 /* RChatImageMessageViewModelBuilder.swift */; };
+		8B1B71CD1F8D84E1001C95E9 /* RChatImageMessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1B71C81F8D84E1001C95E9 /* RChatImageMessageModel.swift */; };
+		8BC5D7C11F73056F00D422F3 /* Image+Utilties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC5D7BB1F73056E00D422F3 /* Image+Utilties.swift */; };
+		8BC5D7C21F73056F00D422F3 /* String+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC5D7BC1F73056E00D422F3 /* String+Utilities.swift */; };
+		8BC5D7C31F73056F00D422F3 /* View+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC5D7BD1F73056E00D422F3 /* View+Utilities.swift */; };
+		8BC5D7C41F73056F00D422F3 /* Bundle+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC5D7BE1F73056E00D422F3 /* Bundle+Utilities.swift */; };
+		8BC5D7C51F73056F00D422F3 /* TextField+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC5D7BF1F73056E00D422F3 /* TextField+Utilities.swift */; };
+		8BC5D7C61F73056F00D422F3 /* Color+Uilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC5D7C01F73056E00D422F3 /* Color+Uilities.swift */; };
+		8BC5D7C91F7387D700D422F3 /* PresenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC5D7C81F7387D600D422F3 /* PresenceManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -166,6 +178,18 @@
 		7328AD7549EFFB9770BF4246 /* Pods_RChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		877A8327B46D9DFEBCC20809 /* Pods-RChatUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RChatUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RChatUITests/Pods-RChatUITests.release.xcconfig"; sourceTree = "<group>"; };
 		8B02949B1F708073009058AB /* RLMLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RLMLoginViewController.swift; sourceTree = "<group>"; };
+		8B1B71C41F8D84E1001C95E9 /* RChatImageMessageViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RChatImageMessageViewModel.swift; sourceTree = "<group>"; };
+		8B1B71C51F8D84E1001C95E9 /* RChatImageMessageHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RChatImageMessageHandler.swift; sourceTree = "<group>"; };
+		8B1B71C61F8D84E1001C95E9 /* RChatImageMessageCollectionViewCellStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RChatImageMessageCollectionViewCellStyle.swift; sourceTree = "<group>"; };
+		8B1B71C71F8D84E1001C95E9 /* RChatImageMessageViewModelBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RChatImageMessageViewModelBuilder.swift; sourceTree = "<group>"; };
+		8B1B71C81F8D84E1001C95E9 /* RChatImageMessageModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RChatImageMessageModel.swift; sourceTree = "<group>"; };
+		8BC5D7BB1F73056E00D422F3 /* Image+Utilties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Image+Utilties.swift"; sourceTree = "<group>"; };
+		8BC5D7BC1F73056E00D422F3 /* String+Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Utilities.swift"; sourceTree = "<group>"; };
+		8BC5D7BD1F73056E00D422F3 /* View+Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "View+Utilities.swift"; sourceTree = "<group>"; };
+		8BC5D7BE1F73056E00D422F3 /* Bundle+Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Bundle+Utilities.swift"; sourceTree = "<group>"; };
+		8BC5D7BF1F73056E00D422F3 /* TextField+Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TextField+Utilities.swift"; sourceTree = "<group>"; };
+		8BC5D7C01F73056E00D422F3 /* Color+Uilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Color+Uilities.swift"; sourceTree = "<group>"; };
+		8BC5D7C81F7387D600D422F3 /* PresenceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresenceManager.swift; sourceTree = "<group>"; };
 		AA9FE0DA4BEF16EE81B46A6A /* Pods-RChatUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RChatUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RChatUITests/Pods-RChatUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		E89082463C8A6EE3921EFFA4 /* Pods-RChatTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RChatTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RChatTests/Pods-RChatTests.debug.xcconfig"; sourceTree = "<group>"; };
 		EF46AEB72E02B5B9F1B1D926 /* Pods_RChatUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RChatUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -233,6 +257,8 @@
 		5018252C1E2469C200E9A535 = {
 			isa = PBXGroup;
 			children = (
+				8BC5D7C71F7387D600D422F3 /* Misc */,
+				8BC5D7BA1F73056E00D422F3 /* Extensions */,
 				501825371E2469C200E9A535 /* RChat */,
 				5018254C1E2469C200E9A535 /* RChatTests */,
 				501825571E2469C200E9A535 /* RChatUITests */,
@@ -345,6 +371,7 @@
 		5047F7F71E255D5B00E60B63 /* ChatViewController */ = {
 			isa = PBXGroup;
 			children = (
+				8B1B71C31F8D84E1001C95E9 /* Images */,
 				5047F8241E2578F500E60B63 /* SendingStatus */,
 				5047F80F1E25677100E60B63 /* TimeSeperator */,
 				5047F80E1E25670F00E60B63 /* Text */,
@@ -459,6 +486,39 @@
 				877A8327B46D9DFEBCC20809 /* Pods-RChatUITests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		8B1B71C31F8D84E1001C95E9 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				8B1B71C41F8D84E1001C95E9 /* RChatImageMessageViewModel.swift */,
+				8B1B71C51F8D84E1001C95E9 /* RChatImageMessageHandler.swift */,
+				8B1B71C61F8D84E1001C95E9 /* RChatImageMessageCollectionViewCellStyle.swift */,
+				8B1B71C71F8D84E1001C95E9 /* RChatImageMessageViewModelBuilder.swift */,
+				8B1B71C81F8D84E1001C95E9 /* RChatImageMessageModel.swift */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		8BC5D7BA1F73056E00D422F3 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				8BC5D7BB1F73056E00D422F3 /* Image+Utilties.swift */,
+				8BC5D7BC1F73056E00D422F3 /* String+Utilities.swift */,
+				8BC5D7BD1F73056E00D422F3 /* View+Utilities.swift */,
+				8BC5D7BE1F73056E00D422F3 /* Bundle+Utilities.swift */,
+				8BC5D7BF1F73056E00D422F3 /* TextField+Utilities.swift */,
+				8BC5D7C01F73056E00D422F3 /* Color+Uilities.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		8BC5D7C71F7387D600D422F3 /* Misc */ = {
+			isa = PBXGroup;
+			children = (
+				8BC5D7C81F7387D600D422F3 /* PresenceManager.swift */,
+			);
+			path = Misc;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -609,13 +669,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RChatUITests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		45BB9EC465632EB9F0911ED1 /* [CP] Copy Pods Resources */ = {
@@ -639,9 +702,40 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-RChat/Pods-RChat-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AAPhotoCircleCrop/AAPhotoCircleCrop.framework",
+				"${BUILT_PRODUCTS_DIR}/BRYXBanner/BRYXBanner.framework",
+				"${BUILT_PRODUCTS_DIR}/Cartography/Cartography.framework",
+				"${BUILT_PRODUCTS_DIR}/Chatto/Chatto.framework",
+				"${BUILT_PRODUCTS_DIR}/ChattoAdditions/ChattoAdditions.framework",
+				"${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework",
+				"${BUILT_PRODUCTS_DIR}/ImagePicker/ImagePicker.framework",
+				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmLoginKit/RealmLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/SideMenu/SideMenu.framework",
+				"${BUILT_PRODUCTS_DIR}/TORoundedTableView/TORoundedTableView.framework",
+				"${BUILT_PRODUCTS_DIR}/TURecipientBar/TURecipientBar.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AAPhotoCircleCrop.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BRYXBanner.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cartography.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Chatto.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChattoAdditions.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Eureka.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ImagePicker.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SideMenu.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TORoundedTableView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TURecipientBar.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -654,13 +748,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RChat-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		879A5E8A7CE3837498100C67 /* [CP] Check Pods Manifest.lock */ = {
@@ -669,13 +766,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RChatTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		90FB8493E2F059D174950ECD /* [CP] Embed Pods Frameworks */ = {
@@ -749,6 +849,7 @@
 				5024D62B1E4B16A8002586A1 /* SearchResultTableViewCell.swift in Sources */,
 				5000D6731E41E4BD007EF087 /* RTextField.swift in Sources */,
 				5047F7FB1E255D9B00E60B63 /* RChatTextMessageModel.swift in Sources */,
+				8B1B71CA1F8D84E1001C95E9 /* RChatImageMessageHandler.swift in Sources */,
 				5047F80D1E2566B700E60B63 /* RChatCollectionViewLayout.swift in Sources */,
 				5018256E1E246D3300E9A535 /* Conversation.swift in Sources */,
 				5000D67A1E41FEC2007EF087 /* ComposeUserTableViewCell.swift in Sources */,
@@ -761,6 +862,7 @@
 				5003AF3C1E34152A00057F8A /* AppDelegate+RealmSetup.swift in Sources */,
 				501825701E246DA300E9A535 /* ChatMessage.swift in Sources */,
 				5047F8161E2567DB00E60B63 /* ColorLabel.swift in Sources */,
+				8B1B71C91F8D84E1001C95E9 /* RChatImageMessageViewModel.swift in Sources */,
 				5047F8281E25792500E60B63 /* SendingStatusPresenterBuilder.swift in Sources */,
 				5047F8351E25EAC500E60B63 /* ChatViewController+ImageDelegate.swift in Sources */,
 				501825671E246B1100E9A535 /* ChatViewController.swift in Sources */,
@@ -771,12 +873,14 @@
 				5047F81A1E2568FD00E60B63 /* TimeSeperatorPresenterBuilder.swift in Sources */,
 				5024D62E1E4B30AD002586A1 /* MembersViewController.swift in Sources */,
 				5000D6711E41D362007EF087 /* User.swift in Sources */,
+				8BC5D7C31F73056F00D422F3 /* View+Utilities.swift in Sources */,
 				507F29B31E25EC7B00F1D2ED /* ConversationSearchView.swift in Sources */,
 				5024D6301E4B3B15002586A1 /* MembersTableViewCell.swift in Sources */,
 				5000D6781E41F640007EF087 /* RChatRecipientBar.swift in Sources */,
 				5047F82E1E25799C00E60B63 /* SendingStatusCollectionViewCell.swift in Sources */,
 				50F657A01E44F60600AB32A9 /* SettingsViewController.swift in Sources */,
 				50F657A41E44FF7900AB32A9 /* SettingsViewModel.swift in Sources */,
+				8BC5D7C61F73056F00D422F3 /* Color+Uilities.swift in Sources */,
 				5047F8051E2561F600E60B63 /* RChatTextMessageViewModel.swift in Sources */,
 				50F657A21E44F64C00AB32A9 /* ProfileImageRow.swift in Sources */,
 				5047F81C1E25692000E60B63 /* TimeSeparatorPresenter.swift in Sources */,
@@ -785,24 +889,32 @@
 				50F657A61E45016D00AB32A9 /* SettingsViewController+ImagePicking.swift in Sources */,
 				5047F7F91E255D7600E60B63 /* RChatTextMessageHandler.swift in Sources */,
 				5047F7FF1E255EEE00E60B63 /* ChatMessage+MessageModelProtocol.swift in Sources */,
+				8BC5D7C51F73056F00D422F3 /* TextField+Utilities.swift in Sources */,
 				5047F8231E256C7100E60B63 /* UIColor+Hex.swift in Sources */,
 				502122EF1E453416004B8EE7 /* LoadingView.swift in Sources */,
 				8B02949C1F708073009058AB /* RLMLoginViewController.swift in Sources */,
 				5047F8301E257A5B00E60B63 /* RChatTextMessageCollectionViewCellStyle.swift in Sources */,
 				5003AF3A1E32A1A800057F8A /* WelcomeViewModel.swift in Sources */,
 				5047F7FD1E255E1800E60B63 /* RChatConstants.swift in Sources */,
+				8BC5D7C91F7387D700D422F3 /* PresenceManager.swift in Sources */,
 				5003AF361E329B1600057F8A /* LoginViewModel.swift in Sources */,
 				509AEB101E45459B00EC2FFE /* UIViewController+Extensions.swift in Sources */,
+				8BC5D7C11F73056F00D422F3 /* Image+Utilties.swift in Sources */,
 				5047F82C1E25798B00E60B63 /* SendingStatusPresenter.swift in Sources */,
 				5047F8211E256B2200E60B63 /* RChatDecorator.swift in Sources */,
 				5003AF381E32A09800057F8A /* RChatButton.swift in Sources */,
 				501825391E2469C200E9A535 /* AppDelegate.swift in Sources */,
+				8B1B71CB1F8D84E1001C95E9 /* RChatImageMessageCollectionViewCellStyle.swift in Sources */,
+				8BC5D7C41F73056F00D422F3 /* Bundle+Utilities.swift in Sources */,
 				5000D6761E41F62F007EF087 /* ComposeViewController.swift in Sources */,
 				502122ED1E453024004B8EE7 /* String+Extensions.swift in Sources */,
+				8BC5D7C21F73056F00D422F3 /* String+Utilities.swift in Sources */,
 				5047F8111E25678300E60B63 /* TimeSeperatorModel.swift in Sources */,
 				5047F8031E2560CE00E60B63 /* RChatMessageModelProtocol.swift in Sources */,
+				8B1B71CD1F8D84E1001C95E9 /* RChatImageMessageModel.swift in Sources */,
 				507F29B51E25EF6700F1D2ED /* ConversationTableViewCell .swift in Sources */,
 				5047F8321E257AB000E60B63 /* RChatMessageCollectionViewCellAvatarStyle.swift in Sources */,
+				8B1B71CC1F8D84E1001C95E9 /* RChatImageMessageViewModelBuilder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

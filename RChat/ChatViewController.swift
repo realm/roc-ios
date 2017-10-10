@@ -100,6 +100,8 @@ class ChatViewController : BaseChatViewController,
     }
 
     override func createPresenterBuilders() -> [ChatItemType : [ChatItemPresenterBuilderProtocol]] {
+        
+        // regular text messages
         let textMessagePresenter = TextMessagePresenterBuilder(
             viewModelBuilder: RChatTextMessageViewModelBuilder(),
             interactionHandler: RChatTextMessageHandler(baseHandler: self.messageHandler)
@@ -109,8 +111,16 @@ class ChatViewController : BaseChatViewController,
             return style
         }()
         textMessagePresenter.textCellStyle = RChatTextMessageCollectionViewCellStyle()
+        
+        // image/photo messages
+        let imageMessagePresenter = PhotoMessagePresenterBuilder(
+            viewModelBuilder:  RChatImageMessageViewModelBuilder(),
+            interactionHandler: RChatImageMessageHandler(baseHandler: self.messageHandler)
+        )
+        
         return [
             MimeType.textPlain.rawValue: [textMessagePresenter],
+            MimeType.imagePNG.rawValue: [imageMessagePresenter],
             TimeSeparatorModel.chatItemType: [TimeSeparatorPresenterBuilder()]
         ]
     }
@@ -127,9 +137,11 @@ class ChatViewController : BaseChatViewController,
 
     func attachmentButtonDidTapped() {
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        alertController.addAction(UIAlertAction(title: "Camera", style: .default, handler: { [weak self] (_) in
-            self?.presentCamera()
-        }))
+        if !Platform.isSimulator { // Only allow the user to select the camera on a real device, else we'll crash 😱
+            alertController.addAction(UIAlertAction(title: "Camera", style: .default, handler: { [weak self] (_) in
+                self?.presentCamera()
+            }))
+        }
         alertController.addAction(UIAlertAction(title: "Library", style: .default, handler: { [weak self] (_) in
             self?.presentPhotoLibrary()
         }))

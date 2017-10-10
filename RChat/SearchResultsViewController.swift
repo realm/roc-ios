@@ -89,6 +89,21 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
         return cell
     }
 
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        var result: String?
+        switch section {
+        case 0:
+            result =  "Conversations"
+        case 1: // users
+            result =  "Users"
+        case 2:
+            result =  "Chats"
+        default:
+            result =  "Unknown Section!"
+        }
+        return result
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         switch indexPath.section {

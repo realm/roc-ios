@@ -27,6 +27,10 @@
 	</dict>
 	<key>NSCameraUsageDescription</key>
 	<string>RChat needs permissions to your camera to allow you to send image messages.</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>RChat needs your location to show your locaiton on  a map; you can opt-out at any time</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>RChat need permission to import media items from chats to your photo library if you want to save them</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>RChat needs permissions to your photo library to allow you to send image messages.</string>
 	<key>UILaunchStoryboardName</key>

@@ -32,6 +32,10 @@ extension ChatViewController : UINavigationControllerDelegate, UIImagePickerCont
         picker.dismiss(animated: true, completion: nil)
         guard let image = info[UIImagePickerControllerOriginalImage] as? UIImage else { return }
         print("you've selected an image. \(image)")
+        
+        // this really doesn't need the level of infirection that the text messages uses ... as long as we have the required data
+        // this should just make a new message and get it into the message stream. 
+        ChatMessage.sendImageChatMessage(conversation: conversation, image: image)
     }
 
 }
