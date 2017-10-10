@@ -44,6 +44,9 @@ class ChatViewModel : ChatDataSourceProtocol {
                         if m.mimeType == MimeType.textPlain.rawValue {
                             items.append(RChatTextMessageModel(messageModel: m))
                         }
+                        if m.mimeType == MimeType.imagePNG.rawValue {
+                            items.append(RChatImageMessageModel(messageModel: m, imageSize: CGSize(width:256, height:256), image: UIImage(data:m.extraInfo! as Data)!))
+                        }
                     }
                     self.chatItems = items
                     self.delegate?.chatDataSourceDidUpdate(self, updateType: self.isFirst ? .reload : .normal)

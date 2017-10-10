@@ -73,6 +73,11 @@
 		74AAC82A174F5791435E3049 /* Pods_RChatUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF46AEB72E02B5B9F1B1D926 /* Pods_RChatUITests.framework */; };
 		88951EEF5C3ADF44902A22FF /* Pods_RChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7328AD7549EFFB9770BF4246 /* Pods_RChat.framework */; };
 		8B02949C1F708073009058AB /* RLMLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B02949B1F708073009058AB /* RLMLoginViewController.swift */; };
+		8B1B71C91F8D84E1001C95E9 /* RChatImageMessageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1B71C41F8D84E1001C95E9 /* RChatImageMessageViewModel.swift */; };
+		8B1B71CA1F8D84E1001C95E9 /* RChatImageMessageHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1B71C51F8D84E1001C95E9 /* RChatImageMessageHandler.swift */; };
+		8B1B71CB1F8D84E1001C95E9 /* RChatImageMessageCollectionViewCellStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1B71C61F8D84E1001C95E9 /* RChatImageMessageCollectionViewCellStyle.swift */; };
+		8B1B71CC1F8D84E1001C95E9 /* RChatImageMessageViewModelBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1B71C71F8D84E1001C95E9 /* RChatImageMessageViewModelBuilder.swift */; };
+		8B1B71CD1F8D84E1001C95E9 /* RChatImageMessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1B71C81F8D84E1001C95E9 /* RChatImageMessageModel.swift */; };
 		8BC5D7C11F73056F00D422F3 /* Image+Utilties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC5D7BB1F73056E00D422F3 /* Image+Utilties.swift */; };
 		8BC5D7C21F73056F00D422F3 /* String+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC5D7BC1F73056E00D422F3 /* String+Utilities.swift */; };
 		8BC5D7C31F73056F00D422F3 /* View+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC5D7BD1F73056E00D422F3 /* View+Utilities.swift */; };
@@ -173,6 +178,11 @@
 		7328AD7549EFFB9770BF4246 /* Pods_RChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		877A8327B46D9DFEBCC20809 /* Pods-RChatUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RChatUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RChatUITests/Pods-RChatUITests.release.xcconfig"; sourceTree = "<group>"; };
 		8B02949B1F708073009058AB /* RLMLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RLMLoginViewController.swift; sourceTree = "<group>"; };
+		8B1B71C41F8D84E1001C95E9 /* RChatImageMessageViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RChatImageMessageViewModel.swift; sourceTree = "<group>"; };
+		8B1B71C51F8D84E1001C95E9 /* RChatImageMessageHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RChatImageMessageHandler.swift; sourceTree = "<group>"; };
+		8B1B71C61F8D84E1001C95E9 /* RChatImageMessageCollectionViewCellStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RChatImageMessageCollectionViewCellStyle.swift; sourceTree = "<group>"; };
+		8B1B71C71F8D84E1001C95E9 /* RChatImageMessageViewModelBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RChatImageMessageViewModelBuilder.swift; sourceTree = "<group>"; };
+		8B1B71C81F8D84E1001C95E9 /* RChatImageMessageModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RChatImageMessageModel.swift; sourceTree = "<group>"; };
 		8BC5D7BB1F73056E00D422F3 /* Image+Utilties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Image+Utilties.swift"; sourceTree = "<group>"; };
 		8BC5D7BC1F73056E00D422F3 /* String+Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Utilities.swift"; sourceTree = "<group>"; };
 		8BC5D7BD1F73056E00D422F3 /* View+Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "View+Utilities.swift"; sourceTree = "<group>"; };
@@ -361,6 +371,7 @@
 		5047F7F71E255D5B00E60B63 /* ChatViewController */ = {
 			isa = PBXGroup;
 			children = (
+				8B1B71C31F8D84E1001C95E9 /* Images */,
 				5047F8241E2578F500E60B63 /* SendingStatus */,
 				5047F80F1E25677100E60B63 /* TimeSeperator */,
 				5047F80E1E25670F00E60B63 /* Text */,
@@ -475,6 +486,18 @@
 				877A8327B46D9DFEBCC20809 /* Pods-RChatUITests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		8B1B71C31F8D84E1001C95E9 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				8B1B71C41F8D84E1001C95E9 /* RChatImageMessageViewModel.swift */,
+				8B1B71C51F8D84E1001C95E9 /* RChatImageMessageHandler.swift */,
+				8B1B71C61F8D84E1001C95E9 /* RChatImageMessageCollectionViewCellStyle.swift */,
+				8B1B71C71F8D84E1001C95E9 /* RChatImageMessageViewModelBuilder.swift */,
+				8B1B71C81F8D84E1001C95E9 /* RChatImageMessageModel.swift */,
+			);
+			path = Images;
 			sourceTree = "<group>";
 		};
 		8BC5D7BA1F73056E00D422F3 /* Extensions */ = {
@@ -826,6 +849,7 @@
 				5024D62B1E4B16A8002586A1 /* SearchResultTableViewCell.swift in Sources */,
 				5000D6731E41E4BD007EF087 /* RTextField.swift in Sources */,
 				5047F7FB1E255D9B00E60B63 /* RChatTextMessageModel.swift in Sources */,
+				8B1B71CA1F8D84E1001C95E9 /* RChatImageMessageHandler.swift in Sources */,
 				5047F80D1E2566B700E60B63 /* RChatCollectionViewLayout.swift in Sources */,
 				5018256E1E246D3300E9A535 /* Conversation.swift in Sources */,
 				5000D67A1E41FEC2007EF087 /* ComposeUserTableViewCell.swift in Sources */,
@@ -838,6 +862,7 @@
 				5003AF3C1E34152A00057F8A /* AppDelegate+RealmSetup.swift in Sources */,
 				501825701E246DA300E9A535 /* ChatMessage.swift in Sources */,
 				5047F8161E2567DB00E60B63 /* ColorLabel.swift in Sources */,
+				8B1B71C91F8D84E1001C95E9 /* RChatImageMessageViewModel.swift in Sources */,
 				5047F8281E25792500E60B63 /* SendingStatusPresenterBuilder.swift in Sources */,
 				5047F8351E25EAC500E60B63 /* ChatViewController+ImageDelegate.swift in Sources */,
 				501825671E246B1100E9A535 /* ChatViewController.swift in Sources */,
@@ -879,14 +904,17 @@
 				5047F8211E256B2200E60B63 /* RChatDecorator.swift in Sources */,
 				5003AF381E32A09800057F8A /* RChatButton.swift in Sources */,
 				501825391E2469C200E9A535 /* AppDelegate.swift in Sources */,
+				8B1B71CB1F8D84E1001C95E9 /* RChatImageMessageCollectionViewCellStyle.swift in Sources */,
 				8BC5D7C41F73056F00D422F3 /* Bundle+Utilities.swift in Sources */,
 				5000D6761E41F62F007EF087 /* ComposeViewController.swift in Sources */,
 				502122ED1E453024004B8EE7 /* String+Extensions.swift in Sources */,
 				8BC5D7C21F73056F00D422F3 /* String+Utilities.swift in Sources */,
 				5047F8111E25678300E60B63 /* TimeSeperatorModel.swift in Sources */,
 				5047F8031E2560CE00E60B63 /* RChatMessageModelProtocol.swift in Sources */,
+				8B1B71CD1F8D84E1001C95E9 /* RChatImageMessageModel.swift in Sources */,
 				507F29B51E25EF6700F1D2ED /* ConversationTableViewCell .swift in Sources */,
 				5047F8321E257AB000E60B63 /* RChatMessageCollectionViewCellAvatarStyle.swift in Sources */,
+				8B1B71CC1F8D84E1001C95E9 /* RChatImageMessageViewModelBuilder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

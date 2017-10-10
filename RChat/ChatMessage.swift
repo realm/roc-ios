@@ -42,7 +42,22 @@ extension ChatMessage {
         }
     }
 
+    static func sendImageChatMessage(conversation: Conversation, image: UIImage?){
+        guard image != nil else {
+            return
+        }
+        let chatMessage = ChatMessage()
+        chatMessage.userId = RChatConstants.myUserId
+        chatMessage.conversationId = conversation.conversationId
+        chatMessage.mimeType = MimeType.imagePNG.rawValue
+        chatMessage.extraInfo = (UIImagePNGRepresentation(image!)! as NSData)
+        let realm = RChatConstants.Realms.global
+        try! realm.write {
+            conversation.chatMessages.append(chatMessage)
+        }
+    }
     
+
     static func searchInChats(searchTerm: String) -> Results<ChatMessage> {
         let realm = RChatConstants.Realms.global        
         let predicate = NSPredicate(format: "text contains[c] %@", searchTerm)
