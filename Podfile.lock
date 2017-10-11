@@ -6,11 +6,10 @@ PODS:
   - ChattoAdditions (3.1.0):
     - Chatto
   - Eureka (3.0.0)
-  - ImagePicker (2.1.1)
   - NVActivityIndicatorView (3.3)
-  - Realm (2.10.1):
-    - Realm/Headers (= 2.10.1)
-  - Realm/Headers (2.10.1)
+  - Realm (2.10.2):
+    - Realm/Headers (= 2.10.2)
+  - Realm/Headers (2.10.2)
   - RealmLoginKit (0.1.2):
     - Realm
     - RealmLoginKit/Core (= 0.1.2)
@@ -18,8 +17,8 @@ PODS:
   - RealmLoginKit/Core (0.1.2):
     - Realm
     - TORoundedTableView
-  - RealmSwift (2.10.1):
-    - Realm (= 2.10.1)
+  - RealmSwift (2.10.2):
+    - Realm (= 2.10.2)
   - SDWebImage (3.8.2):
     - SDWebImage/Core (= 3.8.2)
   - SDWebImage/Core (3.8.2)
@@ -34,7 +33,6 @@ DEPENDENCIES:
   - Chatto
   - ChattoAdditions
   - Eureka (from `https://github.com/xmartlabs/Eureka.git`, branch `feature/Xcode9-Swift3_2`)
-  - ImagePicker
   - NVActivityIndicatorView (= 3.3)
   - RealmLoginKit
   - RealmSwift
@@ -49,7 +47,7 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   Eureka:
-    :commit: 170433bedb6db4228da60eb6c866156b6b29e666
+    :commit: 05acfb04c24a480f1868e671d19b39e0f22fc265
     :git: https://github.com/xmartlabs/Eureka.git
 
 SPEC CHECKSUMS:
@@ -59,16 +57,15 @@ SPEC CHECKSUMS:
   Chatto: d959be2d284db62c713c68d7c39f2712ff902fa2
   ChattoAdditions: 64cfe2d3414a65d2d6bc8a1c5704df491eec28b6
   Eureka: 5b9418d7bfdc21ca977d69d124a6409f3e9af2c7
-  ImagePicker: fe4c699abb56ff03994fa98d8b02e3883ee118be
   NVActivityIndicatorView: 0a4cd7863d0e409e65b72e253c3e13f48d0260d7
-  Realm: fc7a317a5c2c9ba91f5f235ede4e2ea76e9eba0c
+  Realm: 0ef72b837fb67e9f4b098bac771ddd72c7fdbb69
   RealmLoginKit: ee1dcad4f3535ef65f4fa0b8e53c045ce0e0774e
-  RealmSwift: 505ed6c15942a2e76f5cfa78a8667cfa997ee75b
+  RealmSwift: 07a9ae0505091eda6b2ee7c190c3786d6e90a7b0
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
   SideMenu: bcd2d7b7d4395af088e213cebd11c3ac7d958f5a
   TORoundedTableView: cd1437ef81ab3888dea8c06d2dfe4795bcaac768
   TURecipientBar: 4904645f476ad056e17c9458fa9894552339e63a
 
-PODFILE CHECKSUM: a3e8ace631e7a5ef09445d4f0f7ea62b1ea24a6a
+PODFILE CHECKSUM: 5c87998edb642f05375032a9ad26af2724a21ddb
 
 COCOAPODS: 1.3.1
