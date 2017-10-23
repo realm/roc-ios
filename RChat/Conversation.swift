@@ -98,7 +98,7 @@ extension Conversation {
     static func observeConversationBy(conversationId: String, callback: @escaping ((Conversation?) -> Void)) -> NotificationToken {
         let realm = RChatConstants.Realms.global
         let results = realm.objects(Conversation.self).filter("conversationId = %@", conversationId)
-        return results.addNotificationBlock({ (_) in
+        return results.observe({ (_) in
             let conversation = results.first
             callback(conversation)
         })

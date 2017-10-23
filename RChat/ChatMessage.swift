@@ -42,6 +42,8 @@ extension ChatMessage {
         }
     }
 
+    
+    // MARK:  Insert image
     static func sendImageChatMessage(conversation: Conversation, image: UIImage?){
         guard image != nil else {
             return
@@ -50,7 +52,11 @@ extension ChatMessage {
         chatMessage.userId = RChatConstants.myUserId
         chatMessage.conversationId = conversation.conversationId
         chatMessage.mimeType = MimeType.imagePNG.rawValue
-        chatMessage.extraInfo = (UIImagePNGRepresentation(image!)! as NSData)
+        
+        // @FIXME: this is a placeholder to deal with an image size support issue
+        let resizedImage = image?.resizeImage(targetSize: CGSize(width:image!.size.width / 2, height: image!.size.height / 2))
+        
+        chatMessage.extraInfo = (UIImagePNGRepresentation(resizedImage!)! as NSData)
         let realm = RChatConstants.Realms.global
         try! realm.write {
             conversation.chatMessages.append(chatMessage)

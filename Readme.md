@@ -7,22 +7,16 @@ Special thanks to Chatto project for doing incredible work on the UI side of thi
 You'll need **cococapods**
 Install cocoapods with `$ sudo gem install cocoapods`
 
-1. clone this repository `git clone https://github.com/mbalex99/rchat`
+1. clone this repository `git clone https://github.com/realm/roc-ios`
 2. go to the directory `$ cd rchat`
 3. run `pod install`
 4. open the workspace `open RChat.xcworkspace`
 
 ## Pointing to the Correct Server
 
-Go to the file `RChatConstants.swift` and replace **both** the urls for:
+Go to the file `RChatConstants.swift` and replace the IP address for the Realm Server address with you server IP:
 
 ```swift
-static var objectServerEndpoint : URL {
-    return URL(string: "realm://138.197.85.79:9080" )!
-}
-
-
-static var authServerEndpoint : URL {
-    return URL(string: "http://138.197.85.79:9080" )!
-}
+// NB: this is a Realm2.x app - it MUST run against a 2.x server
+let realmServerAddress = "127.0.0.1"
 ```
