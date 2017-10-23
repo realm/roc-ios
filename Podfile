@@ -8,7 +8,7 @@ target 'RChat' do
   # Pods for RChat
   pod 'Chatto'
   pod 'ChattoAdditions'
-  pod 'RealmSwift'
+  pod 'RealmSwift', '2.10.0'
   pod 'SideMenu', '~> 2.1.3'
   pod 'SDWebImage', '~> 3.8.2'
   pod 'Eureka', :git => 'https://github.com/xmartlabs/Eureka.git', :branch => 'feature/Xcode9-Swift3_2'
