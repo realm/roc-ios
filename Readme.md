@@ -1,4 +1,4 @@
-## RChat, a mobile chat powered by RealmChat
+## RChat, a mobile chat powered by Realm
 
 Special thanks to Chatto project for doing incredible work on the UI side of things
 
@@ -8,8 +8,8 @@ You'll need **cococapods**
 Install cocoapods with `$ sudo gem install cocoapods`
 
 1. clone this repository `git clone https://github.com/realm/roc-ios`
-2. go to the directory `$ cd rchat`
-3. run `pod install`
+2. go to the directory `$ cd roc-ios`
+3. run `pod update`
 4. open the workspace `open RChat.xcworkspace`
 
 ## Pointing to the Correct Server

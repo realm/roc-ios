@@ -58,6 +58,7 @@ class RLMLoginViewController: UIViewController {
             // Set a closure that will be called on successful login
             loginViewController.loginSuccessfulHandler = { user in
                 DispatchQueue.main.async {
+                    
                     self.setup(user: user)
                     
                     if (self.loginViewController!.serverURL != RChatConstants.authServerEndpoint.absoluteString) {
@@ -106,7 +107,12 @@ class RLMLoginViewController: UIViewController {
     
     private func setup(user: SyncUser){
         let realm = RChatConstants.Realms.global
-        
+
+        if user.isAdmin == true {
+            self.setPermissionForRealm(realm, accessLevel: SyncAccessLevel
+                .write, personID: "*")
+        }
+
         try! realm.write {
             let defaultValues = ["userId": user.identity!,
                                  "username": loginViewController.username,
