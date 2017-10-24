@@ -59,6 +59,10 @@ class RLMLoginViewController: UIViewController {
             loginViewController.loginSuccessfulHandler = { user in
                 DispatchQueue.main.async {
                     self.setup(user: user)
+                    
+                    if (self.loginViewController!.serverURL != RChatConstants.authServerEndpoint.absoluteString) {
+                        realmServerAddress = self.loginViewController!.serverURL!
+                    }
                     self.loginViewController!.dismiss(animated: true, completion: nil)
                     self.navigationController?.setViewControllers([ChatViewController()], animated: true)
                     
