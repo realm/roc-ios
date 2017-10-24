@@ -14,7 +14,7 @@ Install cocoapods with `$ sudo gem install cocoapods`
 
 ## Pointing to the Correct Server
 
-Go to the file `RChatConstants.swift` and replace the IP address for the Realm Server address with you server IP:
+Go to the file `RChatConstants.swift` (which is in the `RChat/Data` directory)  and replace the IP address for the Realm Server address with you server IP:
 
 ```swift
 // NB: this is a Realm2.x app - it MUST run against a 2.x server
