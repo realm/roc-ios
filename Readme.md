@@ -25,7 +25,7 @@ let realmServerAddress = "127.0.0.1"
 
 Since this is _client focued demo_, there is not a back-end server that sets up the RChat Realm or its permissions.  In order to ensure the Realm permissions are correctly set the first user that logs in using the RChat service needs to be a Realm Server Administrator user.
 
-To accomplish this, launch Realm Studio and create one user that will be "user #1" for RChat  and grant that user Server Administrator permission. Tthis is done by creating or editing a user and then setting the administrator permission in the User Panel as shown here:
+To accomplish this, launch Realm Studio and create one user that will be "user #1" for RChat  and grant that user Server Administrator permission. This is done by creating a new user or editing an existing user and then setting the administrator permission in the User Panel as shown here:
 
 <center><img  src="Graphics/RealmStudio-admin-privs.png"/> </center>
 
