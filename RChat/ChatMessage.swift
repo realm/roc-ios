@@ -36,7 +36,7 @@ extension ChatMessage {
         chatMessage.userId = RChatConstants.myUserId
         chatMessage.conversationId = conversation.conversationId
         chatMessage.text = text
-        let realm = RChatConstants.Realms.global
+        let realm = conversation.realm!
         try! realm.write {
             conversation.chatMessages.append(chatMessage)
         }
@@ -57,7 +57,7 @@ extension ChatMessage {
         let resizedImage = image?.resizeImage(targetSize: CGSize(width:image!.size.width / 2, height: image!.size.height / 2))
         
         chatMessage.extraInfo = (UIImagePNGRepresentation(resizedImage!)! as NSData)
-        let realm = RChatConstants.Realms.global
+        let realm = conversation.realm!
         try! realm.write {
             conversation.chatMessages.append(chatMessage)
         }
