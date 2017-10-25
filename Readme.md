@@ -20,3 +20,13 @@ Go to the file `RChatConstants.swift` (which is in the `RChat/Data` directory)  
 // NB: this is a Realm2.x app - it MUST run against a 2.x server
 let realmServerAddress = "127.0.0.1"
 ```
+
+## Initial User Setup
+
+Since this is _client focued demo_, there is not a back-end server that sets up the RChat Realm or its permissions.  In order to ensure the Realm permissions are correctly set the first user that logs in using the RChat service needs to be a Realm Server Administrator user.
+
+To accomplish this, launch Realm Studio and create one user that will be "user #1" for RChat  and grant that user Server Administrator permission. Tthis is done by creating or editing a user and then setting the administrator permission in the User Panel as shown here:
+
+<center><img  src="Graphics/RealmStudio-admin-privs.png"/> </center>
+
+
