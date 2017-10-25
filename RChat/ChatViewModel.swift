@@ -31,9 +31,7 @@ class ChatViewModel : ChatDataSourceProtocol {
             notificationToken?.invalidate()
             isFirst = true
             guard let c = conversation else { return }
-            let chatMessages = RChatConstants.Realms.global.objects(ChatMessage.self)
-                .filter("conversationId = %@", c.conversationId)
-                .sorted(byKeyPath: "timestamp", ascending: true)
+            let chatMessages = c.chatMessages
 
             notificationToken = chatMessages
                 .observe({ [weak self] (changes) in
