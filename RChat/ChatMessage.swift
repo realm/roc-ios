@@ -14,7 +14,6 @@ class ChatMessage : Object {
 
     dynamic var messageId: String = UUID().uuidString
     dynamic var userId:  String = ""
-    dynamic var conversationId: String = UUID().uuidString
     dynamic var mimeType: String = MimeType.textPlain.rawValue
     /// represents the simple text representation of the message
     dynamic var text: String = ""
@@ -34,7 +33,6 @@ extension ChatMessage {
     static func sendTextChatMessage(conversation: Conversation, text: String){
         let chatMessage = ChatMessage()
         chatMessage.userId = RChatConstants.myUserId
-        chatMessage.conversationId = conversation.conversationId
         chatMessage.text = text
         let realm = conversation.realm!
         try! realm.write {
@@ -50,7 +48,6 @@ extension ChatMessage {
         }
         let chatMessage = ChatMessage()
         chatMessage.userId = RChatConstants.myUserId
-        chatMessage.conversationId = conversation.conversationId
         chatMessage.mimeType = MimeType.imagePNG.rawValue
         
         // @FIXME: this is a placeholder to deal with an image size support issue
