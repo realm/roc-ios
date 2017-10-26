@@ -22,7 +22,7 @@ class Conversation : Object {
             return displayName
         }
         return users
-            .filter({ $0.userId != RChatConstants.myUserId })
+            .filter("userId != %@", RChatConstants.myUserId)
             .map({ $0.defaultingName }).joined(separator: ",")
     }
 
