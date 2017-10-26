@@ -43,7 +43,6 @@ extension Conversation {
         
         let predicate = NSPredicate(format: "displayName contains[c] %@", searchTerm)
         return realm.objects(Conversation.self).filter(predicate)
-
     }
 
     static func generateDirectMessage(userId1: String, userId2: String) -> String {
@@ -78,7 +77,8 @@ extension Conversation {
                 "conversationId": RChatConstants.genericConversationId,
                 "displayName": "Welcome to RChat"
                 ], update: true)
-            conversation.users.append(User.getMe())
+            // we don't add users here, as this is a public channel
+            //conversation.users.append(User.getMe())
             
             return conversation
         }
