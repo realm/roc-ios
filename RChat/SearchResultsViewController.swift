@@ -125,8 +125,7 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
         // Added support for searching inside chats
         case 2:
             if let chat = chats?[indexPath.row] {
-                let realm = RChatConstants.Realms.global
-                let conversation = realm.objects(Conversation.self).filter("conversationId = %@", chat.conversationId).first
+                let conversation = chat.conversations.first
                 delegate?.selectedSearchedConversation(conversation: conversation!)
             }
             return;

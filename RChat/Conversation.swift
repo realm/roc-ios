@@ -22,7 +22,7 @@ class Conversation : Object {
             return displayName
         }
         return users
-            .filter({ $0.userId != RChatConstants.myUserId })
+            .filter("userId != %@", RChatConstants.myUserId)
             .map({ $0.defaultingName }).joined(separator: ",")
     }
 
@@ -43,7 +43,6 @@ extension Conversation {
         
         let predicate = NSPredicate(format: "displayName contains[c] %@", searchTerm)
         return realm.objects(Conversation.self).filter(predicate)
-
     }
 
     static func generateDirectMessage(userId1: String, userId2: String) -> String {
@@ -78,7 +77,8 @@ extension Conversation {
                 "conversationId": RChatConstants.genericConversationId,
                 "displayName": "Welcome to RChat"
                 ], update: true)
-            conversation.users.append(User.getMe())
+            // we don't add users here, as this is a public channel
+            //conversation.users.append(User.getMe())
             
             return conversation
         }
@@ -98,7 +98,7 @@ extension Conversation {
     static func observeConversationBy(conversationId: String, callback: @escaping ((Conversation?) -> Void)) -> NotificationToken {
         let realm = RChatConstants.Realms.global
         let results = realm.objects(Conversation.self).filter("conversationId = %@", conversationId)
-        return results.addNotificationBlock({ (_) in
+        return results.observe({ (_) in
             let conversation = results.first
             callback(conversation)
         })

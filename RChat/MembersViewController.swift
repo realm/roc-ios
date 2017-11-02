@@ -84,9 +84,9 @@ class MembersViewController:
     }
 
     func setupWithConversation(conversation: Conversation) {
-        token?.stop()
+        token?.invalidate()
         members = conversation.users
-        token = conversation.users.addNotificationBlock({ [weak self] (changes) in
+        token = conversation.users.observe({ [weak self] (changes) in
             guard let `self` = self else { return }
             switch changes {
             case .initial:

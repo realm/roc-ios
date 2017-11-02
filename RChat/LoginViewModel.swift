@@ -29,7 +29,7 @@ class LoginViewModel {
     
     deinit {
         if let permissionToken = self.permissionToken {
-            permissionToken.stop()
+            permissionToken.invalidate()
         }
     }
 
@@ -105,7 +105,7 @@ class LoginViewModel {
         // set permissions
         let managementRealm = try! user.managementRealm()
         
-        self.permissionChange = SyncPermissionChange(realmURL: RChatConstants.globalRealmURL.absoluteString,
+        self.permissionChange = permissionChange(realmURL: RChatConstants.globalRealmURL.absoluteString,
                                                     // The remote Realm URL on which to apply the changes
             userID: "*", // The user ID for which these permission changes should be applied
             mayRead: true,         // Grant read access

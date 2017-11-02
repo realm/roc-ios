@@ -12,10 +12,7 @@
 		5000D6761E41F62F007EF087 /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5000D6751E41F62F007EF087 /* ComposeViewController.swift */; };
 		5000D6781E41F640007EF087 /* RChatRecipientBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5000D6771E41F640007EF087 /* RChatRecipientBar.swift */; };
 		5000D67A1E41FEC2007EF087 /* ComposeUserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5000D6791E41FEC2007EF087 /* ComposeUserTableViewCell.swift */; };
-		5003AF341E3297B400057F8A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5003AF331E3297B400057F8A /* LoginViewController.swift */; };
-		5003AF361E329B1600057F8A /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5003AF351E329B1600057F8A /* LoginViewModel.swift */; };
 		5003AF381E32A09800057F8A /* RChatButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5003AF371E32A09800057F8A /* RChatButton.swift */; };
-		5003AF3A1E32A1A800057F8A /* WelcomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5003AF391E32A1A800057F8A /* WelcomeViewModel.swift */; };
 		5003AF3C1E34152A00057F8A /* AppDelegate+RealmSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5003AF3B1E34152A00057F8A /* AppDelegate+RealmSetup.swift */; };
 		501825391E2469C200E9A535 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501825381E2469C200E9A535 /* AppDelegate.swift */; };
 		501825401E2469C200E9A535 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5018253F1E2469C200E9A535 /* Assets.xcassets */; };
@@ -60,7 +57,6 @@
 		5047F8321E257AB000E60B63 /* RChatMessageCollectionViewCellAvatarStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5047F8311E257AB000E60B63 /* RChatMessageCollectionViewCellAvatarStyle.swift */; };
 		5047F8351E25EAC500E60B63 /* ChatViewController+ImageDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5047F8341E25EAC500E60B63 /* ChatViewController+ImageDelegate.swift */; };
 		505412061E41CE1E008E591A /* CustomNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 505412051E41CE1E008E591A /* CustomNavController.swift */; };
-		507AD9F11E32955700C432BB /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507AD9F01E32955700C432BB /* WelcomeViewController.swift */; };
 		507F29B31E25EC7B00F1D2ED /* ConversationSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507F29B21E25EC7B00F1D2ED /* ConversationSearchView.swift */; };
 		507F29B51E25EF6700F1D2ED /* ConversationTableViewCell .swift in Sources */ = {isa = PBXBuildFile; fileRef = 507F29B41E25EF6700F1D2ED /* ConversationTableViewCell .swift */; };
 		509AEB0E1E4539DF00EC2FFE /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509AEB0D1E4539DF00EC2FFE /* ChatViewModel.swift */; };
@@ -111,10 +107,7 @@
 		5000D6751E41F62F007EF087 /* ComposeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeViewController.swift; sourceTree = "<group>"; };
 		5000D6771E41F640007EF087 /* RChatRecipientBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RChatRecipientBar.swift; sourceTree = "<group>"; };
 		5000D6791E41FEC2007EF087 /* ComposeUserTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeUserTableViewCell.swift; sourceTree = "<group>"; };
-		5003AF331E3297B400057F8A /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		5003AF351E329B1600057F8A /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		5003AF371E32A09800057F8A /* RChatButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RChatButton.swift; sourceTree = "<group>"; };
-		5003AF391E32A1A800057F8A /* WelcomeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewModel.swift; sourceTree = "<group>"; };
 		5003AF3B1E34152A00057F8A /* AppDelegate+RealmSetup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AppDelegate+RealmSetup.swift"; sourceTree = "<group>"; };
 		501825351E2469C200E9A535 /* RChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		501825381E2469C200E9A535 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -165,7 +158,6 @@
 		5047F8311E257AB000E60B63 /* RChatMessageCollectionViewCellAvatarStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RChatMessageCollectionViewCellAvatarStyle.swift; sourceTree = "<group>"; };
 		5047F8341E25EAC500E60B63 /* ChatViewController+ImageDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ChatViewController+ImageDelegate.swift"; sourceTree = "<group>"; };
 		505412051E41CE1E008E591A /* CustomNavController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomNavController.swift; sourceTree = "<group>"; };
-		507AD9F01E32955700C432BB /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		507F29B21E25EC7B00F1D2ED /* ConversationSearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversationSearchView.swift; sourceTree = "<group>"; };
 		507F29B41E25EF6700F1D2ED /* ConversationTableViewCell .swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ConversationTableViewCell .swift"; sourceTree = "<group>"; };
 		509AEB0D1E4539DF00EC2FFE /* ChatViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
@@ -248,8 +240,6 @@
 			isa = PBXGroup;
 			children = (
 				8B02949B1F708073009058AB /* RLMLoginViewController.swift */,
-				5003AF331E3297B400057F8A /* LoginViewController.swift */,
-				5003AF351E329B1600057F8A /* LoginViewModel.swift */,
 			);
 			name = LoginViewController;
 			sourceTree = "<group>";
@@ -458,8 +448,6 @@
 		507AD9EF1E3292AA00C432BB /* WelcomeViewController */ = {
 			isa = PBXGroup;
 			children = (
-				507AD9F01E32955700C432BB /* WelcomeViewController.swift */,
-				5003AF391E32A1A800057F8A /* WelcomeViewModel.swift */,
 			);
 			name = WelcomeViewController;
 			sourceTree = "<group>";
@@ -843,7 +831,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5003AF341E3297B400057F8A /* LoginViewController.swift in Sources */,
 				5024D62B1E4B16A8002586A1 /* SearchResultTableViewCell.swift in Sources */,
 				5000D6731E41E4BD007EF087 /* RTextField.swift in Sources */,
 				5047F7FB1E255D9B00E60B63 /* RChatTextMessageModel.swift in Sources */,
@@ -855,7 +842,6 @@
 				5024D6291E4B15FA002586A1 /* SearchResultsViewController.swift in Sources */,
 				5047F8181E25686500E60B63 /* RChatTextMessageViewModelBuilder.swift in Sources */,
 				5047F8011E255FC900E60B63 /* MimeType.swift in Sources */,
-				507AD9F11E32955700C432BB /* WelcomeViewController.swift in Sources */,
 				509AEB0E1E4539DF00EC2FFE /* ChatViewModel.swift in Sources */,
 				5003AF3C1E34152A00057F8A /* AppDelegate+RealmSetup.swift in Sources */,
 				501825701E246DA300E9A535 /* ChatMessage.swift in Sources */,
@@ -892,10 +878,8 @@
 				502122EF1E453416004B8EE7 /* LoadingView.swift in Sources */,
 				8B02949C1F708073009058AB /* RLMLoginViewController.swift in Sources */,
 				5047F8301E257A5B00E60B63 /* RChatTextMessageCollectionViewCellStyle.swift in Sources */,
-				5003AF3A1E32A1A800057F8A /* WelcomeViewModel.swift in Sources */,
 				5047F7FD1E255E1800E60B63 /* RChatConstants.swift in Sources */,
 				8BC5D7C91F7387D700D422F3 /* PresenceManager.swift in Sources */,
-				5003AF361E329B1600057F8A /* LoginViewModel.swift in Sources */,
 				509AEB101E45459B00EC2FFE /* UIViewController+Extensions.swift in Sources */,
 				8BC5D7C11F73056F00D422F3 /* Image+Utilties.swift in Sources */,
 				5047F82C1E25798B00E60B63 /* SendingStatusPresenter.swift in Sources */,
@@ -1061,7 +1045,7 @@
 				INFOPLIST_FILE = RChat/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = io.realm.RChat;
+				PRODUCT_BUNDLE_IDENTIFIER = io.realm.RChat2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -1076,7 +1060,7 @@
 				INFOPLIST_FILE = RChat/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = io.realm.RChat;
+				PRODUCT_BUNDLE_IDENTIFIER = io.realm.RChat2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};

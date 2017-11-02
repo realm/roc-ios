@@ -27,16 +27,14 @@ class ChatViewModel : ChatDataSourceProtocol {
 
     var conversation : Conversation? {
         didSet {
-            observeConversationToken?.stop()
-            notificationToken?.stop()
+            observeConversationToken?.invalidate()
+            notificationToken?.invalidate()
             isFirst = true
             guard let c = conversation else { return }
-            let chatMessages = RChatConstants.Realms.global.objects(ChatMessage.self)
-                .filter("conversationId = %@", c.conversationId)
-                .sorted(byKeyPath: "timestamp", ascending: true)
+            let chatMessages = c.chatMessages
 
             notificationToken = chatMessages
-                .addNotificationBlock({ [weak self] (changes) in
+                .observe({ [weak self] (changes) in
                     guard let `self` = self else { return }
                     self.isFirst = false
                     var items = [ChatItemProtocol]()
@@ -85,8 +83,8 @@ class ChatViewModel : ChatDataSourceProtocol {
     }
 
     deinit {
-        notificationToken?.stop()
-        observeConversationToken?.stop()
+        notificationToken?.invalidate()
+        observeConversationToken?.invalidate()
 
     }
 

@@ -26,11 +26,11 @@ extension ChatMessage : MessageModelProtocol {
     }
 
     var senderId: String {
-        return userId
+        return user!.userId
     }
 
     var isIncoming : Bool {
-        return userId != RChatConstants.myUserId
+        return user!.isSameObject(as: User.getMe())
     }
 
     // Realm will aggressively try to send it over, this is out of our control

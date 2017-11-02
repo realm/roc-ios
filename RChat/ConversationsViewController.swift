@@ -117,7 +117,7 @@ class ConversationsViewController : UISideMenuNavigationController,
         conversations = realm.objects(Conversation.self).filter(predicate)
 
         notificationToken = conversations
-            .addNotificationBlock { [weak self] (changes) in
+            .observe { [weak self] (changes) in
                 guard let `self` = self else { return }
                 switch changes {
                 case .initial:
@@ -206,6 +206,6 @@ class ConversationsViewController : UISideMenuNavigationController,
     }
 
     deinit {
-        notificationToken?.stop()
+        notificationToken?.invalidate()
     }
 }

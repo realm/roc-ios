@@ -58,7 +58,12 @@ class RLMLoginViewController: UIViewController {
             // Set a closure that will be called on successful login
             loginViewController.loginSuccessfulHandler = { user in
                 DispatchQueue.main.async {
+                    
                     self.setup(user: user)
+                    
+                    if (self.loginViewController!.serverURL != RChatConstants.authServerEndpoint.absoluteString) {
+                        realmServerAddress = self.loginViewController!.serverURL!
+                    }
                     self.loginViewController!.dismiss(animated: true, completion: nil)
                     self.navigationController?.setViewControllers([ChatViewController()], animated: true)
                     
@@ -85,10 +90,10 @@ class RLMLoginViewController: UIViewController {
     
     func setPermissionForRealm(_ realm: Realm?, accessLevel: SyncAccessLevel, personID: String) {
         if let realm = realm {
-            let permission = SyncPermissionValue(realmPath: realm.configuration.syncConfiguration!.realmURL.path,  // The remote Realm path on which to apply the changes
-                userID: personID,           // The user ID for which these permission changes should be applied, or "*" for wildcard
-                accessLevel: accessLevel)   // The access level to be granted
-            SyncUser.current?.applyPermission(permission) { error in
+            let permission = SyncPermission(realmPath: realm.configuration.syncConfiguration!.realmURL.path,
+                identity: personID,
+                accessLevel: accessLevel)
+            SyncUser.current?.apply(permission) { error in
                 if let error = error {
                     print("Error when attempting to set permissions: \(error.localizedDescription)")
                     return
@@ -102,7 +107,12 @@ class RLMLoginViewController: UIViewController {
     
     private func setup(user: SyncUser){
         let realm = RChatConstants.Realms.global
-        
+
+        if user.isAdmin == true {
+            self.setPermissionForRealm(realm, accessLevel: SyncAccessLevel
+                .write, personID: "*")
+        }
+
         try! realm.write {
             let defaultValues = ["userId": user.identity!,
                                  "username": loginViewController.username,
