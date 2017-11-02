@@ -13,14 +13,15 @@ import ChattoAdditions
 class ChatMessage : Object {
 
     dynamic var messageId: String = UUID().uuidString
-    dynamic var userId:  String = ""
-    dynamic var conversationId: String = UUID().uuidString
+    dynamic var user:  User?
+    
+    // Payload: text or image depending on mimetype
     dynamic var mimeType: String = MimeType.textPlain.rawValue
-    /// represents the simple text representation of the message
     dynamic var text: String = ""
-    /// possible storage of JSON information. Represented as a JSON
     dynamic var extraInfo: NSData?
+    
     dynamic var timestamp: Date = Date()
+    
     let conversations = LinkingObjects(fromType: Conversation.self, property: "chatMessages")
 
     override static func primaryKey() -> String? {
@@ -33,8 +34,7 @@ extension ChatMessage {
 
     static func sendTextChatMessage(conversation: Conversation, text: String){
         let chatMessage = ChatMessage()
-        chatMessage.userId = RChatConstants.myUserId
-        chatMessage.conversationId = conversation.conversationId
+        chatMessage.user = User.getMe()
         chatMessage.text = text
         let realm = conversation.realm!
         try! realm.write {
@@ -49,8 +49,7 @@ extension ChatMessage {
             return
         }
         let chatMessage = ChatMessage()
-        chatMessage.userId = RChatConstants.myUserId
-        chatMessage.conversationId = conversation.conversationId
+        chatMessage.user = User.getMe()
         chatMessage.mimeType = MimeType.imagePNG.rawValue
         
         // @FIXME: this is a placeholder to deal with an image size support issue
