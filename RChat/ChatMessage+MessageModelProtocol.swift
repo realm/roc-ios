@@ -9,7 +9,7 @@
 import Foundation
 import ChattoAdditions
 import Chatto
-
+import RealmSwift
 /// This gives ChatMessage abilities to be consumed by Chatto's framework. They are just accessors.
 extension ChatMessage : MessageModelProtocol {
 
@@ -26,7 +26,12 @@ extension ChatMessage : MessageModelProtocol {
     }
 
     var senderId: String {
-        return user!.userId
+        //return user!.userId // <-- this is an unafe reference to the user object  DHMS
+        var idString = ""
+        DispatchQueue.main.sync { // yikes -- not what we want to do - but have to find a place to put the safe thread reference code in the code that uses this getter... :\
+            idString =  self.user!.userId
+        }
+        return idString
     }
 
     var isIncoming : Bool {
