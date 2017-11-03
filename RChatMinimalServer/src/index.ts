@@ -3,12 +3,12 @@ import * as path from 'path'
 
 const server = new BasicServer()
 var theRealm: Realm = null;
-const RealmName = "RC-Global";
+const RealmName = "RC-global";
 
     console.log(`Directory is ${__dirname}`);
     server.start({
     // This is the location where ROS will store its runtime data
-    httpsAddress: "0.0.0.0",
+    //httpsAddress: "0.0.0.0",
     dataPath: path.join(__dirname, '../data')
     
         // The address on which to listen for connections

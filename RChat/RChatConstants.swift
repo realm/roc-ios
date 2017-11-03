@@ -11,7 +11,7 @@ import Foundation
 import RealmSwift
 
 // NB: this is a Realm2.x app - MUST run against a 2.x server
-var realmServerAddress = "104.131.128.86"     //"127.0.0.1"
+var realmServerAddress = "127.0.0.1"// "104.131.128.86"     //"127.0.0.1"
 
 // Right now the right nav isn't useful for testing and just confuses users.
 let shouldDisplayRightNavItem = false
