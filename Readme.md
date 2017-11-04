@@ -2,11 +2,14 @@
 ### Authors: Max Alexander, max.elexander@realm.io & David Spector, ds@realm.io
 
 
-#Overview
+# Overview
 
+RChat is a general purpose chat client that can be used eitehr as a stand-alone chat system (i.e., an app unto itself) or as an embedded chat view that can be quickly and easily added to any exiting application to provide an off-line first chat capability.
 
 
 # Data Model
+
+![RChat Data Model](Graphics/RChat-DataModel.png)
 
 
 ## Prerequisites
@@ -17,11 +20,13 @@
  - Nodejs v8.6 or higher
  - Node Package Manager (npm)
 
-The RChat iOS  app uses [Cocoapods](https://www.cocoapods.org) to set up the project's 3rd party dependencies. Installation can be directly (from instructions at the Cocapods site) or alternatively through a package management system like [Homebrew](brew.sh/).
+The RChat iOS app uses [Cocoapods](https://www.cocoapods.org) to set up the project's 3rd party dependencies. Installation can be directly (from instructions at the Cocapods site) or alternatively through a package management system like [Homebrew](brew.sh/).
 
 ### Realm Platform
 
-This application demonstrates features of the [Realm Platform](https://realm.io/products/realm-platform/) and needs to have a working instance of the Realm Object Server version 2.x to make data available between instances of the CrowdCircle app. The Realm Object Server can be installed via npm as a node application for macOS or Linux. Please see the [installation instructions](https://realm.io/docs/get-started/installation/developer-edition/). If you already got Node.js installed, it's a one-liner.
+This application demonstrates features of the [Realm Platform](https://realm.io/products/realm-platform/) and needs to have a working instance of the Realm Object Server version 2.x to make data available between instances of the CrowdCircle app. The Realm Object Server can be installed via npm as a node application for macOS or Linux. Please see the [installation instructions](https://realm.io/docs/get-started/installation/developer-edition/).
+
+This repo also has a minimal server suitable for testing whose only requirement for pre-existing software is nodejs and npm. Installation/setup/operation of this server is convered in the installation section below.
 
 ### Realm Studio
 
@@ -32,17 +37,16 @@ Another useful tool is [Realm Studio](https://realm.io/products/realm-studio/) w
 
 RChat makes use of a number of 3rd party modules:
 
-[Chatto]()
-[ChattoAdditions]()
-[RealmSwift]()
-[SideMenu]()
-[SDWebImage]()
-[Eureka]()
-[Cartography]()
-[TURecipientBar]()
-[NVActivityIndicatorView]()
-[BRYXBanner]()
-[RealmLoginKit]()
+[Chatto and ChattoAdditions](https://github.com/badoo/Chatto.git)
+[RealmSwift](https://github.com/realm/realm-cocoa.git)
+[SideMenu](https://github.com/jonkykong/SideMenu.git)
+[SDWebImage](https://github.com/rs/SDWebImage.git)
+[Eureka](https://github.com/xmartlabs/Eureka.git)
+[Cartography](https://github.com/robb/Cartography.git)
+[TURecipientBar](https://github.com/davbeck/TURecipientBar.git)
+[NVActivityIndicatorView](https://github.com/ninjaprox/NVActivityIndicatorView.git)
+[BRYXBanner](https://github.com/bryx-inc/BRYXBanner.git)
+[RealmLoginKit](https://github.com/realm-demos/realm-loginkit.git)
 
 # Installation
 
