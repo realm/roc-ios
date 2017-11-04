@@ -1,10 +1,10 @@
 # RChat - A Realm Platform Demo 
-### Authors: Max Alexander, max.elexander@realm.io & David Spector, ds@realm.io
+### Authors: Max Alexander, max.alexander@realm.io & David Spector, ds@realm.io
 
 
 # Overview
 
-RChat is a general purpose chat client that can be used eitehr as a stand-alone chat system (i.e., an app unto itself) or as an embedded chat view that can be quickly and easily added to any exiting application to provide an off-line first chat capability.
+RChat is a general purpose chat client that can be used either as a stand-alone chat system (i.e., an app unto itself) or as an embedded chat view that can be quickly and easily added to any exiting application to provide an off-line first chat capability.
 
 
 # Data Model
@@ -86,11 +86,11 @@ To accomplish this, launch Realm Studio and create one user that will be "user #
 3. Run `pod update` 
 4. Open the workspace `open RChat.xcworkspace` with Xcode
 
-### Pointing to the Correct Server
+### Setting the Server Address
 
-By default this client points to the local machine as its ROS server. if you have set up a ROS server on a different machine, you will need to edit the server IP address in the file `RChatConstants.swift` (which is in the `RChat/Data` directory)  and replace the IP address for the Realm Server address with you server IP.
+By default the iOS client points to the local machine as its ROS server. if you have set up a ROS server on a different machine, you will need to edit the server IP address in the file `RChatConstants.swift` (which is in the `RChat/Data` directory) and replace the IP address for the Realm Server address with you server IP.
 
-5. Run the app by selecting a simulator from Xcode's menu, and the press Build & Run; the simulator will start and you can log in to the chat server using the username and passowrd created above using Realm Studio.
+5. Run the app by selecting a simulator from Xcode's menu, and the press _Build & Run_; the simulator will start and you can log in to the chat server using the username and password you created above using Realm Studio.
 
 
 ## Running RChat
