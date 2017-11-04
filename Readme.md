@@ -35,28 +35,38 @@ Another useful tool is [Realm Studio](https://realm.io/products/realm-studio/) w
 
 ### 3rd Party Modules
 
-RChat makes use of a number of 3rd party modules:
+The RChat iOS app makes use of a number of 3rd party modules:
 
 [Chatto and ChattoAdditions](https://github.com/badoo/Chatto.git)
+
 [RealmSwift](https://github.com/realm/realm-cocoa.git)
+
 [SideMenu](https://github.com/jonkykong/SideMenu.git)
+
 [SDWebImage](https://github.com/rs/SDWebImage.git)
+
 [Eureka](https://github.com/xmartlabs/Eureka.git)
+
 [Cartography](https://github.com/robb/Cartography.git)
+
 [TURecipientBar](https://github.com/davbeck/TURecipientBar.git)
+
 [NVActivityIndicatorView](https://github.com/ninjaprox/NVActivityIndicatorView.git)
+
 [BRYXBanner](https://github.com/bryx-inc/BRYXBanner.git)
+
 [RealmLoginKit](https://github.com/realm-demos/realm-loginkit.git)
 
 # Installation
 
-1. clone this repository `git clone https://github.com/realm/roc-ios` to your  machine
+Clone this repository `git clone https://github.com/realm/roc-ios` to a convenient location your machine.
+
 
 ## Preparing the ROS Server
 
-This application comes with a demo server tagainst which you can run the RChat client.  The ROS platform requires NodeJS version 8.5 or higher and the npm node package manager installed in order to be able to run. If these are already installed, continue with the instructions below, if you need further info on nodejs or NPM installaton
+This application comes with a demo server against which you can run the RChat client.  The ROS platform requires [NodeJS](https://nodejs.org) version 8.5 or higher and the [npm node package manager](https://www.npmjs.com) installed in order to be able to run. If these are already installed, continue with the instructions below, if you need further info on nodejs or NPM installaton,  please see their repsective web sites for installation instructions.
 
-0. Open a new temrinal window
+1. Open a new temrinal window
 0. Change directory to the download location where you downloaded the RChat repository
 0. Change directory to the `RChatMinimalServer` directory
 0. Install the required node server modules by running `npm install`
