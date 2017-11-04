@@ -64,9 +64,9 @@ Clone this repository `git clone https://github.com/realm/roc-ios` to a convenie
 
 ## Preparing the ROS Server
 
-This application comes with a demo server against which you can run the RChat client.  The ROS platform requires [NodeJS](https://nodejs.org) version 8.5 or higher and the [npm node package manager](https://www.npmjs.com) installed in order to be able to run. If these are already installed, continue with the instructions below, if you need further info on nodejs or NPM installaton,  please see their repsective web sites for installation instructions.
+This application comes with a demo server against which you can run the RChat client.  The ROS platform requires [NodeJS](https://nodejs.org) version 8.5 or higher and the [npm node package manager](https://www.npmjs.com) installed in order to be able to run. If these are already installed, continue with the instructions below, if you need further info on nodejs or NPM installaton, please see their repsective web sites for installation instructions.
 
-1. Open a new temrinal window
+1. Open a new terminal window
 0. Change directory to the download location where you downloaded the RChat repository
 0. Change directory to the `RChatMinimalServer` directory
 0. Install the required node server modules by running `npm install`
@@ -81,7 +81,8 @@ To accomplish this, launch Realm Studio and create one user that will be "user #
 <center><img  src="Graphics/RealmStudio-admin-privs.png"/> </center>
 
 ## Preparing the iOS Client
-2. Change directory to the `ROC-IOS` directory
+
+1. Change directory to the `RChart-iOS` directory
 3. Run `pod update` 
 4. Open the workspace `open RChat.xcworkspace` with Xcode
 
@@ -92,7 +93,14 @@ By default this client points to the local machine as its ROS server. if you hav
 5. Run the app by selecting a simulator from Xcode's menu, and the press Build & Run; the simulator will start and you can log in to the chat server using the username and passowrd created above using Realm Studio.
 
 
+## Running RChat
 
+<center><img src="Graphics/RChat-Studio-View.png" width=75% height=75% /></br>RChat Data Model - Realm Studio View</center>
+<p>
+<p>
+<center>
+<img src="Graphics/RChat-screen.png" width=75% height=75% /><br/>
+RChat Screen Shot </center>
 
  ## Contributing
 
