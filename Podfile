@@ -31,7 +31,6 @@ target 'RChat' do
   pod 'NVActivityIndicatorView', '3.3'
   pod 'BRYXBanner', '~> 0.7.1'
   pod 'RealmLoginKit'
-  pod 'AAPhotoCircleCrop'
 
   
   target 'RChatTests' do
