@@ -35,7 +35,7 @@ extension ChatViewController : UINavigationControllerDelegate, UIImagePickerCont
         
         // this really doesn't need the level of infirection that the text messages uses ... as long as we have the required data
         // this should just make a new message and get it into the message stream. 
-        ChatMessage.sendImageChatMessage(conversation: conversation, image: image)
+        ChatMessage.sendImageChatMessage(conversation: viewModel.conversation!, image: image)
     }
 
 }
