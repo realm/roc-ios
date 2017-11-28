@@ -24,7 +24,7 @@ The RChat iOS app uses [Cocoapods](https://www.cocoapods.org) to set up the proj
 
 ### Realm Platform
 
-This application demonstrates features of the [Realm Platform](https://realm.io/products/realm-platform/) and needs to have a working instance of the Realm Object Server version 2.x to make data available between instances of the CrowdCircle app. The Realm Object Server can be installed via npm as a node application for macOS or Linux. Please see the [installation instructions](https://realm.io/docs/get-started/installation/developer-edition/).
+This application demonstrates features of the [Realm Platform](https://realm.io/products/realm-platform/) and needs to have a working instance of the Realm Object Server version 2.x to make data available between instances of the RChat app. The Realm Object Server can be installed via npm as a node application for macOS or Linux. Please see the [installation instructions](https://realm.io/docs/get-started/installation/developer-edition/).
 
 This repo also has a minimal server suitable for testing whose only requirement for pre-existing software is nodejs and npm. Installation/setup/operation of this server is convered in the installation section below.
 
